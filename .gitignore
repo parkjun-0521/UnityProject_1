@@ -1,0 +1,5 @@
+Library/
+*.vs/
+*.sln
+*.csproj
+Assets/Object/SkyBox/
