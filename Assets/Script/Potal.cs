@@ -6,16 +6,44 @@ using UnityEngine.SceneManagement;
 public class Potal : MonoBehaviour
 {
     bool playerCheck = false;
-    void Start()
+    SceneLoadManager sceneManager;
+    void Awake()
     {
-        
+        sceneManager = SceneLoadManager.instance.gameObject.GetComponent<SceneLoadManager>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.V) && playerCheck) {
             Debug.Log("다음 맵으로 이동합니다.");
-            SceneManager.LoadScene(1);
+            int sceneCount = ++sceneManager.mapCount;
+            switch (sceneCount % 10) {
+                case 1:
+                    sceneManager.stageCount++;
+                    sceneManager.BasicRoom();
+                    break;
+                case 2:
+                case 3:
+                    sceneManager.BasicRoom();
+                    break;
+                case 4:
+                    sceneManager.ShopRoom();
+                    break;
+                case 5:
+                    sceneManager.MiddleBossRoom();
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    sceneManager.BasicRoom();
+                    break;
+                case 9:
+                    sceneManager.ShopRoom();
+                    break;
+                case 0:
+                    sceneManager.BossRoom();
+                break;
+            }
         }
     }
 
