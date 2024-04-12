@@ -26,7 +26,7 @@ public class SceneLoadManager : MonoBehaviour
         Debug.Log("상점");
     }
     public void MiddleBossRoom() {
-        SceneManager.LoadScene(mapCount % 10);
+        SceneManager.LoadScene(9);
         Debug.Log("중간보스");
     }
     public void BossRoom() {

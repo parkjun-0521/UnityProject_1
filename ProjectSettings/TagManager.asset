@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - FireBall
   - Potal
+  - EnemySpwanPoint
+  - EndPoint
   layers:
   - Default
   - TransparentFX

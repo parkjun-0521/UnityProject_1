@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Potal : MonoBehaviour
 {
-    bool playerCheck = false;
+    bool isPlayerCheck = false;
     SceneLoadManager sceneManager;
-    void Awake()
-    {
+    void Start() {
         sceneManager = SceneLoadManager.instance.gameObject.GetComponent<SceneLoadManager>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V) && playerCheck) {
+        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck) {
             Debug.Log("다음 맵으로 이동합니다.");
             int sceneCount = ++sceneManager.mapCount;
             switch (sceneCount % 10) {
@@ -50,13 +49,13 @@ public class Potal : MonoBehaviour
     void OnTriggerEnter2D( Collider2D collision ) {
         if( collision.CompareTag("Player") ) {
             Debug.Log("플레이어");
-            playerCheck = true;
+            isPlayerCheck = true;
         }
     }
 
     void OnTriggerExit2D( Collider2D collision ) {
         if (collision.CompareTag("Player")) {
-            playerCheck = false;
+            isPlayerCheck = false;
         }
     }
 }

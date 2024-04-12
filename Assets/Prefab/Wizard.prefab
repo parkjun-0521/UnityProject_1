@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpPower: 14
-  maxJumpSpeed: 10
+  maxJumpSpeed: 15
   jumpCount: 0
   maxAttackDelay: 0.5
   attackArea: {fileID: 6212877521525985430}

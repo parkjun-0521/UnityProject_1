@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float jumpPower;
     public float maxJumpSpeed;
     public int jumpCount;
-    bool jumpCheck = false;
+    bool isJumpChek = false;
 
     [Header ("Attack")]
     public float maxAttackDelay;
@@ -61,12 +61,12 @@ public class Player : MonoBehaviour
 
     void PlayerJump(){
         
-        if(Input.GetKeyDown(KeyCode.X) && !jumpCheck){
+        if(Input.GetKeyDown(KeyCode.X) && !isJumpChek){
             anime.SetBool("isRunAndJump", true);
             anime.SetBool("isJump", true);
             jumpCount++;
             if(jumpCount == 2){
-                jumpCheck = true;
+                isJumpChek = true;
                 jumpCount = 0;
             }
             if(Mathf.Abs(rigid.velocity.y) < maxJumpSpeed){
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
             if (hit.collider != null)
             {
                 if(hit.collider.tag == "Floor"){
-                    jumpCheck = false;
+                    isJumpChek = false;
                     anime.SetBool("isRunAndJump", false);
                     anime.SetBool("isJump", false);
                     anime.SetBool("isDash", false);
@@ -130,5 +130,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D( Collider2D collision ) {
+        if (collision.CompareTag("EndPoint")) {
+            GameManager.instance.enemyCount--;
+            collision.gameObject.SetActive(false);
+        }
+    }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public int enemyValue;
     public float enemyHealth;    
     public float enemySpeed;
     public float enemyPower;
@@ -20,7 +21,11 @@ public class Enemy : MonoBehaviour
         enemyAnime = GetComponent<Animator>();
     }
 
-    
+    void Start() {
+        GameManager.instance.enemyCount += enemyValue;
+    }
+
+
     void Update()
     {
         EnemyFollowMove();
@@ -44,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     void EnemyDead() {
         if(enemyHealth <= 0) {
-            StartCoroutine(Invisible());           
+            StartCoroutine(Invisible());
             return;
         }
     }
@@ -56,11 +61,11 @@ public class Enemy : MonoBehaviour
             enemyDeathCheck = true;
         }
         yield return new WaitForSeconds(0.4f);
+        GameManager.instance.enemyCount -= enemyValue;
         gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D( Collider2D collision ) { 
-    
         if (collision.CompareTag("FireBall")) {
             FireBall fireBallLogic = GameManager.instance.fireBallPrefab.GetComponent<FireBall>();
             enemyHealth -= fireBallLogic.damage;
@@ -68,5 +73,4 @@ public class Enemy : MonoBehaviour
             Debug.Log(enemyHealth);
         }
     }
-
 }
