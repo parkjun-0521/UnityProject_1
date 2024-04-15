@@ -10,6 +10,7 @@ TagManager:
   - Potal
   - EnemySpwanPoint
   - EndPoint
+  - Coin
   layers:
   - Default
   - TransparentFX

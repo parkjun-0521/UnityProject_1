@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rigid;
     Animator enemyAnime;
+
+    public GameObject coinPrefab;
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -35,7 +37,7 @@ public class Enemy : MonoBehaviour
     void EnemyFollowMove() {
         RaycastHit2D objectHitTag = Physics2D.CircleCast(transform.position, detectionRadius, Vector2.zero, 0f, LayerMask.GetMask("Player"));
         if(objectHitTag.collider != null) {
-            Vector3 direction = (GameManager.instance.playerPrefab.transform.position - transform.position).normalized;
+            Vector2 direction = (GameManager.instance.playerPrefab.transform.position - transform.position).normalized;
 
             // 이동 방향으로 이동합니다.
             transform.Translate(direction * enemySpeed * Time.deltaTime);
@@ -62,6 +64,10 @@ public class Enemy : MonoBehaviour
         }
         yield return new WaitForSeconds(0.4f);
         GameManager.instance.enemyCount -= enemyValue;
+        int random = Random.Range(2, 7);
+        for (int i = 0; i < random; i++) {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
         gameObject.SetActive(false);
     }
 
