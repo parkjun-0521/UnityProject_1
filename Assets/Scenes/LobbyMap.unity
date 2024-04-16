@@ -254,8 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a989e59d4986294d80999311aabe043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 8077804352005085770, guid: 5f05afc732353854cbd97f3d1861217c, type: 3}
   enemyPosition:
   - {fileID: 318803547}
   - {fileID: 2017325187}
@@ -6210,10 +6208,6 @@ MonoBehaviour:
   - {fileID: 8348635140779508095, guid: 71cc888e6ba24e24380a21cf4821c145, type: 3}
   - {fileID: 8077804352005085770, guid: 5f05afc732353854cbd97f3d1861217c, type: 3}
   - {fileID: 8077804352005085770, guid: 82e5cb8c1c40f624a95ae14a1f50752e, type: 3}
-  - {fileID: 4982001716224091405, guid: de2b3255078becf43b9b3003dcc8108f, type: 3}
-  - {fileID: 4982001716224091405, guid: f30eb4ea1cf73344c8ff9470e881a70c, type: 3}
-  - {fileID: 3472162789419262739, guid: 5c5f816ec049ff54bb0a814a2703d043, type: 3}
-  - {fileID: 671502392347927739, guid: a1db4f21eaad77f4094dbdb2b06082bc, type: 3}
   - {fileID: 1730701875904815245, guid: 52ff34f6f400c944dacb4702305f42cf, type: 3}
 --- !u!1 &1388224907
 GameObject:
@@ -6516,8 +6510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a989e59d4986294d80999311aabe043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 8077804352005085770, guid: 5f05afc732353854cbd97f3d1861217c, type: 3}
   enemyPosition:
   - {fileID: 295309981}
   - {fileID: 1918393599}

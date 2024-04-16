@@ -35,7 +35,6 @@ public class Coin : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(rigid.position, Vector2.down, 0.1f, LayerMask.GetMask("Floor"));
             if (hit.collider != null) {
                 if (hit.collider.tag == "Floor") {
-                    Debug.Log("떨어짐");
                     rigid.velocity = Vector3.zero;
                     rigid.gravityScale = 0;
                 }
@@ -56,7 +55,6 @@ public class Coin : MonoBehaviour
         RaycastHit2D objectHitTag = Physics2D.CircleCast(transform.position, 20, Vector2.zero, 0f, LayerMask.GetMask("Player"));
         if (objectHitTag.collider != null) {
             Vector2 direction = (GameManager.instance.playerPrefab.transform.position + Vector3.up * 1.25f - transform.position).normalized;
-            Debug.Log(direction);
             // 이동 방향으로 이동합니다.
             transform.Translate(direction * 10f * Time.deltaTime);
         }

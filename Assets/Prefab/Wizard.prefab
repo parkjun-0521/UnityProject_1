@@ -170,6 +170,11 @@ MonoBehaviour:
   maxAttackDelay: 0.5
   attackArea: {fileID: 6212877521525985430}
   isPlayerRot: 0
+  health: 100
+  maxHealth: 100
+  isDamaged: 0
+  curHealthDelay: 0
+  healthDelay: 2
 --- !u!1001 &4105362946132217688
 PrefabInstance:
   m_ObjectHideFlags: 0

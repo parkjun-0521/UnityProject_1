@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,13 +20,26 @@ public class Player : MonoBehaviour
     public Transform attackArea;
     public bool isPlayerRot;
 
+    [Header("Health")]
+    public float health;
+    public float maxHealth;
+    public bool isDamaged = false;
+    public float curHealthDelay;
+    public float healthDelay;
+
+    bool isDead = false;
+
     Rigidbody2D rigid;
     Animator anime;
 
-    void Awake()
-    {
+    void Awake() {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void Start() {
         rigid = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
+        health = maxHealth;
     }
 
     void Update()
@@ -34,6 +48,8 @@ public class Player : MonoBehaviour
         PlayerJump();
         PlayerAttack();
         PlayerDash();
+        PlayerHealth();
+        PlayerDeadth();
     }
 
     void PlayerMove(){
@@ -61,7 +77,7 @@ public class Player : MonoBehaviour
 
     void PlayerJump(){
         
-        if(Input.GetKeyDown(KeyCode.X) && !isJumpChek){
+        if(Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isDamaged) {
             anime.SetBool("isRunAndJump", true);
             anime.SetBool("isJump", true);
             jumpCount++;
@@ -126,10 +142,15 @@ public class Player : MonoBehaviour
         anime.SetBool("isDash", false);
     }
 
-    void OnCollisionEnter2D( Collision2D collision )
-    {
-        if (collision.collider.CompareTag("Enemy")) {
-            anime.SetTrigger("hurt");
+    void PlayerHealth() {
+        curHealthDelay += Time.deltaTime;
+    }
+
+    void PlayerDeadth() {
+        if(health <= 0 && !isDead) {
+            Debug.Log("ав╬З╢ы");
+            anime.SetTrigger("die");
+            isDead = true;
         }
     }
 
@@ -138,6 +159,24 @@ public class Player : MonoBehaviour
             GameManager.instance.enemyCount--;
             collision.gameObject.SetActive(false);
         }
+
+        if (collision.CompareTag("Enemy")) {
+            if (curHealthDelay > healthDelay && !isDamaged) {
+                isDamaged = true;
+                anime.SetTrigger("hurt");
+                if (transform.position.x - collision.transform.position.x < 0) {
+                    rigid.AddForce(new Vector2(-1.5f, 1) * 5f, ForceMode2D.Impulse);
+                }
+                else {
+                    rigid.AddForce(new Vector2(1.5f, 1) * 5f, ForceMode2D.Impulse);
+                }
+                curHealthDelay = 0;
+                Invoke("IsDamagerdOff", 0.2f);
+            }
+        }
+    }
+    void IsDamagerdOff() {
+        isDamaged = false;
     }
 
 }

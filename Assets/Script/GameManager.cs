@@ -32,14 +32,22 @@ public class GameManager : MonoBehaviour
         Init(); 
     }
 
-    void Init() {
-        enemyCount = 1;
-        isPotal = false;
+    void Start() {
         // 플레이어 생성 및 위치 초기화 
         GameObject playerObj = Instantiate(player, new Vector2(-10f, -5f), Quaternion.Euler(0f, 0f, 0f));
 
         cameraPlayer.Follow = playerObj.transform;
-        playerPrefab = playerObj;
+        playerPrefab = playerObj;      
+    }
+
+
+    void Init() {
+        enemyCount = 1;
+        isPotal = false;
+        if (playerPrefab != null) {
+            playerPrefab.transform.position = new Vector2(-10f, -5f);
+            playerPrefab.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
 
         for (int i = 0; i < potalPosition.Length; i++) {
             potalPosition[i] = GameObject.Find("PotalPoint_" + (i+1));

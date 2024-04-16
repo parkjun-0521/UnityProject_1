@@ -12,10 +12,10 @@ public class FireBall : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        player = GameManager.instance.playerPrefab.GetComponent<Player>();
     }
 
     void OnEnable() {
+        player = GameManager.instance.playerPrefab.GetComponent<Player>();
         StartCoroutine(Destroy());
     }
 
@@ -35,12 +35,14 @@ public class FireBall : MonoBehaviour
     IEnumerator Destroy()
     {
         yield return new WaitForSeconds(0.85f);
+        rigid.velocity = Vector2.zero;
         gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D( Collider2D collision )
     {
         if (collision.CompareTag("Enemy")) {
+            rigid.velocity = Vector2.zero;
             gameObject.SetActive(false);
         }
     }
