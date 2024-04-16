@@ -14,6 +14,7 @@ public class Coin : MonoBehaviour
 
     void OnEnable() 
     {
+        rigid.gravityScale = 1;
         // 위로 랜덤한 힘을 줘서 튀어오르는 것 같이 보이게 ( 위 + 좌우 ) 
         int rendom = Random.Range(0, 2);
         float renPower = Random.Range(0f, 3f);

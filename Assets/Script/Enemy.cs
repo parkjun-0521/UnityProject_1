@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int enemyValue;
     public float enemyHealth;    
+    public float enemyMaxHealth;    
     public float enemySpeed;
     public float enemyPower;
 
@@ -23,8 +24,12 @@ public class Enemy : MonoBehaviour
         enemyAnime = GetComponent<Animator>();
     }
 
-    void Start() {
+    void OnEnable() {
+        enemyHealth = enemyMaxHealth;
         GameManager.instance.enemyCount += enemyValue;
+    }
+
+    void Start() {
     }
 
 
@@ -66,7 +71,8 @@ public class Enemy : MonoBehaviour
         GameManager.instance.enemyCount -= enemyValue;
         int random = Random.Range(2, 7);
         for (int i = 0; i < random; i++) {
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            GameObject coin = GameManager.instance.poolManager.GetObject(8);
+            coin.transform.position = this.transform.position;
         }
         gameObject.SetActive(false);
     }

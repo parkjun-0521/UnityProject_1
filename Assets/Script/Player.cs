@@ -99,7 +99,10 @@ public class Player : MonoBehaviour
             else
                  isPlayerRot= false;
 
-            Instantiate(GameManager.instance.fireBallPrefab, attackArea.position, Quaternion.identity);
+            GameObject fireBall = GameManager.instance.poolManager.GetObject(1);
+            fireBall.transform.position = attackArea.position;
+            fireBall.transform.rotation = Quaternion.identity;
+
             moveSpeed = 2f;
             curAttackDelay = 0;
             Invoke("MoveSet", 0.5f);

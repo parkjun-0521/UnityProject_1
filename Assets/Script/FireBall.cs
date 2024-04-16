@@ -15,9 +15,8 @@ public class FireBall : MonoBehaviour
         player = GameManager.instance.playerPrefab.GetComponent<Player>();
     }
 
-    void Start()
-    {
-        Invoke("Destroy", 0.85f);
+    void OnEnable() {
+        StartCoroutine(Destroy());
     }
 
     void Update()
@@ -33,15 +32,16 @@ public class FireBall : MonoBehaviour
             rigid.AddForce(Vector2.right * -0.025f, ForceMode2D.Impulse);
     }
 
-    void Destroy()
+    IEnumerator Destroy()
     {
-        Destroy(gameObject);
+        yield return new WaitForSeconds(0.85f);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D( Collider2D collision )
     {
         if (collision.CompareTag("Enemy")) {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
