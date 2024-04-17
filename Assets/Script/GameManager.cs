@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public int worldCoinValue;  // 전체 코인 ( 강화 있음 )
     public int coinValue;
 
     public int enemyCount;
+    public int enemyTotal;
     bool isPotal = false;
 
     public GameObject player;
@@ -34,10 +36,16 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         // 플레이어 생성 및 위치 초기화 
-        GameObject playerObj = Instantiate(player, new Vector2(-10f, -5f), Quaternion.Euler(0f, 0f, 0f));
+        if (playerPrefab == null) {
+            GameObject playerObj = Instantiate(player, new Vector2(-10f, -5f), Quaternion.Euler(0f, 0f, 0f));
 
-        cameraPlayer.Follow = playerObj.transform;
-        playerPrefab = playerObj;      
+            cameraPlayer.Follow = playerObj.transform;
+            playerPrefab = playerObj;
+        }
+        else {
+            Destroy(playerPrefab);
+            return;
+        }
     }
 
 
@@ -78,5 +86,18 @@ public class GameManager : MonoBehaviour
             }
         }
         isPotal = true;
+    }
+
+    public void MainScene() {
+        if (playerPrefab.GetComponent<Player>().health <= 0) {
+
+            // 전체 코인 계산 ( 보스잡은 수 * 30 + 중간보스 * 15 + 잡몹 * 3 + 스테이지 수 * 2 ) 
+            // 임시로 테스트 
+            worldCoinValue += 1000;
+
+            SceneLoadManager.instance.mapCount = 0;
+            SceneLoadManager.instance.stageCount = 0;
+            SceneManager.LoadScene(0);
+        }
     }
 }

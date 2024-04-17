@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
     public float attackRadius;
 
     bool enemyDeathCheck = false;
+    bool enemyHitCheck = false;
 
     Rigidbody2D rigid;
     CapsuleCollider2D capsuleCollider;
@@ -45,6 +48,8 @@ public class Enemy : MonoBehaviour
     void OnEnable() {
         enemyHealth = enemyMaxHealth * HealthUp(SceneLoadManager.instance.stageCount);
         GameManager.instance.enemyCount += enemyValue;
+        enemyHitCheck = false;
+        enemyDeathCheck = false;
     }
 
     void Start() {
@@ -53,11 +58,17 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        EnemyMainSceneDestroy();
         EnemyFollowMove();
         EnemyAttack();
         EnemyDead();
     }
 
+    void EnemyMainSceneDestroy() {
+        if (SceneManager.GetActiveScene().buildIndex == 0) {
+            gameObject.SetActive(false);
+        }
+    }
     void EnemyFollowMove() {
         RaycastHit2D objectHitTag = Physics2D.CircleCast(transform.position, detectionRadius, Vector2.zero, 0f, LayerMask.GetMask("Player"));
         if(objectHitTag.collider != null) {
@@ -103,8 +114,10 @@ public class Enemy : MonoBehaviour
             enemyAnime.SetTrigger("Death");
             enemyDeathCheck = true;
         }
+
         yield return new WaitForSeconds(0.4f);
         GameManager.instance.enemyCount -= enemyValue;
+        GameManager.instance.enemyTotal += enemyValue;
         int random = Random.Range(2, 7);
         for (int i = 0; i < random; i++) {
             GameObject coin = GameManager.instance.poolManager.GetObject(4);
@@ -114,10 +127,12 @@ public class Enemy : MonoBehaviour
     }
 
     void OnTriggerEnter2D( Collider2D collision ) { 
-        if (collision.CompareTag("FireBall")) {
+        if (collision.CompareTag("FireBall") && !enemyHitCheck) {
             FireBall fireBallLogic = GameManager.instance.fireBallPrefab.GetComponent<FireBall>();
             enemyHealth -= fireBallLogic.damage;
+            enemyHitCheck = true;
             enemyAnime.SetTrigger("Hurt");
+            StartCoroutine(EnemyHitCheck());
             Debug.Log(enemyHealth);
         }
 
@@ -130,4 +145,11 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    IEnumerator EnemyHitCheck() {
+        yield return new WaitForSeconds(0.1f);
+        enemyHitCheck = false;
+    }
+
+
 }

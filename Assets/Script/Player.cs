@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour
     public float jumpPower;
     public float maxJumpSpeed;
     public int jumpCount;
-    bool isJumpChek = false;
+    public bool isJumpChek = false;
 
     [Header ("Attack")]
     public float maxAttackDelay;
@@ -27,10 +28,12 @@ public class Player : MonoBehaviour
     public float curHealthDelay;
     public float healthDelay;
 
+    public Transform weaponPos;
+
     bool isDead = false;
 
+    public Animator anime;
     Rigidbody2D rigid;
-    Animator anime;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -40,6 +43,8 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
         health = maxHealth;
+        isDead = false;
+        isDamaged = false;
     }
 
     void Update()
@@ -86,6 +91,7 @@ public class Player : MonoBehaviour
                 jumpCount = 0;
             }
             if(Mathf.Abs(rigid.velocity.y) < maxJumpSpeed){
+                rigid.velocity = Vector2.zero;
                 rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             }
         }
@@ -119,13 +125,15 @@ public class Player : MonoBehaviour
             fireBall.transform.position = attackArea.position;
             fireBall.transform.rotation = Quaternion.identity;
 
-            moveSpeed = 2f;
+            moveSpeed = 0.5f;
             curAttackDelay = 0;
-            Invoke("MoveSet", 0.5f);
+            // 코루틴으로 수정 
+            StartCoroutine(MoveSet());
         }
     }
 
-    void MoveSet(){
+    IEnumerator MoveSet(){
+        yield return new WaitForSeconds(0.5f);
         moveSpeed = 5f;
     }
 
@@ -133,11 +141,12 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C)){
             anime.SetBool("isDash", true);
             moveSpeed = 30;
-            Invoke("StopDashAnime", 0.15f); 
+            StartCoroutine(StopDashAnime());
         }
     }
 
-    void StopDashAnime(){
+    IEnumerator StopDashAnime(){
+        yield return new WaitForSeconds(0.15f);
         moveSpeed = 5;
         anime.SetBool("isDash", false);
     }
@@ -151,6 +160,20 @@ public class Player : MonoBehaviour
             Debug.Log("죽었다");
             anime.SetTrigger("die");
             isDead = true;
+            StartCoroutine(LoadMainScene());
+        }
+    }
+
+    IEnumerator LoadMainScene() {
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.MainScene();
+
+        yield return new WaitForSeconds(0.2f);
+        if(SceneManager.GetActiveScene().buildIndex == 0) {
+            anime.SetTrigger("idle");
+            health = maxHealth;
+            isDead = false;
+            isDamaged = false;
         }
     }
 
@@ -175,6 +198,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+
     void IsDamagerdOff() {
         isDamaged = false;
     }

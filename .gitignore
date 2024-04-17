@@ -2,5 +2,5 @@ Library/
 *.vs/
 *.sln
 *.csproj
-Assets/Object/SkyBox/
 Temp/
+Assets/Object/

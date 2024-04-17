@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
-    public string objectName = "GameManager";
+    string objectName = "GameManager";
 
     void Start() {
         SceneManager.sceneLoaded += OnSceneLoaded;
