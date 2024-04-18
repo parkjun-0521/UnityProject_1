@@ -165,18 +165,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  upMoveSpeed: 5
+  power: 5
+  upPower: 5
   jumpPower: 15
   maxJumpSpeed: 15
   jumpCount: 0
+  isJumpChek: 0
   maxAttackDelay: 0.5
   attackArea: {fileID: 6212877521525985430}
   isPlayerRot: 0
   health: 100
   maxHealth: 100
   isDamaged: 0
-  curHealthDelay: 0
-  healthDelay: 2
+  isDashCheck: 0
+  curDelay: 0
+  maxDelay: 0.7
   weaponPos: {fileID: 5523182772763910738}
+  isNPC: 0
   anime: {fileID: 0}
 --- !u!1 &4262026506689939861
 GameObject:

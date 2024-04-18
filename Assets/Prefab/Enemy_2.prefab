@@ -184,9 +184,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyValue: 1
+  enemyBasicHealth: 10
   enemyHealth: 10
   enemyMaxHealth: 10
   enemySpeed: 2
   enemyPower: 0
   detectionRadius: 8
-  coinPrefab: {fileID: 1730701875904815245, guid: 52ff34f6f400c944dacb4702305f42cf, type: 3}
+  enemyAttackcurDel: 0
+  enemyAttackDelay: 0
+  attackRadius: 0

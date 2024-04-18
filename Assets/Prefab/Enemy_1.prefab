@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyValue: 1
+  enemyBasicHealth: 15
   enemyHealth: 15
   enemyMaxHealth: 15
   enemySpeed: 2

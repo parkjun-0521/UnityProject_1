@@ -162,7 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c2b5a4afafac740a57a5f6ea69124f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
+  weaponPower: 15
 --- !u!1001 &7085197493112717984
 PrefabInstance:
   m_ObjectHideFlags: 0

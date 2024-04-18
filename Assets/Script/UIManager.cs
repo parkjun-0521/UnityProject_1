@@ -12,14 +12,15 @@ public class UIManager : MonoBehaviour
     public GameObject gameUI;
     public GameObject mainUI;
     public GameObject statusUpgradeUI;
+    public PlayerStatus playerStatus;
 
     public Image[] healthBar;
     public Image[] speedBar;
     public Image[] powerBar;
 
-    int healthCount = -1;
-    int speedCount = -1;
-    int powerCount = -1;
+    public int healthCount = 0;
+    public int speedCount = 0;
+    public int powerCount = 0;
 
     public int healthCost;
     public int speedCost;
@@ -34,11 +35,16 @@ public class UIManager : MonoBehaviour
 
     void Start() {
         mainUI.SetActive(true);
+        playerStatus = GetComponent<PlayerStatus>();
     }
 
     void Update() {
         if (gameUI.activeSelf) {
             coinValue.text = GameManager.instance.coinValue.ToString();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            ExitUpgradeUI();
         }
     }
 
@@ -54,11 +60,13 @@ public class UIManager : MonoBehaviour
         statusUpgradeUI.SetActive(true);
 
         // 플레이어 이동 제한 
+        Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
+        playerLogic.isNPC = true;
+
         Animator playerAnimeLogic = GameManager.instance.playerPrefab.GetComponent<Animator>();
-        GameManager.instance.playerPrefab.GetComponent<Player>().enabled = false;
-        playerAnimeLogic.enabled = false;
         playerAnimeLogic.SetBool("isJump", false);
         playerAnimeLogic.SetBool("isRunAndJump", false);
+        playerAnimeLogic.enabled = false;
     }
 
     public void ExitUpgradeUI() {
@@ -67,18 +75,18 @@ public class UIManager : MonoBehaviour
 
         // 플레이어 이동 제한 해제 
         Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
-        playerLogic.enabled = true;
-        playerLogic.isJumpChek = false;
+        playerLogic.isNPC = false;
+
         GameManager.instance.playerPrefab.GetComponent<Animator>().enabled = true;
     }
 
     public void HealthUpgrade() {
         // 체력 업그레이드 
         if(GameManager.instance.worldCoinValue >= healthCost) {
-            healthCount++;
             if(healthCount > 9) { return; }
             GameManager.instance.worldCoinValue -= healthCost;
             healthBar[healthCount].color = Color.yellow;
+            healthCount++;
             healthCost += 100;
         }
     }
@@ -86,10 +94,10 @@ public class UIManager : MonoBehaviour
     public void SpeedUpgrade() {
         // 속도 업그레이드 
         if (GameManager.instance.worldCoinValue >= speedCost) {
-            speedCount++;
             if (speedCount > 9) { return; }
             GameManager.instance.worldCoinValue -= speedCost;
             speedBar[speedCount].color = Color.yellow;
+            speedCount++;
             speedCost += 100;
         }
     }
@@ -97,19 +105,11 @@ public class UIManager : MonoBehaviour
     public void PowerUpgrade() {
         // 공격력 업그레이드 
         if (GameManager.instance.worldCoinValue >= powerCost) {
-            powerCount++;
             if (powerCount > 9) { return; }
             GameManager.instance.worldCoinValue -= powerCost;
             powerBar[powerCount].color = Color.yellow;
+            powerCount++;
             powerCost += 100;
         }
-    }
-
-    public void WeaponNPC() {
-        Debug.Log("무기를 하나 줍니다.");
-    }
-
-    public void ItemNPC() {
-        Debug.Log("아이템을 하나 줍니다.");
     }
 }

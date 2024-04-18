@@ -1,13 +1,19 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [Header ("Move")]
-    public float moveSpeed;
+    [Header("Move")]
+    public float moveSpeed;         // 플레이어 스피드 ( 강화 대상 ) 
+    public float upMoveSpeed;
+
+    [Header("Power")]
+    public float power;             // 플레이어 공격력 
+    public float upPower;
 
     [Header ("Jump")]
     public float jumpPower;
@@ -15,7 +21,8 @@ public class Player : MonoBehaviour
     public int jumpCount;
     public bool isJumpChek = false;
 
-    [Header ("Attack")]
+    [Header("Attack")]
+    public int weaponID;
     public float maxAttackDelay;
     float curAttackDelay;
     public Transform attackArea;
@@ -23,13 +30,17 @@ public class Player : MonoBehaviour
 
     [Header("Health")]
     public float health;
-    public float maxHealth;
+    public float maxHealth;         // 플레이어 체력 ( 강화 대상 ) 
     public bool isDamaged = false;
-    public float curHealthDelay;
-    public float healthDelay;
+
+    [Header("Desh")]
+    public bool isDashCheck = false;
+    public float curDelay;
+    public float maxDelay = 0.5f;
 
     public Transform weaponPos;
 
+    public bool isNPC = false;
     bool isDead = false;
 
     public Animator anime;
@@ -53,13 +64,14 @@ public class Player : MonoBehaviour
         PlayerJump();
         PlayerAttack();
         PlayerDash();
-        PlayerHealth();
         PlayerDeadth();
     }
 
     void PlayerMove(){
         Vector3 movePosition = Vector3.zero;
-
+        if (isNPC) {
+            return;
+        }
         float h = Input.GetAxisRaw("Horizontal");
         if(h < 0){
             movePosition = Vector3.left;
@@ -75,14 +87,12 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             anime.SetBool("isRun", true);
         }
-        transform.position += movePosition * moveSpeed * Time.deltaTime;
-
-        
+        transform.position += movePosition * moveSpeed * Time.deltaTime;  
     }
 
     void PlayerJump(){
         
-        if(Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isDamaged) {
+        if(Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isDamaged && !isNPC) {
             anime.SetBool("isRunAndJump", true);
             anime.SetBool("isJump", true);
             jumpCount++;
@@ -114,7 +124,7 @@ public class Player : MonoBehaviour
     void PlayerAttack(){
         curAttackDelay += Time.deltaTime; 
 
-        if(Input.GetKeyDown(KeyCode.Z) && maxAttackDelay < curAttackDelay){
+        if(Input.GetKeyDown(KeyCode.Z) && maxAttackDelay < curAttackDelay && !isNPC) {
             anime.SetTrigger("attack");
             if(transform.rotation == Quaternion.Euler(0f, 0f, 0f)) 
                  isPlayerRot = true;
@@ -134,26 +144,33 @@ public class Player : MonoBehaviour
 
     IEnumerator MoveSet(){
         yield return new WaitForSeconds(0.5f);
-        moveSpeed = 5f;
+        moveSpeed = upMoveSpeed;
     }
 
     void PlayerDash(){
-        if(Input.GetKeyDown(KeyCode.C)){
+        
+        if (curDelay > 10)  
+            curDelay = 10.5f; 
+        else 
+            curDelay += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.C) && curDelay > maxDelay && !isDashCheck && !isNPC) {
             anime.SetBool("isDash", true);
             moveSpeed = 30;
+            isDashCheck = true;
+            curDelay = 0;
             StartCoroutine(StopDashAnime());
         }
     }
 
     IEnumerator StopDashAnime(){
         yield return new WaitForSeconds(0.15f);
-        moveSpeed = 5;
+        moveSpeed = upMoveSpeed;
         anime.SetBool("isDash", false);
+        yield return new WaitForSeconds(0.1f);
+        isDashCheck = false;
     }
 
-    void PlayerHealth() {
-        curHealthDelay += Time.deltaTime;
-    }
 
     void PlayerDeadth() {
         if(health <= 0 && !isDead) {
@@ -183,8 +200,9 @@ public class Player : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
 
-        if (collision.CompareTag("Enemy")) {
-            if (curHealthDelay > healthDelay && !isDamaged) {
+        // 대쉬 상태일 때는 피격되지 않는다. 
+        if (collision.CompareTag("Enemy") && !isDashCheck) {
+            if (!isDamaged) {
                 isDamaged = true;
                 anime.SetTrigger("hurt");
                 if (transform.position.x - collision.transform.position.x < 0) {
@@ -193,14 +211,27 @@ public class Player : MonoBehaviour
                 else {
                     rigid.AddForce(new Vector2(1.5f, 1) * 5f, ForceMode2D.Impulse);
                 }
-                curHealthDelay = 0;
-                Invoke("IsDamagerdOff", 0.2f);
+                StartCoroutine(IsDamagerdOff());
             }
-        }
+        }      
     }
 
-    void IsDamagerdOff() {
+    IEnumerator IsDamagerdOff() {
+        yield return new WaitForSeconds(0.75f);
         isDamaged = false;
     }
 
+    public void PlayerWeaponChange() {
+        Weapon[] childComponents = GetComponentsInChildren<Weapon>(true);
+        foreach (Weapon component in childComponents) {
+            component.gameObject.SetActive(false);
+            Debug.Log(component);
+            if(component.weaponID == this.weaponID) {
+                component.gameObject.SetActive(true);
+                component.gameObject.GetComponent<Weapon>().rigid.gravityScale = 0;
+                component.gameObject.GetComponent<Weapon>().itemJump = true;
+                rigid.velocity = Vector2.zero;
+            }
+        }
+    }
 }

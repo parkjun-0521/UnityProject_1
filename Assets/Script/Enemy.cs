@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 {
     // 기본 값 
     public int enemyValue;
+    public float enemyBasicHealth;
     public float enemyHealth;    
     public float enemyMaxHealth;    
     public float enemySpeed;
@@ -46,7 +47,8 @@ public class Enemy : MonoBehaviour
     }
 
     void OnEnable() {
-        enemyHealth = enemyMaxHealth * HealthUp(SceneLoadManager.instance.stageCount);
+        enemyMaxHealth = HealthUp(SceneLoadManager.instance.stageCount) * enemyBasicHealth;
+        enemyHealth = enemyMaxHealth;
         GameManager.instance.enemyCount += enemyValue;
         enemyHitCheck = false;
         enemyDeathCheck = false;
@@ -136,8 +138,9 @@ public class Enemy : MonoBehaviour
             Debug.Log(enemyHealth);
         }
 
-        if (collision.gameObject.CompareTag("Player")) {
-            Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
+        // 플레이어가 대쉬 상태이면 데미지를 주지 않는다. ( 무적 판정 ) 
+        Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
+        if (collision.gameObject.CompareTag("Player") && !playerLogic.isDashCheck && !playerLogic.isDamaged) {
             if (!playerLogic.isDamaged) {
                 enemyAttackcurDel = 0;
                 playerLogic.health -= enemyPower;

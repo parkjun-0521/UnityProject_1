@@ -7,6 +7,8 @@ public class FireBall : MonoBehaviour
 {
     public float damage;
 
+    public float weaponPower;
+
     Rigidbody2D rigid;
     Player player;
     void Awake()
@@ -16,6 +18,9 @@ public class FireBall : MonoBehaviour
 
     void OnEnable() {
         player = GameManager.instance.playerPrefab.GetComponent<Player>();
+
+        // 최종 데미지는 ( 무기공격력 / 10 ) * 플레이어 공격력 
+        GameManager.instance.fireBallPrefab.GetComponent<FireBall>().damage = player.power + (player.power * (weaponPower / 10));
         StartCoroutine(Destroy());
     }
 
