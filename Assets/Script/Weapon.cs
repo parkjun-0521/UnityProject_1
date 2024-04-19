@@ -27,12 +27,14 @@ public class Weapon : MonoBehaviour
     }
 
     void Update() {
+
         WeaponDrop();
 
         if (Input.GetKeyDown(KeyCode.F) && isPlayerCheck && !isWeaponCheck) {
             // 무기에 닿았을 때 
             Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
             playerLogic.weaponID = this.weaponID;
+            playerLogic.weaponPower = this.weaponPower;
             playerLogic.PlayerWeaponChange();
             isWeaponCheck = true;         
             StartCoroutine(WeaponGet());
@@ -40,7 +42,7 @@ public class Weapon : MonoBehaviour
     }
 
     IEnumerator WeaponGet() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         isWeaponCheck = false;
         gameObject.SetActive(false);
     }

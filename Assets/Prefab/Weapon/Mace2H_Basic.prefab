@@ -171,5 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponID: 5
-  weaponPower: 0
+  weaponPower: 10
   isPlayerCheck: 0
+  rigid: {fileID: 0}
+  itemJump: 0

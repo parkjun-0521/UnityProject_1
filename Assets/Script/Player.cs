@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
     [Header("Attack")]
     public int weaponID;
+    public float weaponPower;
     public float maxAttackDelay;
     float curAttackDelay;
     public Transform attackArea;
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
     void Start() {
         rigid = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
+        PlayerWeaponChange();
         health = maxHealth;
         isDead = false;
         isDamaged = false;
@@ -92,7 +94,7 @@ public class Player : MonoBehaviour
 
     void PlayerJump(){
         
-        if(Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isDamaged && !isNPC) {
+        if(Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isNPC) {
             anime.SetBool("isRunAndJump", true);
             anime.SetBool("isJump", true);
             jumpCount++;
@@ -222,15 +224,12 @@ public class Player : MonoBehaviour
     }
 
     public void PlayerWeaponChange() {
-        Weapon[] childComponents = GetComponentsInChildren<Weapon>(true);
-        foreach (Weapon component in childComponents) {
+        PlayerWeaponIcon[] childComponents = GetComponentsInChildren<PlayerWeaponIcon>(true);
+        foreach (PlayerWeaponIcon component in childComponents) {
             component.gameObject.SetActive(false);
-            Debug.Log(component);
-            if(component.weaponID == this.weaponID) {
+            if(component.weaponId == this.weaponID) {
                 component.gameObject.SetActive(true);
-                component.gameObject.GetComponent<Weapon>().rigid.gravityScale = 0;
-                component.gameObject.GetComponent<Weapon>().itemJump = true;
-                rigid.velocity = Vector2.zero;
+                Debug.Log("무기 교체");
             }
         }
     }

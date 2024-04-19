@@ -20,7 +20,7 @@ public class FireBall : MonoBehaviour
         player = GameManager.instance.playerPrefab.GetComponent<Player>();
 
         // 최종 데미지는 ( 무기공격력 / 10 ) * 플레이어 공격력 
-        GameManager.instance.fireBallPrefab.GetComponent<FireBall>().damage = player.power + (player.power * (weaponPower / 10));
+        GameManager.instance.fireBallPrefab.GetComponent<FireBall>().damage = player.power + (player.power * (player.weaponPower / 10));
         StartCoroutine(Destroy());
     }
 

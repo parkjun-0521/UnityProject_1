@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     void Start() {
         // 플레이어 생성 및 위치 초기화 
         if (playerPrefab == null) {
-            GameObject playerObj = Instantiate(player, new Vector2(-10f, -5f), Quaternion.Euler(0f, 0f, 0f));
+            GameObject playerObj = Instantiate(player, new Vector2(-7f, -5f), Quaternion.Euler(0f, 0f, 0f));
 
             cameraPlayer.Follow = playerObj.transform;
             playerPrefab = playerObj;

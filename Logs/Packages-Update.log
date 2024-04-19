@@ -74,3 +74,27 @@ The following packages were added:
   com.unity.2d.spriteshape@9.0.2
   com.unity.2d.tilemap@1.0.0
   com.unity.ide.vscode@1.2.5
+
+=== Fri Apr 19 16:50:47 2024
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.render-pipelines.universal from version 10.8.1 to 14.0.10
+
+=== Fri Apr 19 16:50:48 2024
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.render-pipelines.universal@14.0.10
+
+=== Fri Apr 19 17:18:57 2024
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.render-pipelines.universal from version 10.8.1 to 14.0.10

@@ -4,3 +4,5 @@ Library/
 *.csproj
 Temp/
 Assets/Object/
+Assets/Map/
+Assets/Font/
