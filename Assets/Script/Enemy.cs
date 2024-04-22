@@ -119,7 +119,12 @@ public class Enemy : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
         GameManager.instance.enemyCount -= enemyValue;
+        GameManager.instance.enemyKillCount++;
+
+        // worldCoinValue 계산 할 때 필요한 변수 값 
         GameManager.instance.enemyTotal += enemyValue;
+
+
         int random = Random.Range(2, 7);
         for (int i = 0; i < random; i++) {
             GameObject coin = GameManager.instance.poolManager.GetObject(4);

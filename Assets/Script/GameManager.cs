@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,11 +15,12 @@ public class GameManager : MonoBehaviour
 
     public int enemyCount;
     public int enemyTotal;
+    public int enemyKillCount;
     bool isPotal = false;
 
     public GameObject player;
     public Pooling poolManager;
-    public CinemachineVirtualCamera cameraPlayer;
+    public Camera cameraPlayer;
 
     public GameObject fireBallPrefab;
     public GameObject playerPrefab;
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Awake() {
         instance = this;
         DontDestroyOnLoad(gameObject);
-        Init(); 
+        Init();
     }
 
     void Start() {
@@ -39,8 +41,11 @@ public class GameManager : MonoBehaviour
         if (playerPrefab == null) {
             GameObject playerObj = Instantiate(player, new Vector2(-7f, -5f), Quaternion.Euler(0f, 0f, 0f));
 
-            cameraPlayer.Follow = playerObj.transform;
             playerPrefab = playerObj;
+            GameObject objCamera = GameObject.Find("Main Camera"); 
+            objCamera.GetComponent<CameraManager>().playerTransform = playerPrefab.transform;
+
+            UIManager.Instance.gameUI.SetActive(true);
         }
         else {
             Destroy(playerPrefab);

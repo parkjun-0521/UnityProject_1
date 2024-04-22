@@ -224,7 +224,7 @@ MonoBehaviour:
   enemyHealth: 15
   enemyMaxHealth: 15
   enemySpeed: 2
-  enemyPower: 2
+  enemyPower: 15
   detectionRadius: 8
   enemyAttackcurDel: 0
   enemyAttackDelay: 1.5
