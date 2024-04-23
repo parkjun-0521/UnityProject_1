@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.VersionControl.Asset;
 
 public class Enemy : MonoBehaviour
 {
+    public enum Type{
+        enemy_S,
+        enemy_M,
+        enemy_B
+    }
+    public Type enemyType;
+
     // 기본 값 
+    public int enemyId = 0;
     public int enemyValue;
     public float enemyBasicHealth;
     public float enemyHealth;    
@@ -25,7 +34,12 @@ public class Enemy : MonoBehaviour
     bool enemyDeathCheck = false;
     bool enemyHitCheck = false;
 
-    Rigidbody2D rigid;
+    // 보스 패턴 관련
+    public int patternIndex;
+    public int pastPatternIndex;
+    public EnemyNiddleBoss1Controller enemyNiddleBoss1Controller;
+
+    public Rigidbody2D rigid;
     CapsuleCollider2D capsuleCollider;
     Animator enemyAnime;
 
@@ -47,22 +61,98 @@ public class Enemy : MonoBehaviour
     }
 
     void OnEnable() {
-        enemyMaxHealth = HealthUp(SceneLoadManager.instance.stageCount) * enemyBasicHealth;
-        enemyHealth = enemyMaxHealth;
-        GameManager.instance.enemyCount += enemyValue;
-        enemyHitCheck = false;
-        enemyDeathCheck = false;
+        if (enemyType == Type.enemy_S) {
+            enemyMaxHealth = HealthUp(SceneLoadManager.instance.stageCount) * enemyBasicHealth;
+
+            enemyHealth = enemyMaxHealth;
+            GameManager.instance.enemyCount += enemyValue;
+            enemyHitCheck = false;
+            enemyDeathCheck = false;
+        }
+        else if(enemyType == Type.enemy_M) {
+            Debug.Log("멈춤");
+            Invoke("Stop", 2);
+        }
     }
 
-    void Start() {
+    void Stop() {
+        if (!gameObject.activeSelf)
+            return;
+
+        rigid.velocity = Vector2.zero;
+        Debug.Log("패턴 생각");
+        Invoke("Think", 1);
     }
+
+    public void Think() {
+        patternIndex = Random.Range(0,4);
+        if (pastPatternIndex != patternIndex) {
+            switch (1) {
+                case 0:
+                    Pattern1();
+                    break;
+                case 1:
+                    Pattern2();
+                    break;
+                case 2:
+                    Pattern3();
+                    break;
+                case 3:
+                    Pattern4();
+                    break;
+            }
+        }
+        else {
+            Debug.Log("패턴 중복 그로기 상태");
+            Invoke("Think", 1f);
+        }
+    }
+
+    public void Pattern1() {
+        if (enemyId == 10) {
+            enemyNiddleBoss1Controller.FireBall();
+        }
+
+        pastPatternIndex = 0;
+        Invoke("Think", 5);
+    }
+
+    public void Pattern2() {
+        if (enemyId == 10) {
+            enemyNiddleBoss1Controller.Sword();
+        }
+
+        pastPatternIndex = 1;
+        Invoke("Think", 5);
+    }
+
+    public void Pattern3() {
+        if (enemyId == 10) {
+            enemyNiddleBoss1Controller.RayserRain();
+        }
+
+        pastPatternIndex = 2;
+        Invoke("Think", 5);
+    }
+
+    public void Pattern4() {
+        if (enemyId == 10) {
+            enemyNiddleBoss1Controller.Heal();
+        }
+
+        pastPatternIndex = 3;
+        Invoke("Think", 5);
+    }
+
 
 
     void Update()
     {
-        EnemyMainSceneDestroy();
-        EnemyFollowMove();
-        EnemyAttack();
+        if (enemyType == Type.enemy_S) {
+            EnemyMainSceneDestroy();
+            EnemyFollowMove();
+            EnemyAttack();
+        }
         EnemyDead();
     }
 
@@ -138,19 +228,19 @@ public class Enemy : MonoBehaviour
             FireBall fireBallLogic = GameManager.instance.fireBallPrefab.GetComponent<FireBall>();
             enemyHealth -= fireBallLogic.damage;
             enemyHitCheck = true;
-            enemyAnime.SetTrigger("Hurt");
-            StartCoroutine(EnemyHitCheck());
-            Debug.Log(enemyHealth);
+            if (enemyType == Type.enemy_S) {
+                enemyAnime.SetTrigger("Hurt");
+                StartCoroutine(EnemyHitCheck());
+                Debug.Log(enemyHealth);
+            }
         }
 
         // 플레이어가 대쉬 상태이면 데미지를 주지 않는다. ( 무적 판정 ) 
         Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
         if (collision.gameObject.CompareTag("Player") && !playerLogic.isDashCheck && !playerLogic.isDamaged) {
-            if (!playerLogic.isDamaged) {
-                enemyAttackcurDel = 0;
-                playerLogic.health -= enemyPower;
-                Debug.Log(playerLogic.health);
-            }
+            enemyAttackcurDel = 0;
+            playerLogic.health -= enemyPower;
+            Debug.Log(playerLogic.health);
         }
     }
 
