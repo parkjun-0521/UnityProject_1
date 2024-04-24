@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2716784612674040983}
   m_Layer: 0
   m_Name: MiddleEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7371030233486383316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ParticalPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,38 @@ Transform:
   m_GameObject: {fileID: 3466474258216277864}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5714283, y: -4.9999995, z: 0}
+  m_LocalPosition: {x: -3.5714283, y: -9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4419351937788788136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5926519185175211881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5193743737248121863}
+  m_Layer: 8
+  m_Name: SwordPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5193743737248121863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926519185175211881}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,11 +107,11 @@ GameObject:
   - component: {fileID: 2096996331145544187}
   - component: {fileID: 3873337083690490670}
   - component: {fileID: 384881141136876435}
-  - component: {fileID: 926881502784545640}
   - component: {fileID: 5225854411074499939}
-  m_Layer: 0
+  - component: {fileID: 926881502784545640}
+  m_Layer: 8
   m_Name: Popi
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,11 +125,12 @@ Transform:
   m_GameObject: {fileID: 6319847235313633553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -25.199995, y: -8.099998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7371030233486383316}
+  - {fileID: 5193743737248121863}
   m_Father: {fileID: 2716784612674040983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5066215956420692811
@@ -233,7 +265,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -3.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -244,8 +276,39 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 11.36}
+  m_Size: {x: 5, y: 11}
   m_EdgeRadius: 0
+--- !u!114 &5225854411074499939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319847235313633553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30022de401d06c642a9ab72cdadd54f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayserPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  maxFireBall: 13
+  piValue: 0
+  rand: 0
+  lognAttackPos: {fileID: 5193743737248121863}
+  rayser: {fileID: 4976463005368533437, guid: 2be9ff81d0a701e4c90c7b06e4ed3b0e, type: 3}
+  healpartical: {fileID: 6260425096095414080, guid: 3d18dfb99fc86ce4abfdbe1282699acb, type: 3}
+  enemyFireBall: {fileID: 8348635140779508095, guid: 87621f88474f64348986274d38200b9f, type: 3}
+  longDistanceAttack: {fileID: 5723458721062431441, guid: be606683a329c614b964063503da457e, type: 3}
+  anim: {fileID: 2096996331145544187}
+  particalPos: {fileID: 7371030233486383316}
+  facingRight: 0
 --- !u!114 &926881502784545640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,9 +325,9 @@ MonoBehaviour:
   enemyId: 10
   enemyValue: 15
   enemyBasicHealth: 500
-  enemyHealth: 500
+  enemyHealth: 300
   enemyMaxHealth: 500
-  enemySpeed: 2
+  enemySpeed: 3
   enemyPower: 20
   detectionRadius: 0
   enemyAttackcurDel: 0
@@ -272,21 +335,3 @@ MonoBehaviour:
   attackRadius: 0
   patternIndex: 0
   pastPatternIndex: 0
-  enemyNiddleBoss1Controller: {fileID: 5225854411074499939}
-  rigid: {fileID: 0}
---- !u!114 &5225854411074499939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319847235313633553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30022de401d06c642a9ab72cdadd54f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 2096996331145544187}
-  healpartical: {fileID: 6260425096095414080, guid: 3d18dfb99fc86ce4abfdbe1282699acb, type: 3}
-  particalPos: {fileID: 7371030233486383316}
-  facingRight: 0

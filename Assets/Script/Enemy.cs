@@ -37,9 +37,9 @@ public class Enemy : MonoBehaviour
     // 보스 패턴 관련
     public int patternIndex;
     public int pastPatternIndex;
-    public EnemyNiddleBoss1Controller enemyNiddleBoss1Controller;
+    EnemyNiddleBoss1Controller enemyNiddleBoss1Controller;
 
-    public Rigidbody2D rigid;
+    Rigidbody2D rigid;
     CapsuleCollider2D capsuleCollider;
     Animator enemyAnime;
 
@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         enemyAnime = GetComponent<Animator>();
+        enemyNiddleBoss1Controller = GetComponent<EnemyNiddleBoss1Controller>();
     }
 
     // 스테이지에 따른 몬스터 체력 증가 
@@ -61,18 +62,19 @@ public class Enemy : MonoBehaviour
     }
 
     void OnEnable() {
-        if (enemyType == Type.enemy_S) {
-            enemyMaxHealth = HealthUp(SceneLoadManager.instance.stageCount) * enemyBasicHealth;
+        enemyHealth = enemyMaxHealth;
+        GameManager.instance.enemyCount += enemyValue;
+        enemyHitCheck = false;
+        enemyDeathCheck = false;
 
-            enemyHealth = enemyMaxHealth;
-            GameManager.instance.enemyCount += enemyValue;
-            enemyHitCheck = false;
-            enemyDeathCheck = false;
+        if (enemyType == Type.enemy_S) {
+            enemyMaxHealth = HealthUp(SceneLoadManager.instance.stageCount) * enemyBasicHealth; 
         }
         else if(enemyType == Type.enemy_M) {
             Debug.Log("멈춤");
             Invoke("Stop", 2);
         }
+        
     }
 
     void Stop() {
@@ -87,7 +89,7 @@ public class Enemy : MonoBehaviour
     public void Think() {
         patternIndex = Random.Range(0,4);
         if (pastPatternIndex != patternIndex) {
-            switch (1) {
+            switch (patternIndex) {
                 case 0:
                     Pattern1();
                     break;
@@ -114,7 +116,7 @@ public class Enemy : MonoBehaviour
         }
 
         pastPatternIndex = 0;
-        Invoke("Think", 5);
+        Invoke("Think", 10);
     }
 
     public void Pattern2() {
@@ -223,16 +225,16 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnTriggerEnter2D( Collider2D collision ) { 
+    void OnTriggerEnter2D( Collider2D collision ) {
         if (collision.CompareTag("FireBall") && !enemyHitCheck) {
             FireBall fireBallLogic = GameManager.instance.fireBallPrefab.GetComponent<FireBall>();
             enemyHealth -= fireBallLogic.damage;
             enemyHitCheck = true;
             if (enemyType == Type.enemy_S) {
                 enemyAnime.SetTrigger("Hurt");
-                StartCoroutine(EnemyHitCheck());
-                Debug.Log(enemyHealth);
             }
+            StartCoroutine(EnemyHitCheck());
+            Debug.Log(enemyHealth);
         }
 
         // 플레이어가 대쉬 상태이면 데미지를 주지 않는다. ( 무적 판정 ) 

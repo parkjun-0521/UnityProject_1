@@ -203,7 +203,7 @@ public class Player : MonoBehaviour
         }
 
         // 대쉬 상태일 때는 피격되지 않는다. 
-        if (collision.CompareTag("Enemy") && !isDashCheck) {
+        if ((collision.CompareTag("Enemy") || collision.CompareTag("Rayser") || collision.CompareTag("EnemyFireBall")) && !isDashCheck) {
             if (!isDamaged) {
                 isDamaged = true;
                 anime.SetTrigger("hurt");

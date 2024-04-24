@@ -775,6 +775,10 @@ MonoBehaviour:
   - {fileID: 8077804352005085770, guid: 5f05afc732353854cbd97f3d1861217c, type: 3}
   - {fileID: 8077804352005085770, guid: 82e5cb8c1c40f624a95ae14a1f50752e, type: 3}
   - {fileID: 1730701875904815245, guid: 52ff34f6f400c944dacb4702305f42cf, type: 3}
+  - {fileID: 4976463005368533437, guid: 2be9ff81d0a701e4c90c7b06e4ed3b0e, type: 3}
+  - {fileID: 6260425096095414080, guid: 3d18dfb99fc86ce4abfdbe1282699acb, type: 3}
+  - {fileID: 8348635140779508095, guid: 87621f88474f64348986274d38200b9f, type: 3}
+  - {fileID: 5723458721062431441, guid: be606683a329c614b964063503da457e, type: 3}
 --- !u!4 &137775289
 Transform:
   m_ObjectHideFlags: 0
@@ -7697,6 +7701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageCount: 0
   mapCount: 0
+  mainCamera: {fileID: 1805555546}
 --- !u!4 &1981871720
 Transform:
   m_ObjectHideFlags: 0

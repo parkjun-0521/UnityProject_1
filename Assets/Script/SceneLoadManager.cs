@@ -10,6 +10,8 @@ public class SceneLoadManager : MonoBehaviour
     public int stageCount = 0;
     public int mapCount = 0;
 
+    public Camera mainCamera;
+
     void Awake() {
         DontDestroyOnLoad(gameObject);
         instance = this;
@@ -17,6 +19,7 @@ public class SceneLoadManager : MonoBehaviour
 
     public void BasicRoom() {
         int random = Random.Range(1, 7);
+        mainCamera.GetComponent<Camera>().orthographicSize = 7;
         SceneManager.LoadScene(random);
         Debug.Log("일반 맵");
     }
@@ -26,6 +29,7 @@ public class SceneLoadManager : MonoBehaviour
         Debug.Log("상점");
     }
     public void MiddleBossRoom() {
+        mainCamera.GetComponent<Camera>().orthographicSize = 10;
         SceneManager.LoadScene(9);
         Debug.Log("중간보스");
     }

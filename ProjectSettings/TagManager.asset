@@ -12,6 +12,8 @@ TagManager:
   - EndPoint
   - Coin
   - Weapon
+  - Rayser
+  - EnemyFireBall
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - UI
   - Player
   - Floor
-  - 
+  - MiddleBoss
   - 
   - 
   - 

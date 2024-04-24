@@ -102,6 +102,8 @@ public class GameManager : MonoBehaviour
 
             SceneLoadManager.instance.mapCount = 0;
             SceneLoadManager.instance.stageCount = 0;
+            enemyKillCount = 0;
+            coinValue = 0;
             SceneManager.LoadScene(0);
         }
     }
