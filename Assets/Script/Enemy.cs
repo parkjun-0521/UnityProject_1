@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
         if (enemyType == Type.enemy_S) {
             enemyMaxHealth = HealthUp(SceneLoadManager.instance.stageCount) * enemyBasicHealth; 
         }
-        else if(enemyType == Type.enemy_M) {
+        else if(enemyType == Type.enemy_M || enemyType == Type.enemy_B) {
             Debug.Log("멈춤");
             Invoke("Stop", 2);
         }
@@ -214,8 +214,10 @@ public class Enemy : MonoBehaviour
         GameManager.instance.enemyKillCount++;
 
         // worldCoinValue 계산 할 때 필요한 변수 값 
-        GameManager.instance.enemyTotal += enemyValue;
-
+        if (enemyType == Type.enemy_S)
+            GameManager.instance.enemyTotal += enemyValue * 3;
+        else
+            GameManager.instance.enemyTotal += enemyValue;
 
         int random = Random.Range(2, 7);
         for (int i = 0; i < random; i++) {

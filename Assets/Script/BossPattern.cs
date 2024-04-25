@@ -13,10 +13,23 @@ public class BossPattern : MonoBehaviour
 
     public float rayserDamage;
 
+    public Enemy enemyLogic;
+
+    void OnEnable() {
+        if (enemyLogic == null) {
+            enemyLogic = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
+            Debug.Log("°¡Á®¿È");
+        }
+    }
+
     void Update() {
         if(patternName == PatternName.Heal) {
             StartCoroutine(HealDestroy());
-        }    
+        }
+
+        if(enemyLogic.enemyHealth <= 0) {
+            gameObject.SetActive(false);
+        }
     }
 
     IEnumerator HealDestroy() {

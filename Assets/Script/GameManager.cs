@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEngine;
@@ -44,6 +45,9 @@ public class GameManager : MonoBehaviour
             playerPrefab = playerObj;
             GameObject objCamera = GameObject.Find("Main Camera"); 
             objCamera.GetComponent<CameraManager>().playerTransform = playerPrefab.transform;
+
+            GameObject objMiniMapCamera = GameObject.Find("MiniMapCamera");
+            objMiniMapCamera.GetComponent<CameraManager>().playerTransform = playerPrefab.transform;
 
             UIManager.Instance.gameUI.SetActive(true);
         }
@@ -98,12 +102,13 @@ public class GameManager : MonoBehaviour
 
             // 전체 코인 계산 ( 보스잡은 수 * 30 + 중간보스 * 15 + 잡몹 * 3 + 스테이지 수 * 2 ) 
             // 임시로 테스트 
-            worldCoinValue += 1000;
+            worldCoinValue += (enemyTotal + ((SceneLoadManager.instance.stageCount * SceneLoadManager.instance.mapCount) * 2));
 
             SceneLoadManager.instance.mapCount = 0;
             SceneLoadManager.instance.stageCount = 0;
             enemyKillCount = 0;
             coinValue = 0;
+            enemyTotal = 0;
             SceneManager.LoadScene(0);
         }
     }

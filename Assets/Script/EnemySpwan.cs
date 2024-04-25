@@ -6,7 +6,13 @@ public class EnemySpwan : MonoBehaviour
 {
     public Transform[] enemyPosition;
     public GameObject middleBoss;
+    public GameObject boss;
     public bool bossCheck;
+
+    void Start() {
+        bossCheck = false;
+    }
+
     void OnTriggerEnter2D( Collider2D collision ) {
         if (collision.CompareTag("Player") && SceneLoadManager.instance.mapCount % 5 != 0) {
             Debug.Log("利 积己");
@@ -20,7 +26,11 @@ public class EnemySpwan : MonoBehaviour
         }
         else if(collision.CompareTag("Player") && SceneLoadManager.instance.mapCount % 5 == 0 && SceneLoadManager.instance.mapCount % 10 != 0 && !bossCheck) {
             Debug.Log("利 积己");
-            Instantiate(middleBoss);
+            Instantiate(middleBoss, new Vector2(16f, -3f), transform.rotation);
+            bossCheck = true;
+        }
+        else if(collision.CompareTag("Player") && SceneLoadManager.instance.mapCount % 10 == 0 && !bossCheck) {
+            Instantiate(boss, new Vector2(16f, -3f), transform.rotation);
             bossCheck = true;
         }
     }

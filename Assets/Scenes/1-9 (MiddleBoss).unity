@@ -752,6 +752,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPosition: []
   middleBoss: {fileID: 2149835311488804068, guid: 96db1bad13d8dd046a13acbaa092af8d, type: 3}
+  boss: {fileID: 2149835311488804068, guid: 1b100f552fe9b4a4fbb3e5ff6da9ee3b, type: 3}
+  bossCheck: 0
 --- !u!1 &1457367941
 GameObject:
   m_ObjectHideFlags: 0

@@ -129,7 +129,6 @@ public class EnemyNiddleBoss1Controller : MonoBehaviour
 
         if (rand == 0) {
             // 부체꼴로 쏘는 패턴 
-            //GameObject enemyFireBallObj = Instantiate(enemyFireBall, transform.position, Quaternion.identity);
             GameObject enemyFireBallObj = GameManager.instance.poolManager.GetObject(7);
             enemyFireBallObj.transform.position = lognAttackPos.position;
             Rigidbody2D rierRigid = enemyFireBallObj.GetComponent<Rigidbody2D>();
@@ -145,7 +144,6 @@ public class EnemyNiddleBoss1Controller : MonoBehaviour
                 float radians = angle * Mathf.Deg2Rad;
                 dirVec = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
 
-                //GameObject enemyFireBallObj = Instantiate(enemyFireBall, transform.position, Quaternion.identity);
                 GameObject enemyFireBallObj = GameManager.instance.poolManager.GetObject(7);
                 enemyFireBallObj.transform.position = lognAttackPos.position;
                 Rigidbody2D rierRigid = enemyFireBallObj.GetComponent<Rigidbody2D>();
@@ -201,11 +199,9 @@ public class EnemyNiddleBoss1Controller : MonoBehaviour
         Rigidbody2D longRigid = longAttack.GetComponent<Rigidbody2D>();
 
         if (!check) {
-            //GameObject longAttack = Instantiate(longDistanceAttack, lognAttackPos.position, transform.rotation);
             longRigid.AddForce(Vector2.right * 20, ForceMode2D.Impulse);
         }
-        else {
-            //GameObject longAttack = Instantiate(longDistanceAttack, lognAttackPos.position, transform.rotation);        
+        else {      
             longRigid.AddForce(Vector2.left * 20, ForceMode2D.Impulse);
         }
     }
@@ -240,7 +236,6 @@ public class EnemyNiddleBoss1Controller : MonoBehaviour
     IEnumerator RayserRandom() {
         for (int i = 0; i < 10; i++) {
             int rand = Random.Range(0, rayserPos.Length);
-            //Instantiate(rayser, rayserPos[rand].position, Quaternion.identity);
             GameObject rayser = GameManager.instance.poolManager.GetObject(5);
 			rayser.transform.position = rayserPos[rand].transform.position;
             yield return new WaitForSeconds(0.5f);
@@ -249,7 +244,6 @@ public class EnemyNiddleBoss1Controller : MonoBehaviour
 
     IEnumerator RayserLeft() {
 		for(int i = 0; i < rayserPos.Length; i++) {
-            //Instantiate(rayser, rayserPos[i].position, Quaternion.identity);
             GameObject rayser = GameManager.instance.poolManager.GetObject(5);
             rayser.transform.position = rayserPos[i].transform.position;
             yield return new WaitForSeconds(0.5f);
@@ -258,7 +252,6 @@ public class EnemyNiddleBoss1Controller : MonoBehaviour
 	
 	IEnumerator RayserRight() {
         for (int i = rayserPos.Length-1; i >= 0; i--) {		
-            //Instantiate(rayser, rayserPos[i].position, Quaternion.identity);
             GameObject rayser = GameManager.instance.poolManager.GetObject(5);
             rayser.transform.position = rayserPos[i].transform.position;
             yield return new WaitForSeconds(0.5f);
@@ -267,7 +260,6 @@ public class EnemyNiddleBoss1Controller : MonoBehaviour
 
     public void Heal() {
         Debug.Log("보스 체력 회복 힐");
-		//GameObject heal = Instantiate(healpartical);
         GameObject heal = GameManager.instance.poolManager.GetObject(6);
         heal.transform.position = particalPos.position;
         StartCoroutine(SlowHeal());

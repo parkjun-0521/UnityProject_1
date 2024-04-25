@@ -29,12 +29,15 @@ public class SceneLoadManager : MonoBehaviour
         Debug.Log("상점");
     }
     public void MiddleBossRoom() {
-        mainCamera.GetComponent<Camera>().orthographicSize = 10;
+        mainCamera.GetComponent<Camera>().orthographicSize = 10;       
+
         SceneManager.LoadScene(9);
         Debug.Log("중간보스");
     }
     public void BossRoom() {
+        mainCamera.GetComponent<Camera>().orthographicSize = 10;
         int sceneNum = mapCount / stageCount;
+
         SceneManager.LoadScene(sceneNum);
         Debug.Log("보스");
     }
