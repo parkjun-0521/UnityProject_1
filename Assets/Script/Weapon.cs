@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     public int weaponID;
     public float weaponPower;
 
-    public bool isPlayerCheck;
+    bool isPlayerCheck = false;
     bool isWeaponCheck = false;
 
     public Rigidbody2D rigid;
@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();  
     }
 
-    void Start() {
+    void OnEnable() {
         // 위로 랜덤한 힘을 줘서 튀어오르는 것 같이 보이게 ( 위 + 좌우 ) 
         if (!itemJump) {
             int rendom = Random.Range(0, 2);

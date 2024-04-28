@@ -221,7 +221,7 @@ public class Enemy : MonoBehaviour
 
         int random = Random.Range(2, 7);
         for (int i = 0; i < random; i++) {
-            GameObject coin = GameManager.instance.poolManager.GetObject(4);
+            GameObject coin = GameManager.instance.poolManager.GetObject(5);
             coin.transform.position = this.transform.position;
         }
         gameObject.SetActive(false);

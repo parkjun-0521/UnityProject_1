@@ -16,6 +16,13 @@ public class EnemyFireBall : MonoBehaviour
         StartCoroutine(Destroy());
     }
 
+    void Update()
+    {
+        if (GameManager.instance.playerPrefab.GetComponent<Player>().health <= 0) {
+            gameObject.SetActive(false);
+        }
+    }
+
     IEnumerator Destroy() {
         yield return new WaitForSeconds(3f);
         rigid.velocity = Vector2.zero;

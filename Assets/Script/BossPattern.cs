@@ -30,6 +30,10 @@ public class BossPattern : MonoBehaviour
         if(enemyLogic.enemyHealth <= 0) {
             gameObject.SetActive(false);
         }
+
+        if(GameManager.instance.playerPrefab.GetComponent<Player>().health <= 0) {
+            gameObject.SetActive(false);
+        }
     }
 
     IEnumerator HealDestroy() {

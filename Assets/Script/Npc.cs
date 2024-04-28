@@ -8,10 +8,14 @@ public class Npc : MonoBehaviour
 
     bool isPlayerCheck;
 
-    int WeaponDropCount = 0;
+    int weaponDropCount = 0;
     bool isWeaponDrop = false;
 
+    int itemDropCount = 0;
+    bool isItemDrop = false;
+
     public GameObject[] weaponItem;
+    public GameObject[] itemItem;
 
     UIManager uiManager;
     void Update()
@@ -36,10 +40,10 @@ public class Npc : MonoBehaviour
 
     public void WeaponNPC() {
         if (!isWeaponDrop) {
-            WeaponDropCount++;
+            weaponDropCount++;
             int rand = Random.Range(0, weaponItem.Length);
             Instantiate(weaponItem[rand], transform.position, Quaternion.identity);
-            if (WeaponDropCount == 2) {
+            if (weaponDropCount == 2) {
                 isWeaponDrop = true;
                 return;
             }
@@ -50,7 +54,19 @@ public class Npc : MonoBehaviour
     }
 
     public void ItemNPC() {
-        Debug.Log("아이템을 하나 줍니다.");
+        if (!isItemDrop) {
+            itemDropCount++;
+            int rand = Random.Range(11, GameManager.instance.poolManager.prefabs.Length);
+            GameObject item = GameManager.instance.poolManager.GetObject(rand);
+            item.transform.position = this.transform.position;
+            if (itemDropCount == 2) {
+                isItemDrop = true;
+                return;
+            }
+        }
+        else {
+            Debug.Log("더이상 아이템을 받을 수 없습니다.");
+        }
     }
 
     void OnTriggerEnter2D( Collider2D collision ) {
