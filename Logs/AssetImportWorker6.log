@@ -1,23 +1,23 @@
 Using pre-set license
-Built from '2022.3/staging' branch; Version is '2022.3.24f1 (334eb2a0b267) revision 3362482'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ko' Physical Memory: 16236 MB
+Built from '2022.3/staging' branch; Version is '2022.3.22f1 (887be4894c44) revision 8944612'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ko' Physical Memory: 16213 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2022.3.24f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker6
 -projectPath
-C:/Users/parkjun/Desktop/Project
+C:/Users/User/ProjectBasic
 -logFile
 Logs/AssetImportWorker6.log
 -srvPort
-62234
-Successfully changed project path to: C:/Users/parkjun/Desktop/Project
-C:/Users/parkjun/Desktop/Project
+51444
+Successfully changed project path to: C:/Users/User/ProjectBasic
+C:/Users/User/ProjectBasic
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -49,70 +49,70 @@ C:/Users/parkjun/Desktop/Project
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [19156] Host "[IP] 192.168.0.6 [Port] 0 [Flags] 2 [Guid] 2430725600 [EditorId] 2430725600 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-5IJ1RF7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [10880] Host "[IP] 192.168.0.47 [Port] 0 [Flags] 2 [Guid] 1051345741 [EditorId] 1051345741 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-7FL9E6G) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [19156] Host "[IP] 192.168.0.6 [Port] 0 [Flags] 2 [Guid] 2430725600 [EditorId] 2430725600 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-5IJ1RF7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [10880] Host "[IP] 192.168.0.47 [Port] 0 [Flags] 2 [Guid] 1051345741 [EditorId] 1051345741 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-7FL9E6G) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-[Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
-Refreshing native plugins compatible for Editor in 15.10 ms, found 9 plugins.
+[Physics::Module] Initialized MultithreadedJobDispatcher with 19 workers.
+Refreshing native plugins compatible for Editor in 315.42 ms, found 9 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2022.3.24f1 (334eb2a0b267)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/parkjun/Desktop/Project/Assets
+Initialize engine version: 2022.3.22f1 (887be4894c44)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/User/ProjectBasic/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2560)
+    Renderer: NVIDIA GeForce GTX 1660 SUPER (ID=0x21c4)
     Vendor:   NVIDIA
-    VRAM:     6009 MB
-    Driver:   31.0.15.2799
+    VRAM:     5980 MB
+    Driver:   31.0.15.3623
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56620
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56712
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.010760 seconds.
-- Loaded All Assemblies, in  0.342 seconds
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.013303 seconds.
+- Loaded All Assemblies, in  0.403 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 260 ms
+Android Extension - Scanning For ADB Devices 233 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.624 seconds
-Domain Reload Profiling: 964ms
-	BeginReloadAssembly (97ms)
+- Finished resetting the current domain, in  0.631 seconds
+Domain Reload Profiling: 1032ms
+	BeginReloadAssembly (121ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (37ms)
-	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (58ms)
-	LoadAllAssembliesAndSetupDomain (137ms)
-		LoadAssemblies (96ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (72ms)
+	LoadAllAssembliesAndSetupDomain (160ms)
+		LoadAssemblies (119ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (135ms)
-			TypeCache.Refresh (134ms)
-				TypeCache.ScanAssembly (120ms)
+		AnalyzeDomain (157ms)
+			TypeCache.Refresh (156ms)
+				TypeCache.ScanAssembly (142ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (624ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (631ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (569ms)
+		SetupLoadedEditorAssemblies (564ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (387ms)
+			InitializePlatformSupportModulesInManaged (359ms)
 			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (124ms)
-			ProcessInitializeOnLoadMethodAttributes (51ms)
+			ProcessInitializeOnLoadAttributes (138ms)
+			ProcessInitializeOnLoadMethodAttributes (61ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -120,8 +120,8 @@ Domain Reload Profiling: 964ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.736 seconds
-Refreshing native plugins compatible for Editor in 6.22 ms, found 9 plugins.
+- Loaded All Assemblies, in  0.857 seconds
+Refreshing native plugins compatible for Editor in 8.04 ms, found 9 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
@@ -130,47 +130,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.743 seconds
-Domain Reload Profiling: 1475ms
-	BeginReloadAssembly (143ms)
+- Finished resetting the current domain, in  0.981 seconds
+Domain Reload Profiling: 1834ms
+	BeginReloadAssembly (166ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (24ms)
-	RebuildCommonClasses (31ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (45ms)
-	LoadAllAssembliesAndSetupDomain (504ms)
-		LoadAssemblies (380ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (589ms)
+		LoadAssemblies (416ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (211ms)
-			TypeCache.Refresh (173ms)
-				TypeCache.ScanAssembly (155ms)
-			ScanForSourceGeneratedMonoScriptInfo (27ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (743ms)
+		AnalyzeDomain (272ms)
+			TypeCache.Refresh (217ms)
+				TypeCache.ScanAssembly (194ms)
+			ScanForSourceGeneratedMonoScriptInfo (39ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (981ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (582ms)
+		SetupLoadedEditorAssemblies (755ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (22ms)
-			SetLoadedEditorAssemblies (4ms)
+			InitializePlatformSupportModulesInManaged (29ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (88ms)
-			ProcessInitializeOnLoadAttributes (386ms)
-			ProcessInitializeOnLoadMethodAttributes (74ms)
-			AfterProcessingInitializeOnLoad (6ms)
+			BeforeProcessingInitializeOnLoad (107ms)
+			ProcessInitializeOnLoadAttributes (503ms)
+			ProcessInitializeOnLoadMethodAttributes (101ms)
+			AfterProcessingInitializeOnLoad (9ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 6.88 ms, found 9 plugins.
+		AwakeInstancesAfterBackupRestoration (6ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 8.13 ms, found 9 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6767 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 132 unused Assets / (1.6 MB). Loaded Objects now: 7224.
-Memory consumption went from 254.6 MB to 253.0 MB.
-Total: 4.417700 ms (FindLiveObjects: 0.447000 ms CreateObjectMapping: 0.218400 ms MarkObjects: 3.035600 ms  DeleteObjects: 0.715700 ms)
+Unloading 138 unused Assets / (1.8 MB). Loaded Objects now: 7224.
+Memory consumption went from 256.6 MB to 254.8 MB.
+Total: 8.816200 ms (FindLiveObjects: 0.908000 ms CreateObjectMapping: 0.263600 ms MarkObjects: 6.577600 ms  DeleteObjects: 1.065400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -185,990 +185,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 156886.857502 seconds.
-  path: Assets/Map/Crystal Map/background03.png
-  artifactKey: Guid(09b18b2dac48ea94a86e911ea947eb20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Crystal Map/background03.png using Guid(09b18b2dac48ea94a86e911ea947eb20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02811cb4081ba4c643ec8b3bb754cbc0') in 0.065680 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.127466 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00038.png
-  artifactKey: Guid(9e0845a65b2631649b68c8559fb98bf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00038.png using Guid(9e0845a65b2631649b68c8559fb98bf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23d96ae85b4a691a8df320849eb27487') in 0.019032 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.052390 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00044.png
-  artifactKey: Guid(a4fb1817037827b45a1ac989511f8b6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00044.png using Guid(a4fb1817037827b45a1ac989511f8b6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bd6fac5e2f96e5a128a4353952f0e3a') in 0.016777 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.017291 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00048.png
-  artifactKey: Guid(e3427dd45988126419e7b971066df382) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00048.png using Guid(e3427dd45988126419e7b971066df382) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac164e998ad7a081b37ccacbfb83ff39') in 0.014781 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000961 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00052.png
-  artifactKey: Guid(a9112089e08ae0d419c069e08b0b4dda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00052.png using Guid(a9112089e08ae0d419c069e08b0b4dda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '239fb448d749536585620dd1d289ff1a') in 0.016254 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.001087 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00056.png
-  artifactKey: Guid(6fe6c26e6cf8a7243a40d4f814a01e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00056.png using Guid(6fe6c26e6cf8a7243a40d4f814a01e44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56e3ec3e8080a32c71f0be24955b2904') in 0.016090 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.030998 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00067.png
-  artifactKey: Guid(fd97c9562d9574f47af7b61fa4a2cac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00067.png using Guid(fd97c9562d9574f47af7b61fa4a2cac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '072f815fabae9ea324f4f990411b118b') in 0.017137 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000705 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00071.png
-  artifactKey: Guid(1999689ac577948488cd015fdf67f3ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00071.png using Guid(1999689ac577948488cd015fdf67f3ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec292ba8dd1190e9841dd29dcdc64726') in 0.019709 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.002613 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00076.png
-  artifactKey: Guid(a26e8d0c309595842b405ce3cd76e00c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00076.png using Guid(a26e8d0c309595842b405ce3cd76e00c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50aec01353fb35a2d979e4be0d5eced7') in 0.016121 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000715 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00080.png
-  artifactKey: Guid(8b67f8eec54b1fc439e15b02da9b1740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00080.png using Guid(8b67f8eec54b1fc439e15b02da9b1740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '490cc1be1279eeb00a3dc049fa38635e') in 0.015433 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.002980 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00084.png
-  artifactKey: Guid(7d1eaac2392a0af43b9621f018c796cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00084.png using Guid(7d1eaac2392a0af43b9621f018c796cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e2e86490b1c575a8469c4b65cd0012b') in 0.016362 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.001390 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00088.png
-  artifactKey: Guid(318ed49e48a5d79498f8fed06b3424d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00088.png using Guid(318ed49e48a5d79498f8fed06b3424d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afe9ece3fab9e6f4323ed2bb0815f83d') in 0.017328 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.005191 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00093.png
-  artifactKey: Guid(1e5457d5d279d074b88a611b740ab9b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00093.png using Guid(1e5457d5d279d074b88a611b740ab9b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca7ba06bb0110faeeb8b0702a5592d3b') in 0.015064 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.024627 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00098.png
-  artifactKey: Guid(ad00d5f258c6bdf499d3789e5e47c554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00098.png using Guid(ad00d5f258c6bdf499d3789e5e47c554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e70c5f8d67012a83229afd561cb74a4') in 0.013612 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.009051 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00103.png
-  artifactKey: Guid(476b055994efbb345aa1e98944baf44f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00103.png using Guid(476b055994efbb345aa1e98944baf44f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d9aef0977c5939bfaf71f99cf00b28d') in 0.014308 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.002576 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00107.png
-  artifactKey: Guid(08d60947376bd4a4d83c1732a8aea4a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00107.png using Guid(08d60947376bd4a4d83c1732a8aea4a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '917b7e97b05accd8bfaf6b44d4fdaafc') in 0.015591 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.005983 seconds.
-  path: Assets/Object/MiddleBoss_2/Box/Box_00112.png
-  artifactKey: Guid(5822a425a7f25014e99e55dc9a984777) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Box/Box_00112.png using Guid(5822a425a7f25014e99e55dc9a984777) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fac5395f1e82bd334b7737a481942f40') in 0.017723 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.233811 seconds.
-  path: Assets/Object/Npc/Images/chara00101_main.png
-  artifactKey: Guid(f285ebbbb249d5a4191b0d78c0b1fa74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/Npc/Images/chara00101_main.png using Guid(f285ebbbb249d5a4191b0d78c0b1fa74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee982359da86dc7aec6fa67f3e4d110b') in 0.040269 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 6
-========================================================================
-Received Import Request.
-  Time since last request: 0.081893 seconds.
-  path: Assets/Object/Npc/Images/chara00501_main.png
-  artifactKey: Guid(3bcd91a7dc49a684b93e0d047e04b46a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/Npc/Images/chara00501_main.png using Guid(3bcd91a7dc49a684b93e0d047e04b46a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4e21436d530b134042c45bcf6458921') in 0.024278 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Map/Crystal Map/Effects/destr_effect01.png
-  artifactKey: Guid(535dc328ac642a9478096387c271878a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Crystal Map/Effects/destr_effect01.png using Guid(535dc328ac642a9478096387c271878a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2a747074a349ed60eefb73b7f2fad18') in 0.016579 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Object/MiddleBoss_1/Dead/Dead_00035.png
-  artifactKey: Guid(7568730a3fee0cc4db400aaf6c7c6800) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Dead/Dead_00035.png using Guid(7568730a3fee0cc4db400aaf6c7c6800) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53e4a24427bd025c30cb75af4dbd1839') in 0.015144 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Object/MiddleBoss_1/Dead/Dead_00038.png
-  artifactKey: Guid(5b5e776612b25c14ab7e85a17198e064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Dead/Dead_00038.png using Guid(5b5e776612b25c14ab7e85a17198e064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe2eba811a4e0c82f0e98c53b64a80bc') in 0.015975 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Map/Crystal Map/Effects/destr_effect03.png
-  artifactKey: Guid(6fad8e159685352459e3fdccd642b330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Crystal Map/Effects/destr_effect03.png using Guid(6fad8e159685352459e3fdccd642b330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0ab00e5c534a3fcae84c1b6116eaaad') in 0.014275 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Object/MiddleBoss_2/Doll/Doll_00005.png
-  artifactKey: Guid(8916a9a7e1ede3948bf7271c0548278c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Doll/Doll_00005.png using Guid(8916a9a7e1ede3948bf7271c0548278c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47fa76f48d4de799ceb6d046604a05c2') in 0.017178 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Object/Npc/Images/chara00502_main.png
-  artifactKey: Guid(6ea89123464b65449b10a54c41f82aaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/Npc/Images/chara00502_main.png using Guid(6ea89123464b65449b10a54c41f82aaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ba853ce1a239ef74305a270e1f7206a') in 0.022353 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Object/MiddleBoss_1/Dead/Dead_00044.png
-  artifactKey: Guid(28c68f77f77df7b4a8182562f8c83969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Dead/Dead_00044.png using Guid(28c68f77f77df7b4a8182562f8c83969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c97b6536a16b9817d4bb2aecc2279f6') in 0.015579 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Object/MiddleBoss_1/Jump/Jump_00023.png
-  artifactKey: Guid(67c43f71d8a58724abe9bec51ca407a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Jump/Jump_00023.png using Guid(67c43f71d8a58724abe9bec51ca407a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4345d18888bdb354d2b216335553ce03') in 0.020338 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Map/Crystal Map/main_lev_build_1.png
-  artifactKey: Guid(f35b2662afb16374fbc2f477d92f8a46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Crystal Map/main_lev_build_1.png using Guid(f35b2662afb16374fbc2f477d92f8a46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4442ef898026e12ee93070a2fe8477bf') in 0.326590 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 120
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00012.png
-  artifactKey: Guid(f8009d12e8b3dc440aba40aff5debfc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00012.png using Guid(f8009d12e8b3dc440aba40aff5debfc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc0c2cfe07ab4ece2c3b84b1e75907e3') in 0.015610 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_20.png
-  artifactKey: Guid(d90cdac33d9a8c04cbf42a6fe0c0bd7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_20.png using Guid(d90cdac33d9a8c04cbf42a6fe0c0bd7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cb075787896660e2dea6f1f3ce09bc4') in 0.017143 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00014.png
-  artifactKey: Guid(56175b01ef60bfc45956c774e94f8115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00014.png using Guid(56175b01ef60bfc45956c774e94f8115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2563633e9bd2c6c4bf248510e5a3b13') in 0.015910 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Object/MiddleBoss_2/Walk/Walk_00020.png
-  artifactKey: Guid(9ab20344c9e38594e87ecefb21338f19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Walk/Walk_00020.png using Guid(9ab20344c9e38594e87ecefb21338f19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '188ea422c966650e35303e77c102a194') in 0.018737 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Map/Dark Forest Map/Area1 Assets/Background/Tree 4.png
-  artifactKey: Guid(b282ea8c1f7a38742bfe63c608827dd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Forest Map/Area1 Assets/Background/Tree 4.png using Guid(b282ea8c1f7a38742bfe63c608827dd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b7af85a3015b95e0e97ee13e7dc4401') in 0.033794 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00029.png
-  artifactKey: Guid(70bc4fa1453bcc3499f432194faa3a58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00029.png using Guid(70bc4fa1453bcc3499f432194faa3a58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f42f35ba59179f0670dad296a2be0ca') in 0.015892 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Map/Dark Forest Map/Area1 Assets/Background/Tree 3.png
-  artifactKey: Guid(fbd2202f6257b2c41b541c3cf922a856) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Forest Map/Area1 Assets/Background/Tree 3.png using Guid(fbd2202f6257b2c41b541c3cf922a856) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5493fe67569c185d480420f3ab98a9e') in 0.019017 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Object/MiddleBoss_1/Run/Run_00013.png
-  artifactKey: Guid(af0009e103bbd4b4e82696dce00db0cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Run/Run_00013.png using Guid(af0009e103bbd4b4e82696dce00db0cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9b403be6ab4aaaa4892b3b43e09cf28') in 0.018775 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Object/MiddleBoss_2/Walk/Walk_00026.png
-  artifactKey: Guid(c49f6d49a176b7a4f98bfebe7348a3f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Walk/Walk_00026.png using Guid(c49f6d49a176b7a4f98bfebe7348a3f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f22a79fe006781824b7fad622500aa27') in 0.017514 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Object/MiddleBoss_1/Walk/Walk_00026.png
-  artifactKey: Guid(7731d396ae79aad4fbf2a0e87915e496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Walk/Walk_00026.png using Guid(7731d396ae79aad4fbf2a0e87915e496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b31345bc5cc3f43b8308e66567093286') in 0.020376 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00007.png
-  artifactKey: Guid(02c1e28fee8ebd048a97b748e3bc0cd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00007.png using Guid(02c1e28fee8ebd048a97b748e3bc0cd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f4df3df2fbea8df4e9e68496d6f8120') in 0.017542 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Object/Enemy/Sprites/Jump/Red/Sprite Sheet - Red Jump to Fall.png
-  artifactKey: Guid(563bbaff281b5a2438c2b0e6652bf92e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/Enemy/Sprites/Jump/Red/Sprite Sheet - Red Jump to Fall.png using Guid(563bbaff281b5a2438c2b0e6652bf92e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c91bfa936089eadd97076a99ce5ac9b') in 0.025849 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 7
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Object/MiddleBoss_1/Dead/Dead_00042.png
-  artifactKey: Guid(229a8ac92789a3f41b9242648a69a9a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Dead/Dead_00042.png using Guid(229a8ac92789a3f41b9242648a69a9a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1e9d1d0b867c1532562259ffc56b5ae') in 0.018252 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00024.png
-  artifactKey: Guid(47944918456f5c0479c1ed6c3354e8f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00024.png using Guid(47944918456f5c0479c1ed6c3354e8f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9a828fb3f443030a57b3535ce3f3782') in 0.017475 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_41.png
-  artifactKey: Guid(cbcab166f9137874aa6999039dd44ce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_41.png using Guid(cbcab166f9137874aa6999039dd44ce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '907b4dfb1444926ae766f41a2286fd4c') in 0.016363 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00023.png
-  artifactKey: Guid(331ebb33cb4a3444ebbaa9348d05fe14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00023.png using Guid(331ebb33cb4a3444ebbaa9348d05fe14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88093c80f223e5604f521f237ac2bcb0') in 0.015971 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Object/MiddleBoss_1/Run/Run_00004.png
-  artifactKey: Guid(443f0a9ae08c49b418f96943ea5eba9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Run/Run_00004.png using Guid(443f0a9ae08c49b418f96943ea5eba9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7eefb9ff58d77602ecfa3ccc3b44df6') in 0.018642 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Object/MiddleBoss_2/Walk/Walk_00027.png
-  artifactKey: Guid(491e8ad37eb9d2f47a3ad2926029e55b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Walk/Walk_00027.png using Guid(491e8ad37eb9d2f47a3ad2926029e55b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5f27d700502eb1642042eab135d6942') in 0.016436 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00021.png
-  artifactKey: Guid(d063e5838f57cfc48a434fad850e5778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00021.png using Guid(d063e5838f57cfc48a434fad850e5778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7db94218fcbf3346b106af8d55d20943') in 0.018608 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Object/MiddleBoss_1/Dead/Dead_00046.png
-  artifactKey: Guid(a078f31e39ea32d45881cbc1f980cc6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Dead/Dead_00046.png using Guid(a078f31e39ea32d45881cbc1f980cc6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '089eafcf33c49bd6a60a6e9dba12f281') in 0.017605 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 2.433200 seconds.
-  path: Assets/Object/MiddleBoss_1/Walk/Walk_00017.png
-  artifactKey: Guid(661495cfdfc4e424384fce70622a2fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Walk/Walk_00017.png using Guid(661495cfdfc4e424384fce70622a2fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '821ac4611561c2cacbf1d4f83ffda8f8') in 0.017739 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.173132 seconds.
-  path: Assets/Object/MiddleBoss_2/Walk/Walk_00014.png
-  artifactKey: Guid(a8535fc8ca62b2c438c3fe64572d3002) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Walk/Walk_00014.png using Guid(a8535fc8ca62b2c438c3fe64572d3002) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5535eb8dcd79bcdab3e5837f50a5fe4') in 0.035013 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.226407 seconds.
-  path: Assets/Object/MiddleBoss_1/Walk/Walk_00011.png
-  artifactKey: Guid(567fef22e067f784c8e953749ab7f09d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Walk/Walk_00011.png using Guid(567fef22e067f784c8e953749ab7f09d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f1695ec65c8a0039b8049b2749e238c') in 0.017603 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.031426 seconds.
-  path: Assets/Object/MiddleBoss_1/Walk/Walk_00008.png
-  artifactKey: Guid(04a2d05d9c698bb4cbaefbd1c4e0cb58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Walk/Walk_00008.png using Guid(04a2d05d9c698bb4cbaefbd1c4e0cb58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fafc7136a0b2a5b05424398c856178d') in 0.018247 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.014199 seconds.
-  path: Assets/Object/MiddleBoss_2/Walk/Walk_00004.png
-  artifactKey: Guid(16adc375cd6edd044b2e4b45b7ea8137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_2/Walk/Walk_00004.png using Guid(16adc375cd6edd044b2e4b45b7ea8137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6db1aeb299e3a89ccd50a21288d86b21') in 0.019740 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.253090 seconds.
-  path: Assets/Object/MiddleBoss_1/Walk/Walk_00002.png
-  artifactKey: Guid(9c5ac1900145ba44096db16dc16084ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Walk/Walk_00002.png using Guid(9c5ac1900145ba44096db16dc16084ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25d14ba284ab74f5bff317d034dd0787') in 0.017552 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.040282 seconds.
-  path: Assets/Map/Dark Map/Sprites/Main/Vises/vise 2 o.psd
-  artifactKey: Guid(563f0b777f5f2a842a3380523ed8fe8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Map/Sprites/Main/Vises/vise 2 o.psd using Guid(563f0b777f5f2a842a3380523ed8fe8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '889549f98bd85e404c92f0424a17d9cb') in 0.018128 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.352039 seconds.
-  path: Assets/Map/Dark Map/Sprites/Main/Other/Veg 1.psd
-  artifactKey: Guid(feb727368772d074b8a3997fb0e32a8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Map/Sprites/Main/Other/Veg 1.psd using Guid(feb727368772d074b8a3997fb0e32a8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '780f54f911b6b323ec93808fcde4af6b') in 0.022439 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 5
-========================================================================
-Received Import Request.
-  Time since last request: 0.038002 seconds.
-  path: Assets/Map/Dark Map/Sprites/Sky/Upsky 5.psd
-  artifactKey: Guid(b1d1267184ef78249a4fe4a9610e3f8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Map/Sprites/Sky/Upsky 5.psd using Guid(b1d1267184ef78249a4fe4a9610e3f8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8364bcd82ca752502b79e263d83d6a40') in 0.013688 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.038436 seconds.
-  path: Assets/Map/Dark Forest Map/Area1 Assets/Background/Tree 7.png
-  artifactKey: Guid(fef4b61424b4b9b46b14ef1ff030475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Forest Map/Area1 Assets/Background/Tree 7.png using Guid(fef4b61424b4b9b46b14ef1ff030475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2eb472cad524a3363f8aa5644ff62d62') in 0.036725 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.973981 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00001.png
-  artifactKey: Guid(c61f86602475cc647b77721d45f49263) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00001.png using Guid(c61f86602475cc647b77721d45f49263) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '027c8cfbe61f610658e70e5ada7fb427') in 0.028813 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Object/MiddleBoss_1/Attack/Sword_00004.png
-  artifactKey: Guid(fb690e1b26a47b44ba440eb8c6e80081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Attack/Sword_00004.png using Guid(fb690e1b26a47b44ba440eb8c6e80081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2aaf1a75fc74d5ab20532e2b39d03459') in 0.019458 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.040960 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_57.png
-  artifactKey: Guid(297a899feaecde24dac4d45232a46cfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_57.png using Guid(297a899feaecde24dac4d45232a46cfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdaa67244d689c582004decc952ecf31') in 0.028127 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.269649 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_51.png
-  artifactKey: Guid(541ae07c36c45ff4ead34088ae74bcdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_51.png using Guid(541ae07c36c45ff4ead34088ae74bcdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f71d47f941f4120fd1241a4bd61d2356') in 0.028306 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_54.png
-  artifactKey: Guid(c0f69b4ef43c6a248a904167ca32ad69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_54.png using Guid(c0f69b4ef43c6a248a904167ca32ad69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '634d389d2b92ddc55a19ebb9e28cd539') in 0.018059 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.050983 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_39.png
-  artifactKey: Guid(66f133d4294d3f046aba50b14157998a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_39.png using Guid(66f133d4294d3f046aba50b14157998a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6364b9211120dffeae6e40f77ca6ec36') in 0.021642 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_42.png
-  artifactKey: Guid(3f88ee95aaf920448a2543b84dbfcf17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_42.png using Guid(3f88ee95aaf920448a2543b84dbfcf17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee35db8a6c6e885671935d6c3fcea6d3') in 0.014912 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.261536 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_33.png
-  artifactKey: Guid(446080589557b154c9bcb2b185f4ff1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_33.png using Guid(446080589557b154c9bcb2b185f4ff1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d2b8756b133f389952a95af2c094db4') in 0.016910 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.041919 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_27.png
-  artifactKey: Guid(b2e1a386ee1e529468a384d00f9bc6c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_27.png using Guid(b2e1a386ee1e529468a384d00f9bc6c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02d2af72eae2aba2e84b9ce418810e5a') in 0.020185 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 1.129771 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_21.png
-  artifactKey: Guid(33a1123250903754e8b4a6c9ed3cd703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_21.png using Guid(33a1123250903754e8b4a6c9ed3cd703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec5c85aef8d1a1768036107d213d5507') in 0.016772 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_24.png
-  artifactKey: Guid(7d8ac82dfc2b607429f42b852b3fa54c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_24.png using Guid(7d8ac82dfc2b607429f42b852b3fa54c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd7bb31e418a43cbdb7e8f0271156cbc') in 0.012696 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.194564 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_15.png
-  artifactKey: Guid(36d4d9f01c5eb7a4e96d262fd67be8c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_15.png using Guid(36d4d9f01c5eb7a4e96d262fd67be8c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2872d571271d0c93c1b7e8f03ceb560c') in 0.015861 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_18.png
-  artifactKey: Guid(6f8d4fc3cb7e08a4badbc80830bc8a70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_18.png using Guid(6f8d4fc3cb7e08a4badbc80830bc8a70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71f8602a31c3f1b9605ca4b99d6ca6cf') in 0.012491 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.024142 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_9.png
-  artifactKey: Guid(0d7e8a0eda29a4e4eb7d8ce83bdcc84d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_9.png using Guid(0d7e8a0eda29a4e4eb7d8ce83bdcc84d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd6467d6f618f69c9cf79fb1ab7272e3') in 0.016506 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_12.png
-  artifactKey: Guid(8dc872511dfda7243849870378338dbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_12.png using Guid(8dc872511dfda7243849870378338dbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b6ce0efecc462a878b6d0675cd32da0') in 0.012177 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000305 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_3.png
-  artifactKey: Guid(68f8df60d2758de49bff7acdc5116dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Surface1/Surface2-animation_3.png using Guid(68f8df60d2758de49bff7acdc5116dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fb733de91557dd7fb3b1acb684ee86f') in 0.015561 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.018246 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/SunRays.psd
-  artifactKey: Guid(3960e1e6835b1934d95575d2ca534fa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/SunRays.psd using Guid(3960e1e6835b1934d95575d2ca534fa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '295108d915b08ad9c7a43ef9e9bd955c') in 0.023833 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 4.987810 seconds.
-  path: Assets/Object/Enemy/Sprites/Jump/Blue/Sprite Sheet - Blue Jump Start-up.png
-  artifactKey: Guid(f617990383515fb4cbd1d986504bdd76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/Enemy/Sprites/Jump/Blue/Sprite Sheet - Blue Jump Start-up.png using Guid(f617990383515fb4cbd1d986504bdd76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8686ea51a072864d0da3273c057de053') in 0.023855 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 1.716063 seconds.
-  path: Assets/Map/Dark Map/Sprites/Main/Other/spike 3.psd
-  artifactKey: Guid(10b027070ba6c6e40b3724b9f1750eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Map/Sprites/Main/Other/spike 3.psd using Guid(10b027070ba6c6e40b3724b9f1750eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd955ab90da0b68b024ddc2ef4d6f51dd') in 0.015872 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.271040 seconds.
-  path: Assets/Map/Dark Map/Sprites/Sky/sky 3.psd
-  artifactKey: Guid(bcd02f448a4e77748ac912afd168c67f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Map/Sprites/Sky/sky 3.psd using Guid(bcd02f448a4e77748ac912afd168c67f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69cc056909e710f36c304e401ff29229') in 0.012730 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.001303 seconds.
-  path: Assets/Map/Dark Map/Sprites/Sky/sky 7.psd
-  artifactKey: Guid(d333323a28592dc4db25cfb20af8442a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Map/Sprites/Sky/sky 7.psd using Guid(d333323a28592dc4db25cfb20af8442a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cdd0f74fd9b4cd02f30de4fe5b0563e') in 0.016707 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.066348 seconds.
-  path: Assets/Map/Dark Map/Sprites/Sky/sky 1.psd
-  artifactKey: Guid(baba4b7692356c248a4c01c88e56c7c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Map/Sprites/Sky/sky 1.psd using Guid(baba4b7692356c248a4c01c88e56c7c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad74880091aa073e7ab764cf575c9887') in 0.020114 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 2.228334 seconds.
-  path: Assets/Object/MiddleBoss_1/Run/Run_00002.png
-  artifactKey: Guid(3218bd22d3a1803489fff5c4eaab9ca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/MiddleBoss_1/Run/Run_00002.png using Guid(3218bd22d3a1803489fff5c4eaab9ca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71cb7a1162e61b0d1c4af3d1c8d91e94') in 0.049910 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 6.072001 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_63.png
-  artifactKey: Guid(56ea867cbaea9d149846de353de3e7bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_63.png using Guid(56ea867cbaea9d149846de353de3e7bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfd8aaa15cae84fb49b6a18f4b86e834') in 0.019243 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Map/Dark Map/Sprites/Main/Other/other 2.psd
-  artifactKey: Guid(54e9a277957121546bfde9381f527114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Dark Map/Sprites/Main/Other/other 2.psd using Guid(54e9a277957121546bfde9381f527114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e339146d9568db4392e2bf18cf3b272') in 0.043098 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_56.png
-  artifactKey: Guid(3617817383118ba48850eafc6076498f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_56.png using Guid(3617817383118ba48850eafc6076498f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89bc4e625f9fc1f383d8c423ca325533') in 0.036809 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_59.png
-  artifactKey: Guid(145803b821bd91543a8d1b559a8f326f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_59.png using Guid(145803b821bd91543a8d1b559a8f326f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ea4b2b2f259763b31cbde150bf4ad7a') in 0.019377 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.188772 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_51.png
-  artifactKey: Guid(0082b9469b2503645aa50a4d800d03bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_51.png using Guid(0082b9469b2503645aa50a4d800d03bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ac0766a3ff0c22bb436a4d99de49cbb') in 0.016929 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.033166 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_46.png
-  artifactKey: Guid(6dfb1e0d11367534f840dec5fff0f136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_46.png using Guid(6dfb1e0d11367534f840dec5fff0f136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abd76f613fb159b3481413de06fe9272') in 0.015167 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.997637 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_9.png
-  artifactKey: Guid(af1571e0b344c454e907dbe1b0d8cb2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_9.png using Guid(af1571e0b344c454e907dbe1b0d8cb2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf26471286051254ebddaff0d8731add') in 0.015570 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.015527 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_3.png
-  artifactKey: Guid(0566eeb7dd2de9641a6622e10e459302) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_3.png using Guid(0566eeb7dd2de9641a6622e10e459302) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbbd87ad4cd5718560f930d6c859a2d3') in 0.015042 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.322173 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_60.png
-  artifactKey: Guid(7d8821c79917ea04d856438a606060a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_60.png using Guid(7d8821c79917ea04d856438a606060a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c1b715f62942f72c5b181208908652c') in 0.016797 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_0.png
-  artifactKey: Guid(0ea86d4d18a28de4fb8f8cf356f3ed07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss3/Moss3-animation_0.png using Guid(0ea86d4d18a28de4fb8f8cf356f3ed07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2493861074143674ac9561afad7e1422') in 0.012221 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.012522 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_54.png
-  artifactKey: Guid(4d4b5306e2a8a6041b2ed93d0cd1d231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_54.png using Guid(4d4b5306e2a8a6041b2ed93d0cd1d231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21855eedd469d0582b0d36b77017b449') in 0.015690 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_57.png
-  artifactKey: Guid(6b2fa855049d93f4da2ee9127308f1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_57.png using Guid(6b2fa855049d93f4da2ee9127308f1ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd701da89fd80d37664d1908f2e50b87') in 0.012389 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.202363 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_48.png
-  artifactKey: Guid(bac1134de04f6ef4dae73312c25fa3b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_48.png using Guid(bac1134de04f6ef4dae73312c25fa3b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f306a83abf40e476c3f846c5dc7c0be0') in 0.031739 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.057993 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_42.png
-  artifactKey: Guid(8c3c76d9d157d1e498e1d38ec39c5b7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_42.png using Guid(8c3c76d9d157d1e498e1d38ec39c5b7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6733b2492e89d36b864df81ac596fd6b') in 0.017921 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_45.png
-  artifactKey: Guid(c9b09e9c7a7544b47b84d37a597c408e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_45.png using Guid(c9b09e9c7a7544b47b84d37a597c408e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc6f230e682e9e3a2ddb7018c54dff76') in 0.015711 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.179231 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_36.png
-  artifactKey: Guid(b880259439593bc469129b66a03a0d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_36.png using Guid(b880259439593bc469129b66a03a0d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '529ca4131d0a0929f372cf4b3878a898') in 0.032974 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.025961 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_30.png
-  artifactKey: Guid(ceabc55c2b3a9884a90d4eeceaf1ffcc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_30.png using Guid(ceabc55c2b3a9884a90d4eeceaf1ffcc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df695ac7b156d4c858ee9e0b8538b54e') in 0.017524 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.246238 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_24.png
-  artifactKey: Guid(e8c68b84ca1b6184899d4d2a469cdfe2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_24.png using Guid(e8c68b84ca1b6184899d4d2a469cdfe2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97210fbcdf7d1af030cfa04d5abb2447') in 0.019615 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_17.png
-  artifactKey: Guid(8e8dd4488ac0eaa4ab696483aefdff78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_17.png using Guid(8e8dd4488ac0eaa4ab696483aefdff78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9869451d31a8246aef5eff5115881ef2') in 0.023226 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.017118 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_12.png
-  artifactKey: Guid(8f801f15b4e74db4382b14b5d5c07eac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_12.png using Guid(8f801f15b4e74db4382b14b5d5c07eac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8496dea47bf6d4a3da8fd1bf57e109e') in 0.017857 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_15.png
-  artifactKey: Guid(8f8b031470c28a248947017a32c44f41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_15.png using Guid(8f8b031470c28a248947017a32c44f41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55cf66be9c9f9026668f9bf71e6e378c') in 0.014443 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.861239 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_6.png
-  artifactKey: Guid(b5ed45dcba661b94584715aed9598b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_6.png using Guid(b5ed45dcba661b94584715aed9598b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f80c9647a55ace7facffca7cea5f633') in 0.022960 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_1.png
-  artifactKey: Guid(52e1f5b6bf37f594485fce5070820167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_1.png using Guid(52e1f5b6bf37f594485fce5070820167) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14af1bbc6bf7ba184a8d26e3f7aa307b') in 0.016045 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_9.png
-  artifactKey: Guid(ca9e1e7ea3054744dae6452f94a7a0d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Free Asset - 2D Handcrafted Art/Sprite/Moss2/Moss2-animation_9.png using Guid(ca9e1e7ea3054744dae6452f94a7a0d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97e081a03dff3190b6f90fe2b199e131') in 0.023311 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 7.594062 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_03.png
-  artifactKey: Guid(e56754035317f39499a6e224c8287033) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_03.png using Guid(e56754035317f39499a6e224c8287033) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c75b534776ba1f3272c8ad4f59f6b845') in 0.013573 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.005337 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_07.png
-  artifactKey: Guid(1328fdac4f9659944ba1f9ef1a937afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_07.png using Guid(1328fdac4f9659944ba1f9ef1a937afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b308e29579a94268fcec39c2d3c56397') in 0.015114 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.005018 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_11.png
-  artifactKey: Guid(38d7473fda2d3af4a93c182957738997) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_11.png using Guid(38d7473fda2d3af4a93c182957738997) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd992974125cd74ef702cdf64be3bbdb0') in 0.014615 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.005145 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_15.png
-  artifactKey: Guid(718255a38331c384085e74f65ece70ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_15.png using Guid(718255a38331c384085e74f65ece70ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a0374976e727975acf3357f8edbba8b') in 0.014591 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.005535 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_19.png
-  artifactKey: Guid(6030a7103becf0c46aa1905abbd6a39a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_19.png using Guid(6030a7103becf0c46aa1905abbd6a39a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cb1b7a2cd4aba2f842533f1737274a2') in 0.014387 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.005578 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_23.png
-  artifactKey: Guid(344b858726ec79c44bc2f4a1b4aad179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_23.png using Guid(344b858726ec79c44bc2f4a1b4aad179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59664bff1d886cd8f53a52d2582afa9e') in 0.015395 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.004119 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_27.png
-  artifactKey: Guid(6ac270cb5af314a42af64960c696a8a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_27.png using Guid(6ac270cb5af314a42af64960c696a8a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a1ff54c6805c3a355b6c5464d2fb88c') in 0.015627 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.003945 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_31.png
-  artifactKey: Guid(441067a78a2670142a4bb41517cb8911) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_31.png using Guid(441067a78a2670142a4bb41517cb8911) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd10992ae34039b29cc9f359b98509d31') in 0.016648 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.002831 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_35.png
-  artifactKey: Guid(608716fb89152f34594d344a65006ae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_35.png using Guid(608716fb89152f34594d344a65006ae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fc65d9b6f5c5384cb48d35c9d1af64e') in 0.015033 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.004374 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_39.png
-  artifactKey: Guid(75c44071acce79748afdf09e43dc7cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_39.png using Guid(75c44071acce79748afdf09e43dc7cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20d7ba8e5e7b3167c57857cf230e35f7') in 0.016508 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.550787 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_44.png
-  artifactKey: Guid(ebcb0b4f7f861d44ea4f09d6903032cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_44.png using Guid(ebcb0b4f7f861d44ea4f09d6903032cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6cb2446c94a8a1aaa8a16b7866cba44') in 0.014437 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.005417 seconds.
-  path: Assets/Object/ItemIcons/Free-Fantasy-Items_48.png
-  artifactKey: Guid(208b97d4ee4cf9440babf04f85f437b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Object/ItemIcons/Free-Fantasy-Items_48.png using Guid(208b97d4ee4cf9440babf04f85f437b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8016529d81a6f18c4a0cbbffb43d41ef') in 0.017865 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 7.826593 seconds.
-  path: Assets/Prefab/Weapon/Axe1H_Medium.prefab
-  artifactKey: Guid(e7a052d7c956944408c21389a0d74951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Weapon/Axe1H_Medium.prefab using Guid(e7a052d7c956944408c21389a0d74951) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cc401c6bde6a3d6c12ad49d7b5e4f9e') in 0.156859 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefab/Weapon/Axe2H_Medium.prefab
-  artifactKey: Guid(d89fb3b2e3ab9104fa7e895e013cf664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Weapon/Axe2H_Medium.prefab using Guid(d89fb3b2e3ab9104fa7e895e013cf664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93d3d2273302f652ca8012a7458cbd61') in 0.169481 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Prefab/Weapon/Spear2H_Medium.prefab
-  artifactKey: Guid(b0928cfb7443265438a218e7165bab70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Weapon/Spear2H_Medium.prefab using Guid(b0928cfb7443265438a218e7165bab70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad417f47f9849d9fb051dbbfeaabd946') in 0.046588 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Prefab/Weapon/Shield_Epic.prefab
-  artifactKey: Guid(06573db6c65db154fa8a09675cf8f516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Weapon/Shield_Epic.prefab using Guid(06573db6c65db154fa8a09675cf8f516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75b5da6098e54423449e5174454d4a0d') in 0.091999 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 13
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefab/Weapon/Wand_Epic.prefab
-  artifactKey: Guid(148531d3ed9d54545890316f7196a4a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Weapon/Wand_Epic.prefab using Guid(148531d3ed9d54545890316f7196a4a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06d4ceedcfe93952e15505a1921f186e') in 0.072736 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 13
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Prefab/Weapon/Staff_Basic.prefab
-  artifactKey: Guid(c9115452c7d83bf4ba69590cbeecf839) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Weapon/Staff_Basic.prefab using Guid(c9115452c7d83bf4ba69590cbeecf839) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7af07f7fed7e06a4d1b5d0b3b5fab2d7') in 0.050690 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 14
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
 AssetImportWorker is now disconnected from the server

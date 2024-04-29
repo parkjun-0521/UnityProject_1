@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] potalPosition;
     public GameObject endPoint;
 
-
+    public List<int> setItem;
     void Awake() {
         instance = this;
         DontDestroyOnLoad(gameObject);
@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
             objMiniMapCamera.GetComponent<CameraManager>().playerTransform = playerPrefab.transform;
 
             UIManager.Instance.gameUI.SetActive(true);
+
+            setItem = new List<int>();
         }
         else {
             Destroy(playerPrefab);
@@ -109,6 +111,7 @@ public class GameManager : MonoBehaviour
             enemyKillCount = 0;
             coinValue = 0;
             enemyTotal = 0;
+            setItem = new List<int>();
             SceneManager.LoadScene(0);
         }
     }

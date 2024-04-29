@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [Header("Move")]
     public float moveSpeed;         // 플레이어 스피드 ( 강화 대상 ) 
     public float upMoveSpeed;
+    public float weaponSpeed;
 
     [Header("Power")]
     public float power;             // 플레이어 공격력 
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour
     [Header("Health")]
     public float health;
     public float maxHealth;         // 플레이어 체력 ( 강화 대상 ) 
+    public float upHealth;
+    public float weaponHealth;
     public bool isDamaged = false;
 
     [Header("Desh")]
@@ -89,6 +92,7 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             anime.SetBool("isRun", true);
         }
+
         transform.position += movePosition * moveSpeed * Time.deltaTime;  
     }
 

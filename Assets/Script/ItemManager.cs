@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
 
 public class ItemManager : MonoBehaviour
 {
@@ -9,9 +9,9 @@ public class ItemManager : MonoBehaviour
     public int setItemID;
 
     [Header("각 아이템 별 능력치 업그래이드 수치 ")]
-    public int health;
-    public int speed;
-    public int power;
+    public float health;
+    public float speed;
+    public float power;
 
     bool itemJump = false;
     bool isPlayerCheck = false;
@@ -47,6 +47,12 @@ public class ItemManager : MonoBehaviour
             playerLogic.upMoveSpeed += speed;
             playerLogic.upPower += power;
 
+            GameManager.instance.setItem.Add(setItemID);
+
+            // 셋트아이템 적용
+            SetItemOption();
+
+            playerLogic.health += this.health;
             playerLogic.moveSpeed = playerLogic.upMoveSpeed;
             playerLogic.power = playerLogic.upPower;
 
@@ -73,6 +79,50 @@ public class ItemManager : MonoBehaviour
                     rigid.velocity = Vector3.zero;
                     rigid.gravityScale = 0;
                 }
+            }
+        }
+    }
+
+    // 아이템 셋트 효과 
+    void SetItemOption() {
+        Dictionary<int, int> countDict = new Dictionary<int, int>();
+
+        // 리스트 안에 있는 각 숫자의 개수를 세기
+        foreach (int count in GameManager.instance.setItem) {
+            if (countDict.ContainsKey(count)) {
+                countDict[count]++;
+            }
+            else {
+                countDict[count] = 1;
+            }
+        }
+
+        foreach (var kvp in countDict) {
+            Debug.Log(kvp.Key + " " + kvp.Value);
+            switch (kvp.Value) {
+                case 2:
+                case 3:
+                    if (kvp.Key == 0) {
+                        Debug.Log("0번 Set 아이템 효과 0");
+                        // 증가되는 효과를 변수에 저장하기 
+                        // max 체력 = X + 증가되는 효과  ( playerLogic.maxHealth = playerLogic.upHealth + playerHealth + 증가되는 효과; )
+                        // 속도 = x + 증가되는 효과   (  playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerSpeed + 증가되는 효과; )
+                    }
+                    break;
+                case 4:
+                case 5:
+                    if (kvp.Key == 0) {
+                        Debug.Log("0번 Set 아이템 효과 1");
+                    }
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    if (kvp.Key == 0) {
+                        Debug.Log("0번 Set 아이템 효과 2");
+                    }
+                    break;
             }
         }
     }

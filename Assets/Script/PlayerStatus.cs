@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
+    public static PlayerStatus instance;
+
     Player playerLogic;
     UIManager uiManager;
+
+    void Awake() {
+        instance = this;
+    }
     void Start() {
         playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
         uiManager = UIManager.Instance.GetComponent<UIManager>();
@@ -13,8 +19,9 @@ public class PlayerStatus : MonoBehaviour
 
     // 체력 강화 
     public void HealthStatus() {
-        if (uiManager.healthCount <= 10) { 
-            playerLogic.maxHealth = HealthUp(uiManager.healthCount + 1) * GameManager.instance.player.GetComponent<Player>().health;
+        if (uiManager.healthCount <= 10) {
+            playerLogic.upHealth = HealthUp(uiManager.healthCount + 1) * GameManager.instance.player.GetComponent<Player>().health;
+            playerLogic.maxHealth = playerLogic.upHealth + playerLogic.weaponHealth;
             playerLogic.health = playerLogic.maxHealth;
         }
     }
@@ -31,7 +38,7 @@ public class PlayerStatus : MonoBehaviour
     // 이동 속도 강화 
     public void SpeedStatus() {
         playerLogic.upMoveSpeed = SpeedUp(uiManager.speedCount + 1) * GameManager.instance.player.GetComponent<Player>().upMoveSpeed;
-        playerLogic.moveSpeed = playerLogic.upMoveSpeed;
+        playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed;
     }
 
     public float SpeedUp( int count ) {

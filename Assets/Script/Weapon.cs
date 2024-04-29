@@ -5,6 +5,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public int weaponID;
+
+    public float playerHealth;
+    public float playerSpeed;
     public float weaponPower;
 
     bool isPlayerCheck = false;
@@ -33,8 +36,21 @@ public class Weapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && isPlayerCheck && !isWeaponCheck) {
             // 무기에 닿았을 때 
             Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
+
             playerLogic.weaponID = this.weaponID;
+
+            playerLogic.weaponHealth = this.playerHealth;
+            playerLogic.weaponSpeed = this.playerSpeed;
             playerLogic.weaponPower = this.weaponPower;
+
+            playerLogic.maxHealth = playerLogic.upHealth + playerHealth;
+            playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerSpeed;
+
+            playerLogic.health = playerLogic.health + playerHealth;
+            if (playerLogic.health > playerLogic.maxHealth) {
+                playerLogic.health = playerLogic.maxHealth;
+            }
+
             playerLogic.PlayerWeaponChange();
             isWeaponCheck = true;         
             StartCoroutine(WeaponGet());
