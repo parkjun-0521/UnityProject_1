@@ -11,10 +11,13 @@ public class Player : MonoBehaviour
     public float moveSpeed;         // 플레이어 스피드 ( 강화 대상 ) 
     public float upMoveSpeed;
     public float weaponSpeed;
+    public float itemSumSpeed;
+    public float itemSetSpeed;
 
     [Header("Power")]
     public float power;             // 플레이어 공격력 
     public float upPower;
+    public float itemSumPower;
 
     [Header ("Jump")]
     public float jumpPower;
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
     public float health;
     public float maxHealth;         // 플레이어 체력 ( 강화 대상 ) 
     public float upHealth;
+    public float itemSumHealth;
     public float weaponHealth;
     public bool isDamaged = false;
 
@@ -150,7 +154,7 @@ public class Player : MonoBehaviour
 
     IEnumerator MoveSet(){
         yield return new WaitForSeconds(0.5f);
-        moveSpeed = upMoveSpeed;
+        moveSpeed = (upMoveSpeed + weaponSpeed + itemSumSpeed) * (1.0f + itemSetSpeed);
     }
 
     void PlayerDash(){
@@ -162,7 +166,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C) && curDelay > maxDelay && !isDashCheck && !isNPC) {
             anime.SetBool("isDash", true);
-            moveSpeed = 30;
+            moveSpeed = 30 + (upMoveSpeed + weaponSpeed + itemSumSpeed) * (1.0f + itemSetSpeed);
             isDashCheck = true;
             curDelay = 0;
             StartCoroutine(StopDashAnime());
@@ -171,7 +175,7 @@ public class Player : MonoBehaviour
 
     IEnumerator StopDashAnime(){
         yield return new WaitForSeconds(0.15f);
-        moveSpeed = upMoveSpeed;
+        moveSpeed = (upMoveSpeed + weaponSpeed + itemSumSpeed) * (1.0f + itemSetSpeed);
         anime.SetBool("isDash", false);
         yield return new WaitForSeconds(0.1f);
         isDashCheck = false;

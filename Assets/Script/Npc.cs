@@ -12,7 +12,7 @@ public class Npc : MonoBehaviour
     bool isWeaponDrop = false;
 
     int itemDropCount = 0;
-    bool isItemDrop = false;
+    public bool isItemDrop = false;
 
     public GameObject[] weaponItem;
     public GameObject[] itemItem;
@@ -55,8 +55,16 @@ public class Npc : MonoBehaviour
 
     public void ItemNPC() {
         if (!isItemDrop) {
+            int rand;
+            int totalRand = Random.Range(1, 101);
             itemDropCount++;
-            int rand = Random.Range(11, GameManager.instance.poolManager.prefabs.Length);
+            // 확률형 아이템 드랍 
+            // 10% 확률로 성능이 좋은 2개의 아이템중 하나가 나온다.
+            if(totalRand < 90) 
+                rand = Random.Range(11, GameManager.instance.poolManager.prefabs.Length - 2);
+            else 
+                rand = Random.Range(GameManager.instance.poolManager.prefabs.Length - 2, GameManager.instance.poolManager.prefabs.Length);   
+            
             GameObject item = GameManager.instance.poolManager.GetObject(rand);
             item.transform.position = this.transform.position;
             if (itemDropCount == 2) {

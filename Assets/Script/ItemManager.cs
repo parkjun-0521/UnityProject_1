@@ -18,6 +18,7 @@ public class ItemManager : MonoBehaviour
     bool isItemCheck = false;
 
     Rigidbody2D rigid;
+    SetItem setItemLogic;
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -38,23 +39,30 @@ public class ItemManager : MonoBehaviour
     {
         SetItemDrop();
 
+        ItemAcquisition();
+    }
+
+    public void ItemAcquisition() {
         if (Input.GetKeyDown(KeyCode.F) && isPlayerCheck && !isItemCheck) {
             isItemCheck = true;
 
-            // 능력치 증가 
+            // 능력치 증가 ( 버릴 때는 id로 정보를 가져와서 역과정 ) 
             Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
-            playerLogic.maxHealth += health;
-            playerLogic.upMoveSpeed += speed;
-            playerLogic.upPower += power;
+   
+            playerLogic.maxHealth = playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth;
+            playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed;
+            playerLogic.power = playerLogic.upPower + playerLogic.itemSumPower;
+
+            if (playerLogic.health > playerLogic.maxHealth)
+                playerLogic.health = playerLogic.maxHealth;
+            else
+                playerLogic.health += this.health;
 
             GameManager.instance.setItem.Add(setItemID);
 
             // 셋트아이템 적용
+            setItemLogic = GetComponent<SetItem>();
             SetItemOption();
-
-            playerLogic.health += this.health;
-            playerLogic.moveSpeed = playerLogic.upMoveSpeed;
-            playerLogic.power = playerLogic.upPower;
 
             StartCoroutine(WeaponGet());
         }
@@ -90,7 +98,7 @@ public class ItemManager : MonoBehaviour
         // 리스트 안에 있는 각 숫자의 개수를 세기
         foreach (int count in GameManager.instance.setItem) {
             if (countDict.ContainsKey(count)) {
-                countDict[count]++;
+                ++countDict[count];
             }
             else {
                 countDict[count] = 1;
@@ -99,30 +107,17 @@ public class ItemManager : MonoBehaviour
 
         foreach (var kvp in countDict) {
             Debug.Log(kvp.Key + " " + kvp.Value);
-            switch (kvp.Value) {
-                case 2:
-                case 3:
-                    if (kvp.Key == 0) {
-                        Debug.Log("0번 Set 아이템 효과 0");
-                        // 증가되는 효과를 변수에 저장하기 
-                        // max 체력 = X + 증가되는 효과  ( playerLogic.maxHealth = playerLogic.upHealth + playerHealth + 증가되는 효과; )
-                        // 속도 = x + 증가되는 효과   (  playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerSpeed + 증가되는 효과; )
-                    }
-                    break;
-                case 4:
-                case 5:
-                    if (kvp.Key == 0) {
-                        Debug.Log("0번 Set 아이템 효과 1");
-                    }
-                    break;
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                    if (kvp.Key == 0) {
-                        Debug.Log("0번 Set 아이템 효과 2");
-                    }
-                    break;
+            if (kvp.Value == 1) {
+                setItemLogic.Set_1(kvp.Key);
+            }
+            else if (kvp.Value == 2 || kvp.Value == 3) {
+                setItemLogic.Set_2(kvp.Key);
+            }
+            else if( kvp.Value == 4 || kvp.Value == 5) {
+                setItemLogic.Set_4(kvp.Key);
+            }
+            else if( kvp.Value >= 6) {
+                setItemLogic.Set_6(kvp.Key);
             }
         }
     }

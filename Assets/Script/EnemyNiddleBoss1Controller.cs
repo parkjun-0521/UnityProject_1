@@ -278,6 +278,3 @@ public class EnemyNiddleBoss1Controller : MonoBehaviour
 		}
     }
 }
-
-
-

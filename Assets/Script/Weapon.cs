@@ -43,8 +43,8 @@ public class Weapon : MonoBehaviour
             playerLogic.weaponSpeed = this.playerSpeed;
             playerLogic.weaponPower = this.weaponPower;
 
-            playerLogic.maxHealth = playerLogic.upHealth + playerHealth;
-            playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerSpeed;
+            playerLogic.maxHealth = playerLogic.upHealth + playerHealth + playerLogic.itemSumHealth;
+            playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerSpeed + playerLogic.itemSumSpeed;
 
             playerLogic.health = playerLogic.health + playerHealth;
             if (playerLogic.health > playerLogic.maxHealth) {

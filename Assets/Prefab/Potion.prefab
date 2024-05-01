@@ -162,7 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247a8f94140176849894ed5797c95024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDropType: 1
   coinValue: 10
+  heal: 30
 --- !u!1 &7825746933267696806
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class PlayerStatus : MonoBehaviour
     public void HealthStatus() {
         if (uiManager.healthCount <= 10) {
             playerLogic.upHealth = HealthUp(uiManager.healthCount + 1) * GameManager.instance.player.GetComponent<Player>().health;
-            playerLogic.maxHealth = playerLogic.upHealth + playerLogic.weaponHealth;
+            playerLogic.maxHealth = playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth;
             playerLogic.health = playerLogic.maxHealth;
         }
     }
@@ -38,7 +38,7 @@ public class PlayerStatus : MonoBehaviour
     // 이동 속도 강화 
     public void SpeedStatus() {
         playerLogic.upMoveSpeed = SpeedUp(uiManager.speedCount + 1) * GameManager.instance.player.GetComponent<Player>().upMoveSpeed;
-        playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed;
+        playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed;
     }
 
     public float SpeedUp( int count ) {
@@ -53,7 +53,7 @@ public class PlayerStatus : MonoBehaviour
     // 공격력 강화 
     public void PowerStatus() {
         playerLogic.upPower = PowerUp(uiManager.powerCount + 1) * GameManager.instance.player.GetComponent<Player>().upPower;
-        playerLogic.power = playerLogic.upPower;
+        playerLogic.power = playerLogic.upPower + playerLogic.itemSumPower;
     }
 
     public float PowerUp( int count ) {

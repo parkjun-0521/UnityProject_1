@@ -218,11 +218,21 @@ public class Enemy : MonoBehaviour
             GameManager.instance.enemyTotal += enemyValue * 3;
         else
             GameManager.instance.enemyTotal += enemyValue;
-
-        int random = Random.Range(2, 7);
-        for (int i = 0; i < random; i++) {
-            GameObject coin = GameManager.instance.poolManager.GetObject(5);
-            coin.transform.position = this.transform.position;
+        if (enemyType == Type.enemy_S) {
+            int random = Random.Range(2, 7);
+            for (int i = 0; i < random; i++) {
+                GameObject coin = GameManager.instance.poolManager.GetObject(5);
+                coin.transform.position = this.transform.position;
+            }
+        }
+        else if(enemyType == Type.enemy_M ||  enemyType == Type.enemy_B) {
+            int random = Random.Range(7, 12);
+            for (int i = 0; i < random; i++) {
+                GameObject coin = GameManager.instance.poolManager.GetObject(5);
+                coin.transform.position = this.transform.position;
+            }
+            GameObject potion = GameManager.instance.poolManager.GetObject(10);
+            potion.transform.position = this.transform.position;
         }
         gameObject.SetActive(false);
     }
