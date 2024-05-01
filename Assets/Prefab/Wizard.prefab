@@ -252,10 +252,12 @@ MonoBehaviour:
   moveSpeed: 5
   upMoveSpeed: 5
   weaponSpeed: 0
+  itemSumSpeed: 0
+  itemSetSpeed: 0
   power: 5
   upPower: 5
+  itemSumPower: 0
   jumpPower: 15
-  maxJumpSpeed: 15
   jumpCount: 0
   isJumpChek: 0
   weaponID: 0
@@ -266,6 +268,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   upHealth: 100
+  itemSumHealth: 0
   weaponHealth: 0
   isDamaged: 0
   isDashCheck: 0
@@ -274,6 +277,7 @@ MonoBehaviour:
   weaponPos: {fileID: 5523182772763910738}
   isNPC: 0
   anime: {fileID: 0}
+  bottomColliderPos: {fileID: 0}
 --- !u!1 &4262026506689939861
 GameObject:
   m_ObjectHideFlags: 0

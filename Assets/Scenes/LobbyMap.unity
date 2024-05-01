@@ -6473,7 +6473,7 @@ GameObject:
   - component: {fileID: 203273271}
   m_Layer: 11
   m_Name: Left_Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7667,7 +7667,7 @@ GameObject:
   - component: {fileID: 359071776}
   m_Layer: 11
   m_Name: Right_Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21815,6 +21815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  isItemDrop: 0
   weaponItem:
   - {fileID: 2999748106215116, guid: 7dd4f26780b9bb44590fae3bc52dc2af, type: 3}
   - {fileID: 5409340933053809108, guid: f086dd2546907c442884c149dc0c1895, type: 3}
@@ -23599,7 +23600,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1907892397
 GameObject:
@@ -24924,6 +24925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  isItemDrop: 0
   weaponItem: []
   itemItem: []
 --- !u!1 &2048362791
@@ -25096,6 +25098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
+  isItemDrop: 0
   weaponItem: []
   itemItem:
   - {fileID: 1837830261684440419, guid: 805f06b1ba4cc3544ab23c53f2132171, type: 3}

@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     bool isPotal = false;
 
     public GameObject player;
+    public Camera mainCamera;
     public Pooling poolManager;
-    public Camera cameraPlayer;
 
     public GameObject fireBallPrefab;
     public GameObject playerPrefab;
@@ -87,13 +87,18 @@ public class GameManager : MonoBehaviour
         // 그 두개의 숫자를 가지고 포탈을 생성 
         // 프리팹으로 생성하되 위치는 potalPosition 위치로
         int[] random = new int[potalPosition.Length];
-        for (int i = 0; i < potalPosition.Length; i++) {
-            random[i] = Random.Range(0, 4);
-            Debug.Log(random[i]);
-            if (i == 1 && random[i] == random[i - 1])
-                i--;
-            else {
-                GameObject potal = Instantiate(potalPrefabs[random[i]], potalPosition[i].transform.position, Quaternion.identity); 
+        if (SceneLoadManager.instance.mapCount == 3 || SceneLoadManager.instance.mapCount == 8) {
+            GameObject potal = Instantiate(potalPrefabs[random[0]], potalPosition[0].transform.position, Quaternion.identity);
+        }
+        else {
+            for (int i = 0; i < potalPosition.Length; i++) {
+                random[i] = Random.Range(0, 4);
+                Debug.Log(random[i]);
+                if (i == 1 && random[i] == random[i - 1])
+                    i--;
+                else {
+                    GameObject potal = Instantiate(potalPrefabs[random[i]], potalPosition[i].transform.position, Quaternion.identity);
+                }
             }
         }
         isPotal = true;
@@ -103,7 +108,6 @@ public class GameManager : MonoBehaviour
         if (playerPrefab.GetComponent<Player>().health <= 0) {
 
             // 전체 코인 계산 ( 보스잡은 수 * 30 + 중간보스 * 15 + 잡몹 * 3 + 스테이지 수 * 2 ) 
-            // 임시로 테스트 
             worldCoinValue += (enemyTotal + ((SceneLoadManager.instance.stageCount * SceneLoadManager.instance.mapCount) * 2));
 
             SceneLoadManager.instance.mapCount = 0;
@@ -112,6 +116,7 @@ public class GameManager : MonoBehaviour
             coinValue = 0;
             enemyTotal = 0;
             setItem = new List<int>();
+            mainCamera.GetComponent<Camera>().orthographicSize = 7;
             SceneManager.LoadScene(0);
         }
     }

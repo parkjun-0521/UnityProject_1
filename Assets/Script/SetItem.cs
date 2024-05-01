@@ -140,6 +140,7 @@ public class SetItem : MonoBehaviour
     void SetOptionStatus(float health, float speed, float power) {
         playerLogic.itemSetSpeed = speed;
         playerLogic.maxHealth *= (1.0f + health);
+        playerLogic.health += playerLogic.maxHealth * (1.0f + health);
         playerLogic.moveSpeed *= (1.0f + speed);
         playerLogic.power *= (1.0f + power);
     }

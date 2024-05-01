@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
 
     [Header ("Jump")]
     public float jumpPower;
-    public float maxJumpSpeed;
     public int jumpCount;
     public bool isJumpChek = false;
+    public bool downJump = false;
 
     [Header("Attack")]
     public int weaponID;
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
     public Animator anime;
     Rigidbody2D rigid;
+    CapsuleCollider2D capsuleCollider2D;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
     void Start() {
         rigid = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         PlayerWeaponChange();
         health = maxHealth;
         isDead = false;
@@ -102,33 +104,49 @@ public class Player : MonoBehaviour
 
     void PlayerJump(){
         
-        if(Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isNPC) {
+        // 아래 점프 ( 위에서 아래 블록으로 내려올 때 ) 
+        if(Input.GetKey(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isNPC) {
             anime.SetBool("isRunAndJump", true);
             anime.SetBool("isJump", true);
+
+            capsuleCollider2D.isTrigger = true;
+            downJump = true;
+
+            StartCoroutine(DownJumpCheck());
+        }
+        else if (Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isNPC) {
+            anime.SetBool("isRunAndJump", true);
+            anime.SetBool("isJump", true);
+
+            capsuleCollider2D.isTrigger = true;
+
             jumpCount++;
-            if(jumpCount == 2){
+            if (jumpCount == 2) {
                 isJumpChek = true;
                 jumpCount = 0;
             }
-            if(Mathf.Abs(rigid.velocity.y) < maxJumpSpeed){
-                rigid.velocity = Vector2.zero;
-                rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            }
+            rigid.velocity = Vector2.zero;
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
 
-        if (rigid.velocity.y < 0){
+        if(rigid.velocity.y < 0.0f || rigid.velocity.y == 0.0f) {
             Debug.DrawRay(rigid.position, Vector2.down, Color.green);
             RaycastHit2D hit = Physics2D.Raycast(rigid.position, Vector2.down, 1, LayerMask.GetMask("Floor"));
-            if (hit.collider != null)
-            {
-                if(hit.collider.tag == "Floor"){
+            if (hit.collider != null) {
+                if (hit.collider.tag == "Floor") {
+                    capsuleCollider2D.isTrigger = false;
                     isJumpChek = false;
                     anime.SetBool("isRunAndJump", false);
                     anime.SetBool("isJump", false);
                     anime.SetBool("isDash", false);
                 }
-            }   
+            }
         }
+    }
+
+    IEnumerator DownJumpCheck() {
+        yield return new WaitForSeconds(0.3f);
+        downJump = false;
     }
 
     void PlayerAttack(){
@@ -223,7 +241,13 @@ public class Player : MonoBehaviour
                 }
                 StartCoroutine(IsDamagerdOff());
             }
-        }      
+        }
+    }
+
+    void OnTriggerStay2D( Collider2D collision ) {
+        if (collision.CompareTag("Wall")) {
+            capsuleCollider2D.isTrigger = false;
+        }
     }
 
     IEnumerator IsDamagerdOff() {

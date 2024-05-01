@@ -14,6 +14,8 @@ TagManager:
   - Weapon
   - Rayser
   - EnemyFireBall
+  - PlayerBottomPos
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -23,9 +25,9 @@ TagManager:
   - UI
   - Player
   - Floor
+  - 
+  - 
   - MiddleBoss
-  - 
-  - 
   - MiniMap
   - WeaponUI
   - 

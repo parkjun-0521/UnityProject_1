@@ -20,11 +20,14 @@ public class SceneLoadManager : MonoBehaviour
     public void BasicRoom() {
         int random = Random.Range(1, 7);
         mainCamera.GetComponent<Camera>().orthographicSize = 7;
+
         SceneManager.LoadScene(random);
         Debug.Log("¿œπ› ∏ ");
     }
     public void ShopRoom() {
         int random = Random.Range(7, 9);
+        mainCamera.GetComponent<Camera>().orthographicSize = 7;
+
         SceneManager.LoadScene(random);
         Debug.Log("ªÛ¡°");
     }

@@ -48,7 +48,12 @@ public class ItemManager : MonoBehaviour
 
             // 능력치 증가 ( 버릴 때는 id로 정보를 가져와서 역과정 ) 
             Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
-   
+
+            playerLogic.itemSumHealth += health;
+            playerLogic.itemSumSpeed += speed;
+            playerLogic.itemSumPower += power;
+
+
             playerLogic.maxHealth = playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth;
             playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed;
             playerLogic.power = playerLogic.upPower + playerLogic.itemSumPower;

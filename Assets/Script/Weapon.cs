@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Weapon : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Weapon : MonoBehaviour
             int rendom = Random.Range(0, 2);
             float renPower = Random.Range(0f, 3f);
             Vector2 power = (rendom == 0) ? Vector2.left * renPower : Vector2.right * renPower;
+            rigid.gravityScale = 1;
             rigid.AddForce(Vector2.up * 5 + power, ForceMode2D.Impulse);
         }
     }

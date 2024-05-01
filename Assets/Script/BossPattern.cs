@@ -7,7 +7,7 @@ public class BossPattern : MonoBehaviour
     public enum PatternName{
         Rayser,
         Heal,
-        LongDistanceAttack,
+        LongDistanceAttack
     }
     public PatternName patternName;
 
