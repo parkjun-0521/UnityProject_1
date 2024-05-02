@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
 
 
     void Update() {
-        if((enemyCount == 0 || SceneLoadManager.instance.mapCount == 4 || SceneLoadManager.instance.mapCount == 9) && !isPotal) {
+        if((enemyCount == 0 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) && !isPotal) {
             Debug.Log("적이 모두 죽었을 때");
             PotalCreate();
         }
@@ -87,8 +87,8 @@ public class GameManager : MonoBehaviour
         // 그 두개의 숫자를 가지고 포탈을 생성 
         // 프리팹으로 생성하되 위치는 potalPosition 위치로
         int[] random = new int[potalPosition.Length];
-        if (SceneLoadManager.instance.mapCount == 3 || SceneLoadManager.instance.mapCount == 8) {
-            GameObject potal = Instantiate(potalPrefabs[random[0]], potalPosition[0].transform.position, Quaternion.identity);
+        if (SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8) {
+            Instantiate(potalPrefabs[random[0]], potalPosition[0].transform.position, Quaternion.identity);
         }
         else {
             for (int i = 0; i < potalPosition.Length; i++) {
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
                 if (i == 1 && random[i] == random[i - 1])
                     i--;
                 else {
-                    GameObject potal = Instantiate(potalPrefabs[random[i]], potalPosition[i].transform.position, Quaternion.identity);
+                    Instantiate(potalPrefabs[random[i]], potalPosition[i].transform.position, Quaternion.identity);
                 }
             }
         }

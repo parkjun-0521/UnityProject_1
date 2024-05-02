@@ -222,6 +222,7 @@ public class Enemy : MonoBehaviour
             int random = Random.Range(2, 7);
             for (int i = 0; i < random; i++) {
                 GameObject coin = GameManager.instance.poolManager.GetObject(5);
+                coin.GetComponent<Coin>().coinValue = Random.Range(5, 11);
                 coin.transform.position = this.transform.position;
             }
         }

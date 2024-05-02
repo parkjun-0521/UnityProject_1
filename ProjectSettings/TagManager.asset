@@ -16,6 +16,7 @@ TagManager:
   - EnemyFireBall
   - PlayerBottomPos
   - Wall
+  - Item
   layers:
   - Default
   - TransparentFX

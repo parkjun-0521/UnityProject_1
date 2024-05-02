@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5245146323657430719}
   m_Layer: 0
   m_Name: 12_Item_2
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,6 +174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 12
   setItemID: 2
+  cost: 500
+  upCost: 500
   health: 15
   speed: -0.5
   power: 15

@@ -7,16 +7,27 @@ public class ShopItemCreate : MonoBehaviour
     int rand;
     int totalRand;
     public Transform[] itemCreatePos;
+    ShopItemReRoll shopItemReRoll;
     int[] randNum;
-    bool isCreate;
+    bool isCreate = false;
 
     void Start() {
         randNum = new int[itemCreatePos.Length];
+        shopItemReRoll = GetComponentInChildren<ShopItemReRoll>();
     }
 
     void Update() {
-        if (!isCreate)
-            ItemCreate();
+        if (!isCreate) {
+            GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+            foreach (GameObject item in items) 
+                item.SetActive(false);
+            ItemCreate();   // 상점 입장 아이템 생성 
+        }
+        
+        if (shopItemReRoll.isReRoll) {
+            // 리롤을 눌렀을 때 
+            ReRoll();
+        }
     }
 
     void ItemCreate() {
@@ -37,6 +48,15 @@ public class ShopItemCreate : MonoBehaviour
             item.GetComponent<Rigidbody2D>().gravityScale = 0;
         }
         isCreate = true;
+    }
+
+    void ReRoll() {
+        GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+        foreach (GameObject item in items) {
+            item.SetActive(false);
+        }
+        ItemCreate();
+        shopItemReRoll.isReRoll = false;
     }
 
     bool IsDuplicate( int value, int[] array, int length ) {

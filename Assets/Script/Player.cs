@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
 
-        if(rigid.velocity.y < 0.0f || rigid.velocity.y == 0.0f) {
+        if(rigid.velocity.y < -2.0f || rigid.velocity.y == 0.0f) {
             Debug.DrawRay(rigid.position, Vector2.down, Color.green);
             RaycastHit2D hit = Physics2D.Raycast(rigid.position, Vector2.down, 1, LayerMask.GetMask("Floor"));
             if (hit.collider != null) {

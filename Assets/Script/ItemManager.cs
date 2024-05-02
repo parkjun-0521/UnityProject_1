@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    [Header("각 아이템 정보")]
     public int itemID;
     public int setItemID;
+    public int cost;
+    public int upCost;
 
     [Header("각 아이템 별 능력치 업그래이드 수치 ")]
     public float health;
@@ -33,6 +36,7 @@ public class ItemManager : MonoBehaviour
             Vector2 power = (rendom == 0) ? Vector2.left * renPower : Vector2.right * renPower;
             rigid.AddForce(Vector2.up * 5 + power, ForceMode2D.Impulse);
         }
+        upCost = (int)(cost * (1f + (SceneLoadManager.instance.mapCount * 0.1f)));
     }
 
     void Update()
@@ -44,6 +48,14 @@ public class ItemManager : MonoBehaviour
 
     public void ItemAcquisition() {
         if (Input.GetKeyDown(KeyCode.F) && isPlayerCheck && !isItemCheck) {
+            if (SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) {
+                if(GameManager.instance.coinValue < upCost) {
+                    Debug.Log("코인이 부족합니다.");
+                    return;
+                }
+                GameManager.instance.coinValue -= upCost;
+            }
+
             isItemCheck = true;
 
             // 능력치 증가 ( 버릴 때는 id로 정보를 가져와서 역과정 ) 

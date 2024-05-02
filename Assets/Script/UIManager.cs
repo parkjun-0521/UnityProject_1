@@ -53,6 +53,13 @@ public class UIManager : MonoBehaviour
     public Text statusPowerText;
     public Text statusWeaponPowerText;
     public Text statusTotalPowerText;
+    // 아이템 증가량 
+    public Text statusItemHealthText;
+    public Text statusItemSpeedText;
+    public Text statusItemPowerText;
+    // 무기 증가량 
+    public Text statusWeaponHealthText;
+    public Text statusWeaponSpeedText;
 
     Player playerLogic;
 
@@ -116,15 +123,21 @@ public class UIManager : MonoBehaviour
     // tab 누를 시 등장하는 Player 상태창 
     public void PlayerStatusUI() {
         if (playerStatusUI.activeSelf) {
-            Player player = GameManager.instance.playerPrefab.GetComponent<Player>();
             if (playerLogic == null) {
                 playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
             }
             statusHealthText.text = (Mathf.Round(playerLogic.maxHealth)).ToString();
             statusSpeedText.text = (Mathf.Round(playerLogic.moveSpeed * 100.0f) / 100.0f).ToString();
             statusPowerText.text = (Mathf.Round(playerLogic.power * 100.0f) / 100.0f).ToString();
-            statusWeaponPowerText.text = player.weaponPower.ToString();
-            statusTotalPowerText.text = Mathf.Round(player.power + (player.power * (player.weaponPower / 10) * 100.0f) / 100.0f).ToString();
+            statusWeaponPowerText.text = playerLogic.weaponPower.ToString();
+            statusTotalPowerText.text = Mathf.Round(playerLogic.power + (playerLogic.power * (playerLogic.weaponPower / 10) * 100.0f) / 100.0f).ToString();
+
+            statusItemHealthText.text = (Mathf.Round(playerLogic.itemSumHealth)).ToString();
+            statusItemSpeedText.text = (Mathf.Round(playerLogic.itemSumSpeed * 100.0f) / 100.0f).ToString();
+            statusItemPowerText.text = (Mathf.Round(playerLogic.itemSumPower * 100.0f) / 100.0f).ToString();
+
+            statusWeaponHealthText.text = playerLogic.weaponHealth.ToString();
+            statusWeaponSpeedText.text = playerLogic.weaponSpeed.ToString();
         }
     }
 
