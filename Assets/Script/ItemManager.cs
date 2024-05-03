@@ -48,6 +48,14 @@ public class ItemManager : MonoBehaviour
 
     public void ItemAcquisition() {
         if (Input.GetKeyDown(KeyCode.F) && isPlayerCheck && !isItemCheck) {
+            // 아이템 창이 가득 찼을 경우 예외처리
+            if(GameManager.instance.setItem.Count >= 9) {
+                // 아직은 아니지만 아이템이 가득 찼을 시 UI를 띄워줌 ( 교체 할껀지 UI를 띄워줘야 하나? ) 
+                //UIManager.Instance.StatusUI();
+                return;
+            }
+
+            // 코인이 없을 경우 예외처리 
             if (SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) {
                 if(GameManager.instance.coinValue < upCost) {
                     Debug.Log("코인이 부족합니다.");
@@ -55,6 +63,7 @@ public class ItemManager : MonoBehaviour
                 }
                 GameManager.instance.coinValue -= upCost;
             }
+
 
             isItemCheck = true;
 
@@ -76,6 +85,7 @@ public class ItemManager : MonoBehaviour
                 playerLogic.health += this.health;
 
             GameManager.instance.setItem.Add(setItemID);
+            GameManager.instance.itemID.Add(itemID);
 
             // 셋트아이템 적용
             setItemLogic = GetComponent<SetItem>();
@@ -121,6 +131,9 @@ public class ItemManager : MonoBehaviour
                 countDict[count] = 1;
             }
         }
+
+        GameManager.instance.itemSetKey.Clear();
+        GameManager.instance.setItemInfo.Clear();
 
         foreach (var kvp in countDict) {
             Debug.Log(kvp.Key + " " + kvp.Value);

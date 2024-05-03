@@ -1,11 +1,13 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,7 +32,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] potalPosition;
     public GameObject endPoint;
 
+    public List<int> itemSetKey;
     public List<int> setItem;
+    public List<int> itemID;
+    public Dictionary<int, List<float>> setItemInfo;
     void Awake() {
         instance = this;
         DontDestroyOnLoad(gameObject);
@@ -51,7 +56,10 @@ public class GameManager : MonoBehaviour
 
             UIManager.Instance.gameUI.SetActive(true);
 
+            setItemInfo = new Dictionary<int, List<float>>();
+            itemSetKey = new List<int>();
             setItem = new List<int>();
+            itemID = new List<int>();
         }
         else {
             Destroy(playerPrefab);
@@ -115,7 +123,12 @@ public class GameManager : MonoBehaviour
             enemyKillCount = 0;
             coinValue = 0;
             enemyTotal = 0;
+
+            itemSetKey = new List<int>();
             setItem = new List<int>();
+            itemID = new List<int>();
+            setItemInfo = new Dictionary<int, List<float>>();
+
             mainCamera.GetComponent<Camera>().orthographicSize = 7;
             SceneManager.LoadScene(0);
         }

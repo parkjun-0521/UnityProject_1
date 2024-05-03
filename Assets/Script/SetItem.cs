@@ -34,114 +34,126 @@ public class SetItem : MonoBehaviour
 
     public void Set_1(int key) {      
         if (key == 5) {
-            SetOptionStatus(0.2f, 0.2f, 0.2f);
+            GameManager.instance.itemSetKey.Add(key);
+            SetOptionStatus(0.2f, 0.2f, 0.2f, key);
         }
         if (key == 6) {
-            SetOptionStatus(0.1f, 0.3f, 0.2f);
+            GameManager.instance.itemSetKey.Add(key);
+            SetOptionStatus(0.1f, 0.3f, 0.2f, key);
         }
         //======================================//
         if (key == 0) {
-            SetOptionStatus(0f, 0f, 0f);
+            SetOptionStatus(0f, 0f, 0f, key);
         }
         if (key == 1) {
-            SetOptionStatus(0f, 0f, 0f);
+            SetOptionStatus(0f, 0f, 0f, key);
         }
         if (key == 2) {
-            SetOptionStatus(0f, 0f, 0f);
+            SetOptionStatus(0f, 0f, 0f, key);
         }
         if (key == 3) {
-            SetOptionStatus(0f, 0f, 0f);
+            SetOptionStatus(0f, 0f, 0f, key);
         }
         if (key == 4) {
-            SetOptionStatus(0f, 0f, 0f);
+            SetOptionStatus(0f, 0f, 0f, key);
         }
         if (playerLogic.health > playerLogic.maxHealth)
             playerLogic.health = playerLogic.maxHealth;
     }
     public void Set_2( int key ) {
+        GameManager.instance.itemSetKey.Add(key);
         if (key == 0) { 
-            SetOptionStatus(0.02f, 0.12f, 0.1f); 
+            SetOptionStatus(0.02f, 0.12f, 0.1f, key);
         }
         if (key == 1) { 
-            SetOptionStatus(0.02f, 0.05f, 0.15f); 
+            SetOptionStatus(0.02f, 0.05f, 0.15f, key); 
         }
         if (key == 2) { 
-            SetOptionStatus(0.2f, 0.05f, 0.05f); 
+            SetOptionStatus(0.2f, 0.05f, 0.05f, key); 
         }
         if (key == 3) { 
-            SetOptionStatus(0f, 0f, 0.3f); 
+            SetOptionStatus(0f, 0f, 0.3f, key); 
         }
         if (key == 4) { 
-            SetOptionStatus(0f, 0.2f, 0.2f); 
+            SetOptionStatus(0f, 0.2f, 0.2f, key); 
         }
         //======================================//
         if (key == 5) {
-            SetOptionStatus(0.2f, 0.2f, 0.2f);
+            SetOptionStatus(0.2f, 0.2f, 0.2f, key);
         }
         if (key == 6) {
-            SetOptionStatus(0.1f, 0.3f, 0.2f);
+            SetOptionStatus(0.1f, 0.3f, 0.2f, key);
         }
         if (playerLogic.health > playerLogic.maxHealth)
             playerLogic.health = playerLogic.maxHealth;
     }
     public void Set_4( int key ) {
+        GameManager.instance.itemSetKey.Add(key);
         if (key == 0) { 
-            SetOptionStatus(0.05f, 0.135f, 0.125f); 
+            SetOptionStatus(0.05f, 0.135f, 0.125f, key); 
         }
         if (key == 1) { 
-            SetOptionStatus(0.05f, 0.075f, 0.20f); 
+            SetOptionStatus(0.05f, 0.075f, 0.20f, key); 
         }
         if (key == 2) { 
-            SetOptionStatus(0.4f, 0.075f, 0.075f);
+            SetOptionStatus(0.4f, 0.075f, 0.075f, key);
         }
         //======================================//
         if (key == 3) {
-            SetOptionStatus(0f, 0f, 0.3f);
+            SetOptionStatus(0f, 0f, 0.3f, key);
         }
         if (key == 4) {
-            SetOptionStatus(0f, 0.2f, 0.2f);
+            SetOptionStatus(0f, 0.2f, 0.2f, key);
         }
         if (key == 5) {
-            SetOptionStatus(0.2f, 0.2f, 0.2f);
+            SetOptionStatus(0.2f, 0.2f, 0.2f, key);
         }
         if (key == 6) {
-            SetOptionStatus(0.1f, 0.3f, 0.2f);
+            SetOptionStatus(0.1f, 0.3f, 0.2f, key);
         }
         if (playerLogic.health > playerLogic.maxHealth)
             playerLogic.health = playerLogic.maxHealth;
     }
     public void Set_6( int key ) {
+        GameManager.instance.itemSetKey.Add(key);
         if (key == 0) { 
-            SetOptionStatus(0.1f, 0.17f, 0.15f); 
+            SetOptionStatus(0.1f, 0.17f, 0.15f, key); 
         }
         if (key == 1) { 
-            SetOptionStatus(0.13f, 0.1f, 0.30f); 
+            SetOptionStatus(0.13f, 0.1f, 0.30f, key); 
         }
         //======================================//
         if (key == 2) {
-            SetOptionStatus(0.4f, 0.075f, 0.075f);
+            SetOptionStatus(0.4f, 0.075f, 0.075f, key);
         }
         if (key == 3) {
-            SetOptionStatus(0f, 0f, 0.3f);
+            SetOptionStatus(0f, 0f, 0.3f, key);
         }
         if (key == 4) {
-            SetOptionStatus(0f, 0.2f, 0.2f);
+            SetOptionStatus(0f, 0.2f, 0.2f, key);
         }
         if (key == 5) {
-            SetOptionStatus(0.2f, 0.2f, 0.2f);
+            SetOptionStatus(0.2f, 0.2f, 0.2f, key);
         }
         if (key == 6) {
-            SetOptionStatus(0.1f, 0.3f, 0.2f);
+            SetOptionStatus(0.1f, 0.3f, 0.2f, key);
         }
         if (playerLogic.health > playerLogic.maxHealth)
             playerLogic.health = playerLogic.maxHealth;
     }
 
-    void SetOptionStatus(float health, float speed, float power) {
+    void SetOptionStatus(float health, float speed, float power , int key) {
+        AddItem(key, new List<float> { health, speed, power });
         playerLogic.itemSetSpeed = speed;
         playerLogic.maxHealth *= (1.0f + health);
         playerLogic.health += playerLogic.maxHealth * (1.0f + health);
         playerLogic.moveSpeed *= (1.0f + speed);
         playerLogic.power *= (1.0f + power);
+    }
+
+    public void AddItem( int itemId, List<float> values ) {
+        if (!GameManager.instance.setItemInfo.ContainsKey(itemId)) {
+            GameManager.instance.setItemInfo.Add(itemId, values);
+        }
     }
 }

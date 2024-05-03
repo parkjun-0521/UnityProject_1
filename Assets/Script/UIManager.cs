@@ -61,6 +61,12 @@ public class UIManager : MonoBehaviour
     public Text statusWeaponHealthText;
     public Text statusWeaponSpeedText;
 
+    [Header("아이템 UI")]
+    public Text[] itemSetImage;
+    public Text[] itemSetText;
+    public Sprite[] itemSprite;
+    public Image[] itemIconImage;
+
     Player playerLogic;
 
     void Awake() {
@@ -126,18 +132,49 @@ public class UIManager : MonoBehaviour
             if (playerLogic == null) {
                 playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
             }
+            // 셋트아이템 활성화 설명 
+            for(int i = 0; i < GameManager.instance.itemSetKey.Count; i++) {
+                itemSetImage[i].gameObject.SetActive(true);
+                itemSetText[i].gameObject .SetActive(true);
+
+                itemSetImage[i].text = (GameManager.instance.itemSetKey[i].ToString() + "번째 Set 아이템 활성화");
+
+                for (int j = 0; j < GameManager.instance.itemSetKey.Count; j++) {
+                    int key = GameManager.instance.itemSetKey[i];
+                    // 딕셔너리에 해당 키가 존재하는지 확인하고, 존재한다면 값을 가져와서 출력
+                    if (GameManager.instance.setItemInfo.ContainsKey(key)) {
+                        List<float> values = GameManager.instance.setItemInfo[key];
+                        string valuesAsString = "";
+                        foreach (float value in values) {
+                            valuesAsString += value.ToString() + ", ";
+                        }
+                        // i번째 Text에 값을 설정
+                        itemSetText[i].text = valuesAsString;
+                    }
+                }
+            }
+
+            // 획득 아이템 이미지 적용 
+            for(int i = 0; i < GameManager.instance.itemID.Count; i++) {
+                itemIconImage[i].sprite = itemSprite[GameManager.instance.itemID[i]];
+            }
+
+            // 기본 능력치 
             statusHealthText.text = (Mathf.Round(playerLogic.maxHealth)).ToString();
             statusSpeedText.text = (Mathf.Round(playerLogic.moveSpeed * 100.0f) / 100.0f).ToString();
             statusPowerText.text = (Mathf.Round(playerLogic.power * 100.0f) / 100.0f).ToString();
             statusWeaponPowerText.text = playerLogic.weaponPower.ToString();
             statusTotalPowerText.text = Mathf.Round(playerLogic.power + (playerLogic.power * (playerLogic.weaponPower / 10) * 100.0f) / 100.0f).ToString();
 
+            // 아이템 능력치 적용 
             statusItemHealthText.text = (Mathf.Round(playerLogic.itemSumHealth)).ToString();
             statusItemSpeedText.text = (Mathf.Round(playerLogic.itemSumSpeed * 100.0f) / 100.0f).ToString();
             statusItemPowerText.text = (Mathf.Round(playerLogic.itemSumPower * 100.0f) / 100.0f).ToString();
 
+            // 무기 능력치 적용 
             statusWeaponHealthText.text = playerLogic.weaponHealth.ToString();
             statusWeaponSpeedText.text = playerLogic.weaponSpeed.ToString();
+
         }
     }
 

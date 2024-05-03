@@ -67,7 +67,7 @@ public class Npc : MonoBehaviour
             
             GameObject item = GameManager.instance.poolManager.GetObject(rand);
             item.transform.position = this.transform.position;
-            if (itemDropCount == 2) {
+            if (itemDropCount == 20) {
                 isItemDrop = true;
                 return;
             }
