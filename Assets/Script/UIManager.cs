@@ -145,8 +145,9 @@ public class UIManager : MonoBehaviour
                     if (GameManager.instance.setItemInfo.ContainsKey(key)) {
                         List<float> values = GameManager.instance.setItemInfo[key];
                         string valuesAsString = "";
-                        foreach (float value in values) {
-                            valuesAsString += value.ToString() + ", ";
+                        string[] statusText = { "체력", "속도", "공격력" };
+                        for(int k = 0; k < values.Count; k++) {
+                            valuesAsString += statusText[k] + " " + (values[k] * 100).ToString() + "% 증가\n";
                         }
                         // i번째 Text에 값을 설정
                         itemSetText[i].text = valuesAsString;
