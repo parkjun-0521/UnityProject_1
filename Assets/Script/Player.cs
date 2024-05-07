@@ -191,7 +191,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator StopDashAnime(){
+    public IEnumerator StopDashAnime(){
         yield return new WaitForSeconds(0.15f);
         moveSpeed = (upMoveSpeed + weaponSpeed + itemSumSpeed) * (1.0f + itemSetSpeed);
         anime.SetBool("isDash", false);

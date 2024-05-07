@@ -20,13 +20,6 @@ public class SetItem : MonoBehaviour
         playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
     }
 
-    void SetReset() {
-        playerLogic.itemSetSpeed = 0;
-        playerLogic.maxHealth = 0f;
-        playerLogic.moveSpeed = 0f;
-        playerLogic.power = 0f;
-    }
-
     /*  위에는 이전에 대해 증가하는 셋트 
      * //======================================//
      *  아래는 이전에 대해 증가하지 않는 셋트 
@@ -144,10 +137,12 @@ public class SetItem : MonoBehaviour
 
     void SetOptionStatus(float health, float speed, float power , int key) {
         AddItem(key, new List<float> { health, speed, power });
-        playerLogic.itemSetSpeed = speed;
+        //(upMoveSpeed + weaponSpeed + itemSumSpeed) * (1.0f + itemSetSpeed);
+        //playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed;
+        playerLogic.itemSetSpeed += speed;
         playerLogic.maxHealth *= (1.0f + health);
         playerLogic.health += playerLogic.maxHealth * (1.0f + health);
-        playerLogic.moveSpeed *= (1.0f + speed);
+        playerLogic.StartCoroutine(playerLogic.StopDashAnime());
         playerLogic.power *= (1.0f + power);
     }
 

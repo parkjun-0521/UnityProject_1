@@ -20,6 +20,8 @@ public class ItemManager : MonoBehaviour
     bool isPlayerCheck = false;
     bool isItemCheck = false;
 
+    public bool isThrowing;
+
     Rigidbody2D rigid;
     SetItem setItemLogic;
     void Awake()
@@ -55,16 +57,14 @@ public class ItemManager : MonoBehaviour
                 return;
             }
 
-            // 코인이 없을 경우 예외처리 
-            if (SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) {
+            // 코인이 없을 경우 예외처리 ( 버린 아이템은 비용을 내지않고 먹을 수 있어야됨 bool로 예외 처리 ) 
+            if ((SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) && !isThrowing) {
                 if(GameManager.instance.coinValue < upCost) {
                     Debug.Log("코인이 부족합니다.");
                     return;
                 }
                 GameManager.instance.coinValue -= upCost;
             }
-
-
             isItemCheck = true;
 
             // 능력치 증가 ( 버릴 때는 id로 정보를 가져와서 역과정 ) 
@@ -74,10 +74,10 @@ public class ItemManager : MonoBehaviour
             playerLogic.itemSumSpeed += speed;
             playerLogic.itemSumPower += power;
 
-
             playerLogic.maxHealth = playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth;
             playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed;
             playerLogic.power = playerLogic.upPower + playerLogic.itemSumPower;
+            playerLogic.itemSetSpeed = 0;
 
             if (playerLogic.health > playerLogic.maxHealth)
                 playerLogic.health = playerLogic.maxHealth;
@@ -86,16 +86,17 @@ public class ItemManager : MonoBehaviour
 
             GameManager.instance.setItem.Add(setItemID);
             GameManager.instance.itemID.Add(itemID);
+            GameManager.instance.itemStatus.Add(new List<float>{ itemID, setItemID, health, speed, power });
 
-            // 셋트아이템 적용
-            setItemLogic = GetComponent<SetItem>();
+
+            // 셋트아이템 적용            
             SetItemOption();
 
-            StartCoroutine(WeaponGet());
+            StartCoroutine(ItemGet());
         }
     }
 
-    IEnumerator WeaponGet()
+    IEnumerator ItemGet()
     {
         yield return new WaitForSeconds(0.1f);
 
@@ -119,7 +120,8 @@ public class ItemManager : MonoBehaviour
     }
 
     // 아이템 셋트 효과 
-    void SetItemOption() {
+    public void SetItemOption() {
+        setItemLogic = GetComponent<SetItem>();
         Dictionary<int, int> countDict = new Dictionary<int, int>();
 
         // 리스트 안에 있는 각 숫자의 개수를 세기

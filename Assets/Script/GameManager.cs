@@ -32,10 +32,11 @@ public class GameManager : MonoBehaviour
     public GameObject[] potalPosition;
     public GameObject endPoint;
 
-    public List<int> itemSetKey;
-    public List<int> setItem;
-    public List<int> itemID;
-    public Dictionary<int, List<float>> setItemInfo;
+    public List<int> itemSetKey;                            // 아이템 셋트가 활성화 되면 저장되는 셋트 값 
+    public List<int> setItem;                               // 아이템의 셋트 id
+    public List<int> itemID;                                // 아이템의 id
+    public Dictionary<int, List<float>> setItemInfo;        // ui에 띄우기 위함 값 
+    public List<List<float>> itemStatus;                    // 아이템 버리기 위해 가져온 아이템의 능력치 값 
     void Awake() {
         instance = this;
         DontDestroyOnLoad(gameObject);
@@ -56,10 +57,11 @@ public class GameManager : MonoBehaviour
 
             UIManager.Instance.gameUI.SetActive(true);
 
-            setItemInfo = new Dictionary<int, List<float>>();
             itemSetKey = new List<int>();
             setItem = new List<int>();
             itemID = new List<int>();
+            setItemInfo = new Dictionary<int, List<float>>();
+            itemStatus = new List<List<float>>();
         }
         else {
             Destroy(playerPrefab);
@@ -128,6 +130,7 @@ public class GameManager : MonoBehaviour
             setItem = new List<int>();
             itemID = new List<int>();
             setItemInfo = new Dictionary<int, List<float>>();
+            itemStatus = new List<List<float>>();
 
             mainCamera.GetComponent<Camera>().orthographicSize = 7;
             SceneManager.LoadScene(0);

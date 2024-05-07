@@ -43,6 +43,7 @@ public class ShopItemCreate : MonoBehaviour
             randNum[i] = rand;
 
             GameObject item = GameManager.instance.poolManager.GetObject(randNum[i]);
+            item.gameObject.GetComponent<ItemManager>().isThrowing = false;
             item.transform.position = itemCreatePos[i].position;
             item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             item.GetComponent<Rigidbody2D>().gravityScale = 0;

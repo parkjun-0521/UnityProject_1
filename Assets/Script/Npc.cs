@@ -66,6 +66,7 @@ public class Npc : MonoBehaviour
                 rand = Random.Range(GameManager.instance.poolManager.prefabs.Length - 2, GameManager.instance.poolManager.prefabs.Length);   
             
             GameObject item = GameManager.instance.poolManager.GetObject(rand);
+            item.GetComponent<ItemManager>().isThrowing = true;
             item.transform.position = this.transform.position;
             if (itemDropCount == 20) {
                 isItemDrop = true;

@@ -132,6 +132,12 @@ public class UIManager : MonoBehaviour
             if (playerLogic == null) {
                 playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
             }
+
+            for(int i = 0; i < itemSetImage.Length; i++) {
+                itemSetImage[i].gameObject.SetActive(false);
+                itemSetText[i].gameObject.SetActive(false);
+            }
+
             // 셋트아이템 활성화 설명 
             for(int i = 0; i < GameManager.instance.itemSetKey.Count; i++) {
                 itemSetImage[i].gameObject.SetActive(true);
@@ -153,6 +159,10 @@ public class UIManager : MonoBehaviour
                         itemSetText[i].text = valuesAsString;
                     }
                 }
+            }
+
+            for(int i = 0; i < itemIconImage.Length; i++) {
+                itemIconImage[i].sprite = null;
             }
 
             // 획득 아이템 이미지 적용 
