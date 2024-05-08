@@ -137,6 +137,8 @@ public class GameManager : MonoBehaviour
             itemStatus = new List<List<float>>();
 
             mainCamera.GetComponent<Camera>().orthographicSize = 7;
+            mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(25f, 10);
+            mainCamera.GetComponent<CameraManager>().center = new Vector2(0, 0);
             LodingScene.LoadScene(0);
             //SceneManager.LoadScene(0);
         }

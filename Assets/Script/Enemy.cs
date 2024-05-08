@@ -134,7 +134,7 @@ public class Enemy : MonoBehaviour
         }
 
         pastPatternIndex = 2;
-        Invoke("Think", 5);
+        Invoke("Think", 2);
     }
 
     public void Pattern4() {

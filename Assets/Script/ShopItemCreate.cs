@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopItemCreate : MonoBehaviour
@@ -54,6 +55,8 @@ public class ShopItemCreate : MonoBehaviour
     void ReRoll() {
         GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
         foreach (GameObject item in items) {
+            if (item.GetComponent<ItemManager>().isThrowing == true)
+                continue;
             item.SetActive(false);
         }
         ItemCreate();

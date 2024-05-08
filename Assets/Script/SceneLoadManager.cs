@@ -30,18 +30,23 @@ public class SceneLoadManager : MonoBehaviour
     public void ShopRoom() {
         int random = Random.Range(7, 9);
         mainCamera.GetComponent<Camera>().orthographicSize = 7;
+        mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(27, 15);
+        mainCamera.GetComponent<CameraManager>().center = new Vector2(0, 7);
 
         LodingScene.LoadScene(random);
         Debug.Log("상점");
     }
     public void MiddleBossRoom() {
-        mainCamera.GetComponent<Camera>().orthographicSize = 10;       
-
+        mainCamera.GetComponent<Camera>().orthographicSize = 8.5f;
+        mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(21.5f, 10);
+        mainCamera.GetComponent<CameraManager>().center = new Vector2(0, 3);
         LodingScene.LoadScene(9);
         Debug.Log("중간보스");
     }
     public void BossRoom() {
-        mainCamera.GetComponent<Camera>().orthographicSize = 10;
+        mainCamera.GetComponent<Camera>().orthographicSize = 8.5f;
+        mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(21.5f, 10);
+        mainCamera.GetComponent<CameraManager>().center = new Vector2(0, 3);
         int sceneNum = mapCount / stageCount;
 
         LodingScene.LoadScene(sceneNum);

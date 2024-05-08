@@ -10,7 +10,7 @@ public class CameraManager : MonoBehaviour
     Vector3 cameraPosition;
 
     [SerializeField]
-    Vector2 center;
+    public Vector2 center;
     [SerializeField]
     public Vector2 mapSize;
 
