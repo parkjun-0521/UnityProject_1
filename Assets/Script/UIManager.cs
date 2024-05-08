@@ -175,7 +175,7 @@ public class UIManager : MonoBehaviour
             statusSpeedText.text = (Mathf.Round(playerLogic.moveSpeed * 100.0f) / 100.0f).ToString();
             statusPowerText.text = (Mathf.Round(playerLogic.power * 100.0f) / 100.0f).ToString();
             statusWeaponPowerText.text = playerLogic.weaponPower.ToString();
-            statusTotalPowerText.text = Mathf.Round(playerLogic.power + (playerLogic.power * (playerLogic.weaponPower / 10) * 100.0f) / 100.0f).ToString();
+            statusTotalPowerText.text = Mathf.Round((playerLogic.power / 2) + ((playerLogic.power / 10) * (playerLogic.weaponPower / 10))).ToString();
 
             // 아이템 능력치 적용 
             statusItemHealthText.text = (Mathf.Round(playerLogic.itemSumHealth)).ToString();

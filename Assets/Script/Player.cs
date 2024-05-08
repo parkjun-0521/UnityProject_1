@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public float power;             // 플레이어 공격력 
     public float upPower;
     public float itemSumPower;
+    public float itemSetPower;
 
     [Header ("Jump")]
     public float jumpPower;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
     public float upHealth;
     public float itemSumHealth;
     public float weaponHealth;
+    public float itemSetHealth;
     public bool isDamaged = false;
 
     [Header("Desh")]
@@ -65,6 +67,7 @@ public class Player : MonoBehaviour
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         PlayerWeaponChange();
         health = maxHealth;
+        weaponPower = 7f;
         isDead = false;
         isDamaged = false;
     }

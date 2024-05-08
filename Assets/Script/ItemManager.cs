@@ -77,7 +77,9 @@ public class ItemManager : MonoBehaviour
             playerLogic.maxHealth = playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth;
             playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed;
             playerLogic.power = playerLogic.upPower + playerLogic.itemSumPower;
+            playerLogic.itemSetHealth = 0;
             playerLogic.itemSetSpeed = 0;
+            playerLogic.itemSetPower = 0;
 
             if (playerLogic.health > playerLogic.maxHealth)
                 playerLogic.health = playerLogic.maxHealth;

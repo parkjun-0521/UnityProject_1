@@ -50,7 +50,9 @@ public class ItemThrowing : MonoBehaviour
         playerLogic.maxHealth = playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth;
         playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed;
         playerLogic.power = playerLogic.upPower + playerLogic.itemSumPower;
+        playerLogic.itemSetHealth = 0;
         playerLogic.itemSetSpeed = 0;
+        playerLogic.itemSetPower = 0;
 
         // 버린 아이템 드랍 
         GameObject throwingItem = gameManagerLogic.poolManager.GetObject(int.Parse(name) + 11);

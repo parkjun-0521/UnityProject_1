@@ -139,11 +139,14 @@ public class SetItem : MonoBehaviour
         AddItem(key, new List<float> { health, speed, power });
         //(upMoveSpeed + weaponSpeed + itemSumSpeed) * (1.0f + itemSetSpeed);
         //playerLogic.moveSpeed = playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed;
+        playerLogic.itemSetHealth += health;
         playerLogic.itemSetSpeed += speed;
-        playerLogic.maxHealth *= (1.0f + health);
-        playerLogic.health += playerLogic.maxHealth * (1.0f + health);
+        playerLogic.itemSetPower += power;
+
+        playerLogic.maxHealth = (playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth) * (1.0f + playerLogic.itemSetHealth);
+        playerLogic.health += playerLogic.maxHealth * (playerLogic.itemSetHealth);
+        playerLogic.power = (playerLogic.upPower + playerLogic.itemSumPower) * (1.0f + playerLogic.itemSetPower);
         playerLogic.StartCoroutine(playerLogic.StopDashAnime());
-        playerLogic.power *= (1.0f + power);
     }
 
     public void AddItem( int itemId, List<float> values ) {
