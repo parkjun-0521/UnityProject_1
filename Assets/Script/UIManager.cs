@@ -76,8 +76,7 @@ public class UIManager : MonoBehaviour
 
     void Start() {
         mainUI.SetActive(true);
-        playerStatus = GetComponent<PlayerStatus>();
-        
+        playerStatus = GetComponent<PlayerStatus>();      
     }
 
     void Update() {
@@ -105,7 +104,8 @@ public class UIManager : MonoBehaviour
     public void GameSart() {
         gameManagerObj.SetActive(true);
         mainUI.SetActive(false);
-        SceneManager.LoadScene(0);
+        LodingScene.LoadScene(0);
+        //SceneManager.LoadScene(0);
     }
 
     // 인게임 메뉴 UI

@@ -45,11 +45,16 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         // 플레이어 생성 및 위치 초기화 
+        StartCoroutine(PlayerSetting());
+    }
+
+    IEnumerator PlayerSetting() {
+        yield return null;
         if (playerPrefab == null) {
             GameObject playerObj = Instantiate(player, new Vector2(-7f, -5f), Quaternion.Euler(0f, 0f, 0f));
 
             playerPrefab = playerObj;
-            GameObject objCamera = GameObject.Find("Main Camera"); 
+            GameObject objCamera = GameObject.Find("Main Camera");
             objCamera.GetComponent<CameraManager>().playerTransform = playerPrefab.transform;
 
             GameObject objMiniMapCamera = GameObject.Find("MiniMapCamera");
@@ -65,10 +70,9 @@ public class GameManager : MonoBehaviour
         }
         else {
             Destroy(playerPrefab);
-            return;
+            yield return null;
         }
     }
-
 
     void Init() {
         enemyCount = 1;
@@ -133,7 +137,8 @@ public class GameManager : MonoBehaviour
             itemStatus = new List<List<float>>();
 
             mainCamera.GetComponent<Camera>().orthographicSize = 7;
-            SceneManager.LoadScene(0);
+            LodingScene.LoadScene(0);
+            //SceneManager.LoadScene(0);
         }
     }
 }

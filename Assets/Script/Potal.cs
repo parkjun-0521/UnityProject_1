@@ -13,7 +13,11 @@ public class Potal : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck) {
+        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck && sceneManager.mapCount == 50) {
+            // 엔딩 
+        }
+
+        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck && sceneManager.mapCount < 50) {
             Debug.Log("다음 맵으로 이동합니다.");
             int sceneCount = ++sceneManager.mapCount;
             switch (sceneCount % 10) {
