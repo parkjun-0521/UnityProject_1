@@ -19,6 +19,10 @@ public class Potal : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck && sceneManager.mapCount < 50) {
             Debug.Log("다음 맵으로 이동합니다.");
+            GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+            foreach (GameObject item in items) {
+                item.SetActive(false);
+            }
             int sceneCount = ++sceneManager.mapCount;
             switch (sceneCount % 10) {
                 case 1:

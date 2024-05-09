@@ -32,9 +32,12 @@ public class UIManager : MonoBehaviour
     public int powerCount = 0;
 
     [Header("강화 비용")]
-    public int healthCost;
-    public int speedCost;
-    public int powerCost;
+    public int healthCost = 100;
+    public int speedCost = 100;
+    public int powerCost = 100;
+    public Text healthCostText;
+    public Text speedCostText;
+    public Text powerCostText;
 
 
     [Header("체력 UI")]
@@ -236,7 +239,8 @@ public class UIManager : MonoBehaviour
             GameManager.instance.worldCoinValue -= healthCost;
             healthBar[healthCount].color = Color.yellow;
             healthCount++;
-            healthCost += 100;
+            healthCost += 300;
+            healthCostText.text = "X " + healthCost.ToString();
         }
     }
 
@@ -247,7 +251,8 @@ public class UIManager : MonoBehaviour
             GameManager.instance.worldCoinValue -= speedCost;
             speedBar[speedCount].color = Color.yellow;
             speedCount++;
-            speedCost += 100;
+            speedCost += 300;
+            speedCostText.text = "X " + speedCost.ToString();
         }
     }
 
@@ -258,7 +263,8 @@ public class UIManager : MonoBehaviour
             GameManager.instance.worldCoinValue -= powerCost;
             powerBar[powerCount].color = Color.yellow;
             powerCount++;
-            powerCost += 100;
+            powerCost += 300;
+            powerCostText.text = "X " + powerCost.ToString();
         }
     }
 

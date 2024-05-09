@@ -23,6 +23,10 @@ public class SceneLoadManager : MonoBehaviour
     public void BasicRoom() {
         int random = Random.Range(1, 7);
         mainCamera.GetComponent<Camera>().orthographicSize = 7;
+        if(random == 1) { 
+            mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(50, 12);
+            mainCamera.GetComponent<CameraManager>().center = new Vector2(35, 4);
+        }
 
         LodingScene.LoadScene(random);
         Debug.Log("¿œπ› ∏ ");

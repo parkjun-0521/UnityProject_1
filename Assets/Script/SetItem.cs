@@ -144,7 +144,11 @@ public class SetItem : MonoBehaviour
         playerLogic.itemSetPower += power;
 
         playerLogic.maxHealth = (playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth) * (1.0f + playerLogic.itemSetHealth);
-        playerLogic.health += playerLogic.maxHealth * (playerLogic.itemSetHealth);
+        playerLogic.health += (playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth) * (playerLogic.itemSetHealth);
+
+        if (playerLogic.health > playerLogic.maxHealth)
+            playerLogic.health = playerLogic.maxHealth;
+
         playerLogic.power = (playerLogic.upPower + playerLogic.itemSumPower) * (1.0f + playerLogic.itemSetPower);
         playerLogic.StartCoroutine(playerLogic.StopDashAnime());
     }

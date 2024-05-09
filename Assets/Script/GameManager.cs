@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
     public List<int> itemID;                                // 아이템의 id
     public Dictionary<int, List<float>> setItemInfo;        // ui에 띄우기 위함 값 
     public List<List<float>> itemStatus;                    // 아이템 버리기 위해 가져온 아이템의 능력치 값 
+
+    bool randomNumber = false;
+    int[] randomPotal;
+    public GameObject[] potalImagePos;
+    public Sprite[] potalImageSprite;
     void Awake() {
         instance = this;
         DontDestroyOnLoad(gameObject);
@@ -77,6 +82,7 @@ public class GameManager : MonoBehaviour
     void Init() {
         enemyCount = 1;
         isPotal = false;
+        randomNumber = false;
         if (playerPrefab != null) {
             playerPrefab.transform.position = new Vector2(-10f, -5f);
             playerPrefab.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
@@ -85,14 +91,39 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < potalPosition.Length; i++) {
             potalPosition[i] = GameObject.Find("PotalPoint_" + (i+1));
         }
+
+        for (int i = 0; i < potalImagePos.Length; i++) {
+            potalImagePos[i] = GameObject.Find("Image_" + (i + 1));
+        }
+
         endPoint = GameObject.Find("EndPoint");
     }
 
 
     void Update() {
-        if((enemyCount == 0 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) && !isPotal) {
+        // 랜덤 숫자 두개 
+        if (!randomNumber) {
+            randomPotal = new int[potalPosition.Length];
+            for (int i = 0; i < potalPosition.Length; i++) {
+                randomPotal[i] = Random.Range(0, 4);
+                Debug.Log(randomPotal[i]);
+                if (i == 1 && randomPotal[i] == randomPotal[i - 1])
+                    i--;
+            }
+            randomNumber = true;
+            StartCoroutine(PotalImageCreate());
+        }
+
+        if ((enemyCount == 0 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) && !isPotal) {
             Debug.Log("적이 모두 죽었을 때");
             PotalCreate();
+        }
+    }
+
+    IEnumerator PotalImageCreate() {
+        yield return new WaitForSeconds(0.5f);
+        for (int i = 0; i < potalImagePos.Length; i++) {
+            potalImagePos[i].GetComponent<SpriteRenderer>().sprite = potalImageSprite[randomPotal[i]];
         }
     }
 
@@ -100,19 +131,12 @@ public class GameManager : MonoBehaviour
         // 0~3 까지 중복 되지 않는 두개의 숫자 생성 
         // 그 두개의 숫자를 가지고 포탈을 생성 
         // 프리팹으로 생성하되 위치는 potalPosition 위치로
-        int[] random = new int[potalPosition.Length];
         if (SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8) {
-            Instantiate(potalPrefabs[random[0]], potalPosition[0].transform.position, Quaternion.identity);
+            Instantiate(potalPrefabs[randomPotal[0]], potalPosition[0].transform.position, Quaternion.identity);
         }
         else {
             for (int i = 0; i < potalPosition.Length; i++) {
-                random[i] = Random.Range(0, 4);
-                Debug.Log(random[i]);
-                if (i == 1 && random[i] == random[i - 1])
-                    i--;
-                else {
-                    Instantiate(potalPrefabs[random[i]], potalPosition[i].transform.position, Quaternion.identity);
-                }
+                Instantiate(potalPrefabs[randomPotal[i]], potalPosition[i].transform.position, Quaternion.identity);
             }
         }
         isPotal = true;
@@ -140,7 +164,6 @@ public class GameManager : MonoBehaviour
             mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(25f, 10);
             mainCamera.GetComponent<CameraManager>().center = new Vector2(0, 0);
             LodingScene.LoadScene(0);
-            //SceneManager.LoadScene(0);
         }
     }
 }

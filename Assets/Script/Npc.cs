@@ -24,6 +24,9 @@ public class Npc : MonoBehaviour
             uiManager = UIManager.Instance.GetComponent<UIManager>();
             if(id == 1) {
                 // °­È­ NPC 
+                uiManager.healthCostText.text = "X " + uiManager.healthCost.ToString();
+                uiManager.speedCostText.text = "X " + uiManager.speedCost.ToString();
+                uiManager.powerCostText.text = "X " + uiManager.powerCost.ToString();
                 uiManager.PlayerUpgradeNPC();
             }
             else if (id == 2) {
@@ -68,7 +71,7 @@ public class Npc : MonoBehaviour
             GameObject item = GameManager.instance.poolManager.GetObject(rand);
             item.GetComponent<ItemManager>().isThrowing = true;
             item.transform.position = this.transform.position;
-            if (itemDropCount == 20) {
+            if (itemDropCount == 2) {
                 isItemDrop = true;
                 return;
             }
