@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Potal : MonoBehaviour
 {
+    public int potalID;
     bool isPlayerCheck = false;
     SceneLoadManager sceneManager;
     void Start() {
@@ -23,6 +24,7 @@ public class Potal : MonoBehaviour
             foreach (GameObject item in items) {
                 item.SetActive(false);
             }
+            GameManager.instance.potalID = this.potalID;
             int sceneCount = ++sceneManager.mapCount;
             switch (sceneCount % 10) {
                 case 1:

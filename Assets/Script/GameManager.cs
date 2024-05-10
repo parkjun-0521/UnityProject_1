@@ -31,12 +31,16 @@ public class GameManager : MonoBehaviour
     public GameObject[] potalPrefabs;
     public GameObject[] potalPosition;
     public GameObject endPoint;
+    public int potalID;
 
     public List<int> itemSetKey;                            // 아이템 셋트가 활성화 되면 저장되는 셋트 값 
     public List<int> setItem;                               // 아이템의 셋트 id
     public List<int> itemID;                                // 아이템의 id
     public Dictionary<int, List<float>> setItemInfo;        // ui에 띄우기 위함 값 
     public List<List<float>> itemStatus;                    // 아이템 버리기 위해 가져온 아이템의 능력치 값 
+
+    public GameObject[] weaponItem;
+    public Transform clearCompensationPos;
 
     bool randomNumber = false;
     int[] randomPotal;
@@ -96,6 +100,10 @@ public class GameManager : MonoBehaviour
             potalImagePos[i] = GameObject.Find("Image_" + (i + 1));
         }
 
+        if (!(SceneLoadManager.instance.mapCount == 0 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9)) {
+            clearCompensationPos = GameObject.Find("clearCompensationPos").transform;
+        }
+
         endPoint = GameObject.Find("EndPoint");
     }
 
@@ -132,13 +140,46 @@ public class GameManager : MonoBehaviour
         // 그 두개의 숫자를 가지고 포탈을 생성 
         // 프리팹으로 생성하되 위치는 potalPosition 위치로
         if (SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8) {
-            Instantiate(potalPrefabs[randomPotal[0]], potalPosition[0].transform.position, Quaternion.identity);
+            Instantiate(potalPrefabs[4], clearCompensationPos.transform.position, Quaternion.identity);
         }
         else {
             for (int i = 0; i < potalPosition.Length; i++) {
                 Instantiate(potalPrefabs[randomPotal[i]], potalPosition[i].transform.position, Quaternion.identity);
             }
         }
+
+        // potalID 에 맞는 아이템 생성 
+        if(potalID == 1 || potalID == 2) {
+            // 골드 생성 
+            int random = Random.Range(2, 7);
+            for (int i = 0; i < random; i++) {
+                GameObject coin = poolManager.GetObject(5);
+                coin.GetComponent<Coin>().coinValue = Random.Range(10, 15);
+                coin.transform.position = clearCompensationPos.position;
+            }
+        }
+        else if(potalID == 3) {
+            // 무기 생성 
+            int rand = Random.Range(0, weaponItem.Length);
+            GameObject weaponObj = Instantiate(weaponItem[rand], transform.position, Quaternion.identity);
+            weaponObj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+        else if(potalID == 4) {
+            // 아이템 생성 
+            int rand;
+            int totalRand = Random.Range(1, 101);
+            // 확률형 아이템 드랍 
+            // 10% 확률로 성능이 좋은 2개의 아이템중 하나가 나온다.
+            if (totalRand < 90)
+                rand = Random.Range(11, poolManager.prefabs.Length - 2);
+            else
+                rand = Random.Range(poolManager.prefabs.Length - 2,poolManager.prefabs.Length);
+
+            GameObject item = poolManager.GetObject(rand);
+            item.transform.position = clearCompensationPos.position;
+            item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+
         isPotal = true;
     }
 

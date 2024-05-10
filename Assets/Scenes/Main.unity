@@ -11186,13 +11186,27 @@ MonoBehaviour:
   - {fileID: 4982001716224091405, guid: f30eb4ea1cf73344c8ff9470e881a70c, type: 3}
   - {fileID: 3472162789419262739, guid: 5c5f816ec049ff54bb0a814a2703d043, type: 3}
   - {fileID: 671502392347927739, guid: a1db4f21eaad77f4094dbdb2b06082bc, type: 3}
+  - {fileID: 671502392347927739, guid: 33a7d44237b16cb4eba96c610b7a3c77, type: 3}
   potalPosition:
   - {fileID: 0}
   - {fileID: 0}
   endPoint: {fileID: 0}
+  potalID: 0
   itemSetKey: 
   setItem: 
   itemID: 
+  weaponItem:
+  - {fileID: 2999748106215116, guid: 7dd4f26780b9bb44590fae3bc52dc2af, type: 3}
+  - {fileID: 5409340933053809108, guid: f086dd2546907c442884c149dc0c1895, type: 3}
+  - {fileID: 3548874538517711366, guid: 83bbf050f9fd2de4fbf74855b97a4abd, type: 3}
+  - {fileID: 6231325237256774667, guid: 605f42d6bfdff194ba0e26c4ee8ffcf6, type: 3}
+  - {fileID: 1033240900645353180, guid: cee25d4023aa118419fde32148d2513b, type: 3}
+  - {fileID: 5996680578629692151, guid: 34818d5b68076f545a1e9c9a61ff5dbc, type: 3}
+  - {fileID: 2350366144217043346, guid: 99a4a0b98e193f547bfa8851b3f2f1c6, type: 3}
+  - {fileID: 6376847398672921212, guid: 674bd0785d3c5f7488c123072f5ac548, type: 3}
+  - {fileID: 4417435450986619218, guid: c9115452c7d83bf4ba69590cbeecf839, type: 3}
+  - {fileID: 6262986123301899059, guid: 288986c0e8541214581f16a45ff2c88e, type: 3}
+  clearCompensationPos: {fileID: 0}
   potalImagePos:
   - {fileID: 0}
   - {fileID: 0}
@@ -16889,7 +16903,7 @@ MonoBehaviour:
   cameraPosition: {x: 0, y: 0, z: 0}
   center: {x: 0, y: 0}
   mapSize: {x: 25, y: 10}
-  cameraMoveSpeed: 2
+  cameraMoveSpeed: 3
   cameraID: 0
 --- !u!81 &1805555549
 AudioListener:

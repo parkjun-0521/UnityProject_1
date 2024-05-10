@@ -27,7 +27,10 @@ public class SceneLoadManager : MonoBehaviour
             mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(50, 12);
             mainCamera.GetComponent<CameraManager>().center = new Vector2(35, 4);
         }
-
+        else {
+            mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(55, 20);
+            mainCamera.GetComponent<CameraManager>().center = new Vector2(41, -15);
+        }
         LodingScene.LoadScene(random);
         Debug.Log("¿œπ› ∏ ");
     }
