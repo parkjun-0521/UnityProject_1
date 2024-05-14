@@ -72,6 +72,8 @@ public class UIManager : MonoBehaviour
 
     Player playerLogic;
 
+    public bool isEnding = false;
+
     void Awake() {
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -86,21 +88,23 @@ public class UIManager : MonoBehaviour
 
         GameUIActive();
         PlayerStatusUI();
-        if (Input.GetKeyDown(KeyCode.Escape) && statusUpgradeUI.activeSelf) {
-            ExitUpgradeUI();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && !statusUpgradeUI.activeSelf && !mainUI.activeSelf && !playerStatusUI.activeSelf) {
-            if (!settingUI.activeSelf)
-                SettingUI();
-            else
-                SettingUIExit();
-        }
-        else if(Input.GetKeyDown(KeyCode.Tab) && !statusUpgradeUI.activeSelf && !mainUI.activeSelf && !settingUI.activeSelf) {
-            if (!playerStatusUI.activeSelf) 
-                StatusUI();
-        }
-        else if(Input.GetKeyDown(KeyCode.Escape) && playerStatusUI.activeSelf) {
-            StatusUIExit();
+        if (!isEnding) {
+            if (Input.GetKeyDown(KeyCode.Escape) && statusUpgradeUI.activeSelf) {
+                ExitUpgradeUI();
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && !statusUpgradeUI.activeSelf && !mainUI.activeSelf && !playerStatusUI.activeSelf) {
+                if (!settingUI.activeSelf)
+                    SettingUI();
+                else
+                    SettingUIExit();
+            }
+            else if (Input.GetKeyDown(KeyCode.Tab) && !statusUpgradeUI.activeSelf && !mainUI.activeSelf && !settingUI.activeSelf) {
+                if (!playerStatusUI.activeSelf)
+                    StatusUI();
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && playerStatusUI.activeSelf) {
+                StatusUIExit();
+            }
         }
     }
 

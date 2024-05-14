@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
 
     public void Think() {
         patternIndex = Random.Range(0,4);
-        if (pastPatternIndex != patternIndex) {
+        if (pastPatternIndex != patternIndex && !enemyDeathCheck) {
             switch (patternIndex) {
                 case 0:
                     Pattern1();

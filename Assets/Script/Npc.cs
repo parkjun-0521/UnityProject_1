@@ -14,6 +14,8 @@ public class Npc : MonoBehaviour
     int itemDropCount = 0;
     public bool isItemDrop = false;
 
+    public bool isPosionDrop = false;
+
     public GameObject[] weaponItem;
     public GameObject[] itemItem;
 
@@ -37,6 +39,10 @@ public class Npc : MonoBehaviour
             else if(id == 3) {
                 // 아이템 NPC
                 ItemNPC();
+            }
+            else if(id==4) {
+                // 상점 피회복 NPC
+                ShopHealthNPC();
             }
         }
     }
@@ -79,6 +85,15 @@ public class Npc : MonoBehaviour
         else {
             Debug.Log("더이상 아이템을 받을 수 없습니다.");
         }
+    }
+
+
+    public void ShopHealthNPC() {
+        if(!isPosionDrop) {
+            GameObject item = GameManager.instance.poolManager.GetObject(10);
+            item.transform.position = this.transform.position;
+        }
+        isPosionDrop = true;
     }
 
     void OnTriggerEnter2D( Collider2D collision ) {

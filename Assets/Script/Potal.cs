@@ -14,11 +14,14 @@ public class Potal : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck && sceneManager.mapCount == 50) {
+        // 임시로 10스테이지 즉, 1-10 에서 엔딩  
+
+        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck && sceneManager.mapCount == 10) {
             // 엔딩 
+            sceneManager.Ending();
         }
 
-        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck && sceneManager.mapCount < 50) {
+        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck && sceneManager.mapCount < 10) {
             Debug.Log("다음 맵으로 이동합니다.");
             GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
             foreach (GameObject item in items) {

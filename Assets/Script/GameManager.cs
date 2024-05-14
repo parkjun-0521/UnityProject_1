@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] potalImagePos;
     public Sprite[] potalImageSprite;
     void Awake() {
+        
         instance = this;
         DontDestroyOnLoad(gameObject);
         Init();
@@ -186,25 +187,61 @@ public class GameManager : MonoBehaviour
     public void MainScene() {
         if (playerPrefab.GetComponent<Player>().health <= 0) {
 
-            // 전체 코인 계산 ( 보스잡은 수 * 30 + 중간보스 * 15 + 잡몹 * 3 + 스테이지 수 * 2 ) 
-            worldCoinValue += (enemyTotal + ((SceneLoadManager.instance.stageCount * SceneLoadManager.instance.mapCount) * 2));
-
-            SceneLoadManager.instance.mapCount = 0;
-            SceneLoadManager.instance.stageCount = 0;
-            enemyKillCount = 0;
-            coinValue = 0;
-            enemyTotal = 0;
-
-            itemSetKey = new List<int>();
-            setItem = new List<int>();
-            itemID = new List<int>();
-            setItemInfo = new Dictionary<int, List<float>>();
-            itemStatus = new List<List<float>>();
-
-            mainCamera.GetComponent<Camera>().orthographicSize = 7;
-            mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(25f, 10);
-            mainCamera.GetComponent<CameraManager>().center = new Vector2(0, 0);
+            GameReset();
             LodingScene.LoadScene(0);
         }
+    }
+
+    public void GameReset() {
+        // 전체 코인 계산 ( 보스잡은 수 * 30 + 중간보스 * 15 + 잡몹 * 3 + 스테이지 수 * 2 ) 
+        worldCoinValue += (enemyTotal + ((SceneLoadManager.instance.stageCount * SceneLoadManager.instance.mapCount) * 2));
+
+        // 맵 카운트 및 UI 초기화 
+        SceneLoadManager.instance.mapCount = 0;
+        SceneLoadManager.instance.stageCount = 0;
+        enemyKillCount = 0;
+        coinValue = 0;
+        enemyTotal = 0;
+
+        // 아이템 저장 관련 리스트 초기화 
+        itemSetKey = new List<int>();
+        setItem = new List<int>();
+        itemID = new List<int>();
+        setItemInfo = new Dictionary<int, List<float>>();
+        itemStatus = new List<List<float>>();
+
+        // 플레이어 체력 초기화 
+        playerPrefab.GetComponent<Player>().health = 100f;
+        playerPrefab.GetComponent<Player>().maxHealth = 100f;
+        playerPrefab.GetComponent<Player>().itemSumHealth = 0f;
+        playerPrefab.GetComponent<Player>().weaponHealth = 0f;
+        playerPrefab.GetComponent<Player>().itemSetHealth = 0f;
+        // 플레이어 속도 초기화 
+        playerPrefab.GetComponent<Player>().power = 5f;
+        playerPrefab.GetComponent<Player>().itemSumPower = 0f;
+        playerPrefab.GetComponent<Player>().itemSetPower = 0f;
+        playerPrefab.GetComponent<Player>().weaponPower = 7f;
+        // 플레이어 공격력 초기화 
+        playerPrefab.GetComponent<Player>().moveSpeed = 5f;
+        playerPrefab.GetComponent<Player>().itemSumSpeed = 0f;
+        playerPrefab.GetComponent<Player>().itemSetSpeed = 0f;
+        playerPrefab.GetComponent<Player>().weaponSpeed = 0f;
+
+        // 플레이어 무기 이미지 초기화 
+        PlayerWeaponIcon[] childComponents = playerPrefab.GetComponentsInChildren<PlayerWeaponIcon>(true);
+        foreach (PlayerWeaponIcon component in childComponents) {
+            component.gameObject.SetActive(false);
+            if (component.weaponId == 0) {
+                component.gameObject.SetActive(true);
+            }
+        }
+
+        // 카메라 초기화 
+        mainCamera.GetComponent<Camera>().orthographicSize = 7;
+        mainCamera.GetComponent<CameraManager>().mapSize = new Vector2(25f, 10);
+        mainCamera.GetComponent<CameraManager>().center = new Vector2(0, 0); 
+        
+        // 엔딩때 UI를 제어하기위한 bool 변수 초기화
+        UIManager.Instance.isEnding = false;
     }
 }

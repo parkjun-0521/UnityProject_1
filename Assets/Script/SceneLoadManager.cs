@@ -60,4 +60,12 @@ public class SceneLoadManager : MonoBehaviour
         Debug.Log("보스");
     }
     
+    public void Ending() {
+        // 게임메니저 비활성화 
+        GameManager.instance.playerPrefab.SetActive(false);
+        GameManager.instance.gameObject.SetActive(false);
+        UIManager.Instance.gameUI.gameObject.SetActive(false);
+        // Ending 씬 생성 
+        LodingScene.LoadScene(13);
+    }
 }
