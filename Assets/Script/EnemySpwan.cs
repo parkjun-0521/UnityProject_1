@@ -18,7 +18,8 @@ public class EnemySpwan : MonoBehaviour
             Debug.Log("Àû »ý¼º");
             int randSpwanEnemy = Random.Range(3, enemyPosition.Length);
             for(int i = 0; i < randSpwanEnemy; i++) {
-                GameObject enemy = GameManager.instance.poolManager.GetObject(2);
+                int random = Random.Range(2, 5);
+                GameObject enemy = GameManager.instance.poolManager.GetObject(random);
                 enemy.transform.position = enemyPosition[i].transform.position;
                 enemy.transform.rotation = Quaternion.identity;
             }

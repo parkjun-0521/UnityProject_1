@@ -13,7 +13,9 @@ public class PlayerStatus : MonoBehaviour
         instance = this;
     }
     void Start() {
-        playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
+        if (GameManager.instance.playerPrefab != null) {
+            playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
+        }
         uiManager = UIManager.Instance.GetComponent<UIManager>();
     }
 

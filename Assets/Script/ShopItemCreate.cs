@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class ShopItemCreate : MonoBehaviour
     ShopItemReRoll shopItemReRoll;
     int[] randNum;
     bool isCreate = false;
+
+    public TMP_Text[] valueTextMesh;
 
     void Start() {
         randNum = new int[itemCreatePos.Length];
@@ -48,6 +51,8 @@ public class ShopItemCreate : MonoBehaviour
             item.transform.position = itemCreatePos[i].position;
             item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             item.GetComponent<Rigidbody2D>().gravityScale = 0;
+
+            valueTextMesh[i].text = item.gameObject.GetComponent<ItemManager>().upCost.ToString();
         }
         isCreate = true;
     }

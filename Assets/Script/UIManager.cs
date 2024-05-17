@@ -111,8 +111,16 @@ public class UIManager : MonoBehaviour
     public void GameSart() {
         gameManagerObj.SetActive(true);
         mainUI.SetActive(false);
+
+        // 데이터 불러오기
+        healthCount = PlayerPrefs.GetInt("HealthLevel");
+        speedCount = PlayerPrefs.GetInt("SpeedLevel");
+        powerCount = PlayerPrefs.GetInt("PowerLevel");
+
+        // 데이터 불러오기 
+        GameManager.instance.worldCoinValue = PlayerPrefs.GetInt("TotalCoin");
+
         LodingScene.LoadScene(0);
-        //SceneManager.LoadScene(0);
     }
 
     // 인게임 메뉴 UI
@@ -222,6 +230,20 @@ public class UIManager : MonoBehaviour
 
         statusUpgradeUI.SetActive(true);
 
+        for (int i = 0; i < healthCount; i++)
+            healthBar[i].color = Color.yellow;
+        for (int i = 0; i < speedCount; i++)
+            speedBar[i].color = Color.yellow;
+        for (int i = 0; i < powerCount; i++)
+            powerBar[i].color = Color.yellow;
+
+        healthCost = healthCount * 300;
+        speedCost = speedCount * 300;
+        powerCost = powerCount * 300;
+        healthCostText.text = "X " + healthCost.ToString();
+        speedCostText.text = "X " + speedCost.ToString();
+        powerCostText.text = "X " + powerCost.ToString();
+
         // 플레이어 이동 제한 
         PlayerStop();
 
@@ -242,9 +264,11 @@ public class UIManager : MonoBehaviour
             if(healthCount > 9) { return; }
             GameManager.instance.worldCoinValue -= healthCost;
             healthBar[healthCount].color = Color.yellow;
-            healthCount++;
-            healthCost += 300;
+            ++healthCount;
+            healthCost = healthCount * 300;
             healthCostText.text = "X " + healthCost.ToString();
+            PlayerPrefs.SetInt("HealthLevel", healthCount);
+            PlayerPrefs.SetInt("TotalCoin", GameManager.instance.worldCoinValue);
         }
     }
 
@@ -254,9 +278,11 @@ public class UIManager : MonoBehaviour
             if (speedCount > 9) { return; }
             GameManager.instance.worldCoinValue -= speedCost;
             speedBar[speedCount].color = Color.yellow;
-            speedCount++;
-            speedCost += 300;
+            ++speedCount;
+            speedCost = speedCount * 300;
             speedCostText.text = "X " + speedCost.ToString();
+            PlayerPrefs.SetInt("SpeedLevel", speedCount);
+            PlayerPrefs.SetInt("TotalCoin", GameManager.instance.worldCoinValue);
         }
     }
 
@@ -266,9 +292,11 @@ public class UIManager : MonoBehaviour
             if (powerCount > 9) { return; }
             GameManager.instance.worldCoinValue -= powerCost;
             powerBar[powerCount].color = Color.yellow;
-            powerCount++;
-            powerCost += 300;
+            ++powerCount;
+            powerCost = powerCount * 300;
             powerCostText.text = "X " + powerCost.ToString();
+            PlayerPrefs.SetInt("PowerLevel", powerCount);
+            PlayerPrefs.SetInt("TotalCoin", GameManager.instance.worldCoinValue);
         }
     }
 

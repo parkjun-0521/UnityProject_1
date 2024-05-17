@@ -45,7 +45,10 @@ public class GameManager : MonoBehaviour
     bool randomNumber = false;
     int[] randomPotal;
     public GameObject[] potalImagePos;
+    public GameObject ShopBossPotalImagePos;
     public Sprite[] potalImageSprite;
+
+    PlayerStatus playerStatus;
     void Awake() {
         
         instance = this;
@@ -77,6 +80,21 @@ public class GameManager : MonoBehaviour
             itemID = new List<int>();
             setItemInfo = new Dictionary<int, List<float>>();
             itemStatus = new List<List<float>>();
+
+            yield return new WaitForSeconds(0.1f);
+            Player playerLogic = playerPrefab.GetComponent<Player>();
+            playerStatus = GetComponent<PlayerStatus>();
+
+            // 저장된 능력치 적용 
+            playerLogic.upHealth = playerStatus.HealthUp(UIManager.Instance.healthCount + 1) * GameManager.instance.player.GetComponent<Player>().health;
+            playerLogic.maxHealth = (playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth) * (1.0f + playerLogic.itemSetHealth);
+            playerLogic.health = playerLogic.maxHealth;
+
+            playerLogic.upMoveSpeed = playerStatus.SpeedUp(UIManager.Instance.speedCount + 1) * GameManager.instance.player.GetComponent<Player>().upMoveSpeed;
+            playerLogic.moveSpeed = (playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed) * (1.0f + playerLogic.itemSetSpeed);
+            
+            playerLogic.upPower = playerStatus.PowerUp(UIManager.Instance.powerCount + 1) * GameManager.instance.player.GetComponent<Player>().upPower;
+            playerLogic.power = (playerLogic.upPower + playerLogic.itemSumPower) * (1.0f + playerLogic.itemSetPower);
         }
         else {
             Destroy(playerPrefab);
@@ -101,9 +119,7 @@ public class GameManager : MonoBehaviour
             potalImagePos[i] = GameObject.Find("Image_" + (i + 1));
         }
 
-        if (!(SceneLoadManager.instance.mapCount == 0 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9)) {
-            clearCompensationPos = GameObject.Find("clearCompensationPos").transform;
-        }
+        ShopBossPotalImagePos = GameObject.Find("Image_3");
 
         endPoint = GameObject.Find("EndPoint");
     }
@@ -131,8 +147,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator PotalImageCreate() {
         yield return new WaitForSeconds(0.5f);
-        for (int i = 0; i < potalImagePos.Length; i++) {
-            potalImagePos[i].GetComponent<SpriteRenderer>().sprite = potalImageSprite[randomPotal[i]];
+        if (!(SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9)) {
+            for (int i = 0; i < potalImagePos.Length; i++) {
+                potalImagePos[i].GetComponent<SpriteRenderer>().sprite = potalImageSprite[randomPotal[i]];
+            }
+        }
+        else if(SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8) {
+            ShopBossPotalImagePos.GetComponent<SpriteRenderer>().sprite = potalImageSprite[4];
+        }
+        else if(SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) {
+            ShopBossPotalImagePos.GetComponent<SpriteRenderer>().sprite = potalImageSprite[5];
         }
     }
 
@@ -140,8 +164,11 @@ public class GameManager : MonoBehaviour
         // 0~3 까지 중복 되지 않는 두개의 숫자 생성 
         // 그 두개의 숫자를 가지고 포탈을 생성 
         // 프리팹으로 생성하되 위치는 potalPosition 위치로
-        if (SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8) {
-            Instantiate(potalPrefabs[4], clearCompensationPos.transform.position, Quaternion.identity);
+        if (!(SceneLoadManager.instance.mapCount == 0)) {
+            clearCompensationPos = GameObject.Find("clearCompensationPos").transform;
+        }
+        if (SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) {
+            Instantiate(potalPrefabs[4], clearCompensationPos.position, Quaternion.identity);
         }
         else {
             for (int i = 0; i < potalPosition.Length; i++) {
@@ -149,36 +176,39 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // potalID 에 맞는 아이템 생성 
-        if(potalID == 1 || potalID == 2) {
-            // 골드 생성 
-            int random = Random.Range(2, 7);
-            for (int i = 0; i < random; i++) {
-                GameObject coin = poolManager.GetObject(5);
-                coin.GetComponent<Coin>().coinValue = Random.Range(10, 15);
-                coin.transform.position = clearCompensationPos.position;
-            }
-        }
-        else if(potalID == 3) {
-            // 무기 생성 
-            int rand = Random.Range(0, weaponItem.Length);
-            GameObject weaponObj = Instantiate(weaponItem[rand], transform.position, Quaternion.identity);
-            weaponObj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
-        else if(potalID == 4) {
-            // 아이템 생성 
-            int rand;
-            int totalRand = Random.Range(1, 101);
-            // 확률형 아이템 드랍 
-            // 10% 확률로 성능이 좋은 2개의 아이템중 하나가 나온다.
-            if (totalRand < 90)
-                rand = Random.Range(11, poolManager.prefabs.Length - 2);
-            else
-                rand = Random.Range(poolManager.prefabs.Length - 2,poolManager.prefabs.Length);
 
-            GameObject item = poolManager.GetObject(rand);
-            item.transform.position = clearCompensationPos.position;
-            item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        // potalID 에 맞는 아이템 생성 
+        if (enemyCount == 0 && !(SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9)) {
+            if (potalID == 1 || potalID == 2) {
+                // 골드 생성 
+                int random = Random.Range(2, 7);
+                for (int i = 0; i < random; i++) {
+                    GameObject coin = poolManager.GetObject(5);
+                    coin.GetComponent<Coin>().coinValue = Random.Range(10, 15);
+                    coin.transform.position = clearCompensationPos.position;
+                }
+            }
+            else if (potalID == 3) {
+                // 무기 생성 
+                int rand = Random.Range(0, weaponItem.Length);
+                GameObject weaponObj = Instantiate(weaponItem[rand], clearCompensationPos.position, Quaternion.identity);
+                weaponObj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
+            else if (potalID == 4) {
+                // 아이템 생성 
+                int rand;
+                int totalRand = Random.Range(1, 101);
+                // 확률형 아이템 드랍 
+                // 10% 확률로 성능이 좋은 2개의 아이템중 하나가 나온다.
+                if (totalRand < 90)
+                    rand = Random.Range(11, poolManager.prefabs.Length - 2);
+                else
+                    rand = Random.Range(poolManager.prefabs.Length - 2, poolManager.prefabs.Length);
+
+                GameObject item = poolManager.GetObject(rand);
+                item.transform.position = clearCompensationPos.position;
+                item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
         }
 
         isPotal = true;
@@ -195,6 +225,9 @@ public class GameManager : MonoBehaviour
     public void GameReset() {
         // 전체 코인 계산 ( 보스잡은 수 * 30 + 중간보스 * 15 + 잡몹 * 3 + 스테이지 수 * 2 ) 
         worldCoinValue += (enemyTotal + ((SceneLoadManager.instance.stageCount * SceneLoadManager.instance.mapCount) * 2));
+        
+        // 코인 저장 
+        PlayerPrefs.SetInt("TotalCoin", worldCoinValue);
 
         // 맵 카운트 및 UI 초기화 
         SceneLoadManager.instance.mapCount = 0;

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4074164886469379697}
   - component: {fileID: 2242136994615207484}
   - component: {fileID: 8581138166883221551}
+  - component: {fileID: 7788612188121879803}
   - component: {fileID: 6894243811638470455}
   - component: {fileID: 7992528361075298744}
   m_Layer: 0
@@ -235,6 +236,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!70 &7788612188121879803
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077804352005085770}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!95 &6894243811638470455
 Animator:
   serializedVersion: 5
@@ -275,10 +311,10 @@ MonoBehaviour:
   enemyHealth: 10
   enemyMaxHealth: 10
   enemySpeed: 2
-  enemyPower: 0
+  enemyPower: 10
   detectionRadius: 8
   enemyAttackcurDel: 0
-  enemyAttackDelay: 0
-  attackRadius: 0
+  enemyAttackDelay: 1.5
+  attackRadius: 4
   patternIndex: 0
   pastPatternIndex: 0
