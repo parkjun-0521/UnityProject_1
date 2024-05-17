@@ -1,60 +1,85 @@
-using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.EditorTools;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager instance;             // 싱글톤 
 
-    public int worldCoinValue;  // 전체 코인 ( 강화 있음 )
+    public int worldCoinValue;                      // 전체 코인 ( 강화 있음 )
     public int coinValue;
 
-    public int enemyCount;
-    public int enemyTotal;
-    public int enemyKillCount;
-    bool isPotal = false;
+    public int enemyCount;                          // 현재 스테이지의 몬스터 숫자
+    public int enemyTotal;                          // 모든 스테이지의 몬스터 숫자 
+    public int enemyKillCount;                      // 잡은 몬스터 숫자 
+    bool isPotal = false;                           // 포탈을 열 수 있는 상황인지 확인하는 변수 
 
-    public GameObject player;
-    public Camera mainCamera;
-    public Pooling poolManager;
+    public GameObject player;                       // 플레이어 프리팹 
+    public Camera mainCamera;                       // 메인 카메라 
+    public Pooling poolManager;                     // 오브젝트 풀링 스크립트 
 
-    public GameObject fireBallPrefab;
-    public GameObject playerPrefab;
+    public GameObject fireBallPrefab;               // 파이어볼 프리펩 
+    public GameObject playerPrefab;                 // 플레이어 프리펩의 실질적 값 변경을 위한 프리팹 
 
-    public GameObject[] potalPrefabs;
-    public GameObject[] potalPosition;
-    public GameObject endPoint;
-    public int potalID;
+    public GameObject[] potalPrefabs;               // 포탈 프리팹    
+    public GameObject[] potalPosition;              // 포탈의 위치 ( Transform ) 
+    public GameObject endPoint;                     // 마지막 위치 ( Transform ) 
+    public int potalID;                             // 들어간 포탈의 ID 
 
-    public List<int> itemSetKey;                            // 아이템 셋트가 활성화 되면 저장되는 셋트 값 
-    public List<int> setItem;                               // 아이템의 셋트 id
-    public List<int> itemID;                                // 아이템의 id
-    public Dictionary<int, List<float>> setItemInfo;        // ui에 띄우기 위함 값 
-    public List<List<float>> itemStatus;                    // 아이템 버리기 위해 가져온 아이템의 능력치 값 
+    public List<int> itemSetKey;                    // 아이템 셋트가 활성화 되면 저장되는 셋트 값 
+    public List<int> setItem;                       // 아이템의 셋트 id
+    public List<int> itemID;                        // 아이템의 id
+    public Dictionary<int, List<float>> setItemInfo;// ui에 띄우기 위함 값 
+    public List<List<float>> itemStatus;            // 아이템 버리기 위해 가져온 아이템의 능력치 값 
 
-    public GameObject[] weaponItem;
-    public Transform clearCompensationPos;
+    public GameObject[] weaponItem;                 // 무기 프리팹 
+    public Transform clearCompensationPos;          // 클리어 보상 위치 
 
     bool randomNumber = false;
     int[] randomPotal;
-    public GameObject[] potalImagePos;
-    public GameObject ShopBossPotalImagePos;
-    public Sprite[] potalImageSprite;
+    public GameObject[] potalImagePos;              // 포탈 이미지 위치 
+    public GameObject ShopBossPotalImagePos;        // 상점, 보스방 포탕 이미지 위치 
+    public Sprite[] potalImageSprite;               // 이미지 스프라이트 변수 
 
     PlayerStatus playerStatus;
     void Awake() {
-        
+        // 싱글톤 초기화 
         instance = this;
+
+        // 오브젝트 파괴 방지 
         DontDestroyOnLoad(gameObject);
         Init();
     }
+    // Awake의 Init 로직 
+    void Init() {
+        // 맵 몬스터 숫자 초기화 ( 0으로 하면 바로나오기 때문에 1로 지정 후 Player가 endPoint를 지날 시 -1을 하여 0으로 만들고 포탈 생성 ) 
+        enemyCount = 1;
+
+        // 변수 초기화 
+        isPotal = false;
+        randomNumber = false;
+
+        // 플레이어 위치 초기화 
+        if (playerPrefab != null) {
+            playerPrefab.transform.position = new Vector2(-10f, -5f);
+            playerPrefab.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+
+        // PotalPoint 오브젝트 찾기 
+        for (int i = 0; i < potalPosition.Length; i++) {
+            potalPosition[i] = GameObject.Find("PotalPoint_" + (i + 1));
+        }
+
+        // Image 오브젝트 찾기 ( 포탈 이미지 ) 
+        for (int i = 0; i < potalImagePos.Length; i++) {
+            potalImagePos[i] = GameObject.Find("Image_" + (i + 1));
+        }
+        ShopBossPotalImagePos = GameObject.Find("Image_3");
+
+        // EndPoint 오브젝트 찾기 
+        endPoint = GameObject.Find("EndPoint");
+    }
+
 
     void Start() {
         // 플레이어 생성 및 위치 초기화 
@@ -64,17 +89,22 @@ public class GameManager : MonoBehaviour
     IEnumerator PlayerSetting() {
         yield return null;
         if (playerPrefab == null) {
+            // 플레이어 생성 
             GameObject playerObj = Instantiate(player, new Vector2(-7f, -5f), Quaternion.Euler(0f, 0f, 0f));
-
             playerPrefab = playerObj;
+
+            // 카메라 오브젝트를 찾아서 Player를 따라다니도록 assinged 해준다. 
             GameObject objCamera = GameObject.Find("Main Camera");
             objCamera.GetComponent<CameraManager>().playerTransform = playerPrefab.transform;
 
+            // 미니맵 카메라 Player를 따라다니면서 주변의 미니맵만 보여준다. 
             GameObject objMiniMapCamera = GameObject.Find("MiniMapCamera");
             objMiniMapCamera.GetComponent<CameraManager>().playerTransform = playerPrefab.transform;
 
+            // 게임 UI 활성화 
             UIManager.Instance.gameUI.SetActive(true);
 
+            // 모든 아이템 관련 리스트 초기화 
             itemSetKey = new List<int>();
             setItem = new List<int>();
             itemID = new List<int>();
@@ -82,17 +112,22 @@ public class GameManager : MonoBehaviour
             itemStatus = new List<List<float>>();
 
             yield return new WaitForSeconds(0.1f);
+
+            // 플레이어 assinged 후 0.1초 뒤 저장한 데이터를 기반으로 Player 능력치 재설정 
             Player playerLogic = playerPrefab.GetComponent<Player>();
             playerStatus = GetComponent<PlayerStatus>();
 
             // 저장된 능력치 적용 
+            // 체력 
             playerLogic.upHealth = playerStatus.HealthUp(UIManager.Instance.healthCount + 1) * GameManager.instance.player.GetComponent<Player>().health;
             playerLogic.maxHealth = (playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth) * (1.0f + playerLogic.itemSetHealth);
             playerLogic.health = playerLogic.maxHealth;
  
+            // 속도 
             playerLogic.upMoveSpeed = playerStatus.SpeedUp(UIManager.Instance.speedCount + 1) * GameManager.instance.player.GetComponent<Player>().upMoveSpeed;
             playerLogic.moveSpeed = (playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed) * (1.0f + playerLogic.itemSetSpeed);
             
+            // 공격력 
             playerLogic.upPower = playerStatus.PowerUp(UIManager.Instance.powerCount + 1) * GameManager.instance.player.GetComponent<Player>().upPower;
             playerLogic.power = (playerLogic.upPower + playerLogic.itemSumPower) * (1.0f + playerLogic.itemSetPower);
         }
@@ -102,31 +137,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Init() {
-        enemyCount = 1;
-        isPotal = false;
-        randomNumber = false;
-        if (playerPrefab != null) {
-            playerPrefab.transform.position = new Vector2(-10f, -5f);
-            playerPrefab.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-
-        for (int i = 0; i < potalPosition.Length; i++) {
-            potalPosition[i] = GameObject.Find("PotalPoint_" + (i+1));
-        }
-
-        for (int i = 0; i < potalImagePos.Length; i++) {
-            potalImagePos[i] = GameObject.Find("Image_" + (i + 1));
-        }
-
-        ShopBossPotalImagePos = GameObject.Find("Image_3");
-
-        endPoint = GameObject.Find("EndPoint");
-    }
-
-
     void Update() {
-        // 랜덤 숫자 두개 
+        // 랜덤 숫자 두개 추출 
         if (!randomNumber) {
             randomPotal = new int[potalPosition.Length];
             for (int i = 0; i < potalPosition.Length; i++) {
@@ -136,22 +148,26 @@ public class GameManager : MonoBehaviour
                     i--;
             }
             randomNumber = true;
+            // 랜덤 숫자 두개를 미리 추출하여 포탈을 예측하여 미리 포탈 이미지를 띄워준다. 
             StartCoroutine(PotalImageCreate());
         }
 
+        // 맵을 클리어 했을 때 또는 상점일 경우 포탈을 즉시 생성 
         if ((enemyCount == 0 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) && !isPotal) {
-            Debug.Log("적이 모두 죽었을 때");
             PotalCreate();
         }
     }
 
+    // 포탈 이미지 생성 
     IEnumerator PotalImageCreate() {
         yield return new WaitForSeconds(0.5f);
+        // 상점방 전, 보스방 전을 제외 하고 랜덤 포탈 이미지 2개를 생성 
         if (!(SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9)) {
             for (int i = 0; i < potalImagePos.Length; i++) {
                 potalImagePos[i].GetComponent<SpriteRenderer>().sprite = potalImageSprite[randomPotal[i]];
             }
         }
+        // 상점, 보스 방일 때는 포탈 이미지 1개만 생성 
         else if(SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8) {
             ShopBossPotalImagePos.GetComponent<SpriteRenderer>().sprite = potalImageSprite[4];
         }
@@ -160,16 +176,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 포탈 생성 
     void PotalCreate() {
-        // 0~3 까지 중복 되지 않는 두개의 숫자 생성 
-        // 그 두개의 숫자를 가지고 포탈을 생성 
-        // 프리팹으로 생성하되 위치는 potalPosition 위치로
+        // 클리어 보상 위치 오브젝트 찾기 
         if (!(SceneLoadManager.instance.mapCount == 0)) {
             clearCompensationPos = GameObject.Find("clearCompensationPos").transform;
         }
+
+        // 상점 전, 보스방 전 방에서는 1개의 포탈 만 생성 
         if (SceneLoadManager.instance.mapCount % 10 == 3 || SceneLoadManager.instance.mapCount % 10 == 8 || SceneLoadManager.instance.mapCount % 10 == 4 || SceneLoadManager.instance.mapCount % 10 == 9) {
             Instantiate(potalPrefabs[4], clearCompensationPos.position, Quaternion.identity);
         }
+        // 나머지는 2개의 포탈을 생성 
         else {
             for (int i = 0; i < potalPosition.Length; i++) {
                 Instantiate(potalPrefabs[randomPotal[i]], potalPosition[i].transform.position, Quaternion.identity);
@@ -214,6 +232,7 @@ public class GameManager : MonoBehaviour
         isPotal = true;
     }
 
+    // 메인씬 이동 시 초기화 로직 
     public void MainScene() {
         if (playerPrefab.GetComponent<Player>().health <= 0) {
 

@@ -3,19 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
-using static UnityEngine.Rendering.DebugUI;
 
 public class ItemThrowing : MonoBehaviour
 {
-    /*
-     * 획득한 아이템의 정보를 가져오는건 만들었음 ( GameManager.instance.itemStatus 에 해당 아이템의 키값과 능력치를 저장하도록 했음 ) 
-     * 
-     * 해야하는 것 
-     * 셋트 메뉴도 재설정 해야하므로 SetItemOption() 함수도 실행해야함 
-        public Dictionary<int, List<float>> setItemInfo;        // ui에 띄우기 위함 값 
-        이것들에서 아이템에 해당하는 값을 삭제해야함  
-     */
     public Image itemIconImage;
 
     public void Throwing() {
@@ -109,8 +99,10 @@ public class ItemThrowing : MonoBehaviour
         // 버린 아이템 드랍 
         GameObject throwingItem = gameManagerLogic.poolManager.GetObject(int.Parse(name) + 11);
         throwingItem.transform.position = playerLogic.transform.position;
+
         // 아이템 스크립트 가져오기 
         ItemManager itemManagerLogic = throwingItem.GetComponent<ItemManager>();
+
         // 셋트옵션 지정 
         itemManagerLogic.SetItemOption();
         itemManagerLogic.isThrowing = true;
