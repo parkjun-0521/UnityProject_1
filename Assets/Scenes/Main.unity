@@ -11141,6 +11141,7 @@ GameObject:
   - component: {fileID: 1114730009}
   - component: {fileID: 1114730008}
   - component: {fileID: 1114730011}
+  - component: {fileID: 1114730012}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11211,6 +11212,7 @@ MonoBehaviour:
   potalImagePos:
   - {fileID: 0}
   - {fileID: 0}
+  ShopBossPotalImagePos: {fileID: 0}
   potalImageSprite:
   - {fileID: 21300000, guid: 6fab4458d426581478f30b1ba29e420d, type: 3}
   - {fileID: 21300000, guid: 6fab4458d426581478f30b1ba29e420d, type: 3}
@@ -11243,6 +11245,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ccc70ebf3675204e891d2c52e0eef07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1114730012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114730007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6198b5a9acde94aafa8dc58fdbcea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1137902706

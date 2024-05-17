@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
             playerLogic.upHealth = playerStatus.HealthUp(UIManager.Instance.healthCount + 1) * GameManager.instance.player.GetComponent<Player>().health;
             playerLogic.maxHealth = (playerLogic.upHealth + playerLogic.weaponHealth + playerLogic.itemSumHealth) * (1.0f + playerLogic.itemSetHealth);
             playerLogic.health = playerLogic.maxHealth;
-
+ 
             playerLogic.upMoveSpeed = playerStatus.SpeedUp(UIManager.Instance.speedCount + 1) * GameManager.instance.player.GetComponent<Player>().upMoveSpeed;
             playerLogic.moveSpeed = (playerLogic.upMoveSpeed + playerLogic.weaponSpeed + playerLogic.itemSumSpeed) * (1.0f + playerLogic.itemSetSpeed);
             

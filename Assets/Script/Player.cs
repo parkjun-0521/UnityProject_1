@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static GameKeyboardManager;
 
 public class Player : MonoBehaviour
 {
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
     public Animator anime;
     Rigidbody2D rigid;
     CapsuleCollider2D capsuleCollider2D;
+    GameKeyboardManager Keyboard;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -65,6 +68,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        Keyboard = GameKeyboardManager.instance.GetComponent<GameKeyboardManager>();
         PlayerWeaponChange();
         health = maxHealth;
         weaponPower = 7f;
@@ -82,11 +86,27 @@ public class Player : MonoBehaviour
     }
 
     void PlayerMove(){
-        Vector3 movePosition = Vector3.zero;
+        //Vector3 movePosition = Vector3.zero;
         if (isNPC) {
             return;
         }
-        float h = Input.GetAxisRaw("Horizontal");
+
+        if (Input.GetKey(Keyboard.GetKeyCode(KeyCodeTypes.LeftMove))) {
+            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            anime.SetBool("isRun", true);
+        }
+        else if (Input.GetKey(Keyboard.GetKeyCode(KeyCodeTypes.RightMove))) {
+            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            anime.SetBool("isRun", true);
+        }
+
+        if((Input.GetKeyUp(Keyboard.GetKeyCode(KeyCodeTypes.LeftMove))) || (Input.GetKeyUp(Keyboard.GetKeyCode(KeyCodeTypes.RightMove)))) {
+            anime.SetBool("isRun", false);
+        }
+
+        /*float h = Input.GetAxisRaw("Horizontal");
         if(h < 0){
             movePosition = Vector3.left;
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
@@ -102,13 +122,13 @@ public class Player : MonoBehaviour
             anime.SetBool("isRun", true);
         }
 
-        transform.position += movePosition * moveSpeed * Time.deltaTime;  
+        transform.position += movePosition * moveSpeed * Time.deltaTime;  */
     }
 
     void PlayerJump(){
         
         // 아래 점프 ( 위에서 아래 블록으로 내려올 때 ) 
-        if(Input.GetKey(KeyCode.DownArrow) && Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isNPC) {
+        if(Input.GetKey(KeyCode.DownArrow) && (Input.GetKeyDown(Keyboard.GetKeyCode(KeyCodeTypes.Jump))) && !isJumpChek && !isNPC) {
             anime.SetBool("isRunAndJump", true);
             anime.SetBool("isJump", true);
 
@@ -117,7 +137,7 @@ public class Player : MonoBehaviour
 
             StartCoroutine(DownJumpCheck());
         }
-        else if (Input.GetKeyDown(KeyCode.X) && !isJumpChek && !isNPC) {
+        else if (Input.GetKeyDown(Keyboard.GetKeyCode(KeyCodeTypes.Jump)) && !isJumpChek && !isNPC) {
             anime.SetBool("isRunAndJump", true);
             anime.SetBool("isJump", true);
 
@@ -155,7 +175,7 @@ public class Player : MonoBehaviour
     void PlayerAttack(){
         curAttackDelay += Time.deltaTime; 
 
-        if(Input.GetKeyDown(KeyCode.Z) && maxAttackDelay < curAttackDelay && !isNPC) {
+        if((Input.GetKeyDown(Keyboard.GetKeyCode(KeyCodeTypes.Attack))) && maxAttackDelay < curAttackDelay && !isNPC) {
             anime.SetTrigger("attack");
             if(transform.rotation == Quaternion.Euler(0f, 0f, 0f)) 
                  isPlayerRot = true;
@@ -185,7 +205,7 @@ public class Player : MonoBehaviour
         else 
             curDelay += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.C) && curDelay > maxDelay && !isDashCheck && !isNPC) {
+        if ((Input.GetKeyDown(Keyboard.GetKeyCode(KeyCodeTypes.Dash))) && curDelay > maxDelay && !isDashCheck && !isNPC) {
             anime.SetBool("isDash", true);
             moveSpeed = 30 + (upMoveSpeed + weaponSpeed + itemSumSpeed) * (1.0f + itemSetSpeed);
             isDashCheck = true;

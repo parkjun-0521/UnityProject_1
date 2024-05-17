@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameKeyboardManager;
+using UnityEngine.InputSystem;
 
 
 public class ItemManager : MonoBehaviour
@@ -24,9 +26,12 @@ public class ItemManager : MonoBehaviour
 
     Rigidbody2D rigid;
     SetItem setItemLogic;
+
+    GameKeyboardManager keyboard;
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        keyboard = GameKeyboardManager.instance.GetComponent<GameKeyboardManager>();
     }
 
 
@@ -44,12 +49,11 @@ public class ItemManager : MonoBehaviour
     void Update()
     {
         SetItemDrop();
-
         ItemAcquisition();
     }
 
     public void ItemAcquisition() {
-        if (Input.GetKeyDown(KeyCode.F) && isPlayerCheck && !isItemCheck) {
+        if ((Input.GetKeyDown(keyboard.GetKeyCode(KeyCodeTypes.Pickup))) && isPlayerCheck && !isItemCheck) {
             // 아이템 창이 가득 찼을 경우 예외처리
             if(GameManager.instance.setItem.Count >= 9) {
                 // 아직은 아니지만 아이템이 가득 찼을 시 UI를 띄워줌 ( 교체 할껀지 UI를 띄워줘야 하나? ) 

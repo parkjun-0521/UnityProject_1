@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameKeyboardManager;
+using UnityEngine.InputSystem;
 using static UnityEditor.Progress;
 
 public class Weapon : MonoBehaviour
@@ -16,8 +18,11 @@ public class Weapon : MonoBehaviour
 
     public Rigidbody2D rigid;
     public bool itemJump= false;
+
+    GameKeyboardManager keyboard;
     void Awake() {
         rigid = GetComponent<Rigidbody2D>();  
+        keyboard = GameKeyboardManager.instance.GetComponent<GameKeyboardManager>();
     }
 
     void OnEnable() {
@@ -30,12 +35,10 @@ public class Weapon : MonoBehaviour
             rigid.AddForce(Vector2.up * 5 + power, ForceMode2D.Impulse);
         }
     }
-
     void Update() {
-
         WeaponDrop();
 
-        if (Input.GetKeyDown(KeyCode.F) && isPlayerCheck && !isWeaponCheck) {
+        if ((Input.GetKeyDown(keyboard.GetKeyCode(KeyCodeTypes.Pickup))) && isPlayerCheck && !isWeaponCheck) {
             // 무기에 닿았을 때 
             Player playerLogic = GameManager.instance.playerPrefab.GetComponent<Player>();
 

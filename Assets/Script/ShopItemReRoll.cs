@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static GameKeyboardManager;
+using UnityEngine.InputSystem;
 
 public class ShopItemReRoll : MonoBehaviour
 {
@@ -12,13 +14,16 @@ public class ShopItemReRoll : MonoBehaviour
 
     public TMP_Text valueTextMesh;
 
+    GameKeyboardManager keyboard;
+
     void Start() {
         cost = 100;
         valueTextMesh.text = cost.ToString();
+        keyboard = GameKeyboardManager.instance.GetComponent<GameKeyboardManager>();
     }
 
     void Update() {    
-        if (Input.GetKeyDown(KeyCode.F) && isPlayerCheck) {
+        if ((Input.GetKeyDown(keyboard.GetKeyCode(KeyCodeTypes.Pickup))) && isPlayerCheck) {
             if (GameManager.instance.coinValue > cost) { 
                 GameManager.instance.coinValue -= (int)cost;
                 // ¸®·Ñ 

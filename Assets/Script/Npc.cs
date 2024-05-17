@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameKeyboardManager;
+using UnityEngine.InputSystem;
 
 public class Npc : MonoBehaviour
 {
@@ -20,9 +22,15 @@ public class Npc : MonoBehaviour
     public GameObject[] itemItem;
 
     UIManager uiManager;
+
+    GameKeyboardManager keyboard;
+
+    void Start() {
+        keyboard = GameKeyboardManager.instance.GetComponent<GameKeyboardManager>();
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V) && isPlayerCheck) {
+        if ((Input.GetKeyDown(keyboard.GetKeyCode(KeyCodeTypes.Interaction))) && isPlayerCheck) {
             uiManager = UIManager.Instance.GetComponent<UIManager>();
             if(id == 1) {
                 // °­È­ NPC 
