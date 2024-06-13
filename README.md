@@ -85,7 +85,17 @@
       - 단, 이때 문제점으로 캐릭터가 버린 아이템도 사라지는 버그가 있었다. 해당 버그는 플레이어가 한번이라도 주었던 아이템 오브젝트는 bool로 체크하여 해당 bool이 false인 Item 오브젝트만 삭제 후 랜덤 생성하였다. 
   
   ### 6. 맵 전환 및 클리어 보상
-  
+  <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/Map.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/Stage.PNG" width="45%" height="30%" />
+
+  - 포탈이 총 3종류가 존재 ( 초록 : 무기방, 노랑 : 골드방, 빨강 : 아이템 )
+  - 해당 포탈 입장 후 맵을 클리어 하면 중앙에 해당 방에 맞는 아이템이 드랍이됨
+    - 랜덤 포탈 입장 및 아이템 드랍 구현
+      - 우선 랜덤으로 포탈이 3개중에 중복없이 2개의 포탈이 생성
+      - 각 포탈에는 고유의 ID 값이 존재
+      - 고유의 ID 값을 씬이 넘어가도 유지하도록 하여 맵을 클리어시 해당 ID를 통해 보상을 결정하는 방식으로 구현하였다. 
+
+  ### 7. 보스 패턴
+  <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern1.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern3.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern4.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern5.PNG" width="45%" height="30%" />
   
 ## 미구현 
 
