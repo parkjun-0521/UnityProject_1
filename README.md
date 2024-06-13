@@ -92,7 +92,23 @@
     - 랜덤 포탈 입장 및 아이템 드랍 구현
       - 우선 랜덤으로 포탈이 3개중에 중복없이 2개의 포탈이 생성
       - 각 포탈에는 고유의 ID 값이 존재
-      - 고유의 ID 값을 씬이 넘어가도 유지하도록 하여 맵을 클리어시 해당 ID를 통해 보상을 결정하는 방식으로 구현하였다. 
+      - 고유의 ID 값을 씬이 넘어가도 유지하도록 하여 맵을 클리어시 해당 ID를 통해 보상을 결정하는 방식으로 구현하였다.
+      ```C#
+      if ((Input.GetKeyDown(keyboard.GetKeyCode(KeyCodeTypes.Interaction))) && isPlayerCheck && sceneManager.mapCount < 10) {
+            Debug.Log("다음 맵으로 이동합니다.");
+            GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+            foreach (GameObject item in items) {
+                item.SetActive(false);
+            }
+            // 포탈의 ID를 넘겨서 보상을 결정
+            GameManager.instance.potalID = this.potalID;
+            int sceneCount = ++sceneManager.mapCount;
+            switch (sceneCount % 10) {
+               //... 해당 값에 맞는 맵으로 이동 
+            }
+        }
+      }
+      ```
 
   ### 7. 보스 패턴
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern1.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern3.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern4.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern5.PNG" width="45%" height="30%" />
