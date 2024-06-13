@@ -65,7 +65,21 @@
     - 해당 아이템을 일정 재화를 소비하여 구매할 수 있다.
     - 옆의 리롤 머신은 재화를 소비하여 현재 있는 아이템 테이블 5개를 랜덤으로 교체할 수 있다. 단, 리롤을 할 수록 리롤의 가격이 증가된다.
     - 리롤 구현
-      - 리스트를 사용하여 구현하였다. 
+        ```C#
+        void ReRoll() {
+          // teg가 Item 인것을 다 가져와 비활성화 
+          GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+          foreach (GameObject item in items) {
+              if (item.GetComponent<ItemManager>().isThrowing == true)
+                  continue;
+              item.SetActive(false);
+          }
+          // 이후 다시 아이템을 생성 
+          ItemCreate();
+          shopItemReRoll.isReRoll = false;
+      }
+      ```
+      - 배열을 사용하여 구현하였다. 
       - 우선 상점 맵에 있는 Item 태그를 가진 모든 아이템을 가져와 리스트에 담아둔다. 
       - 리롤을 할 시 리스트의 모든 아이템을 제거하고 랜덤으로 중복없이 5개의 숫자를 뽑은 후 해당 숫자에 맞는 id 를 가진 아이템으로 교체한다.
       - 단, 이때 문제점으로 캐릭터가 버린 아이템도 사라지는 버그가 있었다. 해당 버그는 플레이어가 한번이라도 주었던 아이템 오브젝트는 bool로 체크하여 해당 bool이 false인 Item 오브젝트만 삭제 후 랜덤 생성하였다. 
