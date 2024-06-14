@@ -250,7 +250,8 @@
       - 투사체 날리기 : 왼쪽, 오른쪽 랜덤으로 이동하며 반대편으로 표창같은 투사체를 던진다. 
       - 레이저 : 상단에 레이저 스포너에서 레이저를 발사하는 방식
         - 레이저는 오른쪽에서 왼쪽, 왼쪽에서 오른쪽, 무작위 3개중에 하나의 패턴을 실행
-  
+      - [보스 패턴 구현 Code](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/EnemyNiddleBoss1Controller.cs)
+    
 ## 미구현 
 
   - 무기 스킬 
