@@ -21,6 +21,9 @@
   - 왼쪽 노란 NPC 에게 상호작용을 하면 강화 UI가 등장
   - 강화를 하게 되면 특정 제화를 소모하여 능력치를 업그레이드
   - 현재 강화의 수치를 알려주기 위해 색을 변경한다.
+  - Count로 강화의 횟수를 계산, 또한 값이 보존될 수 있도록 PlayerPrefs 를 사용하여 값을 저장하였다.
+
+  - [플레이어 강화 NPC Code](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/PlayerStatus.cs)
 
   ### 2. 아이템 및 셋트 아이템 
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/ItemDrop.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/PlayerStatus.PNG" width="45%" height="30%" />
