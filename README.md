@@ -4,14 +4,14 @@
   - Skul의 있는 핵심적인 기능을 구현하였습니다. 
   - 구현한 핵심 기능
 
-     [1. 강화 및 NPC](#1.-강화-및-NPC)
-     2. 아이템 및 셋트 아이템
-     3. 인벤토리 기능
-     4. 강화 및 아이템 적용 능력치 업그레이드 
-     5. 아이템 상점 맵 
-     6. 맵 전환 및 클리어 보상
-     7. 보스 패턴
-     8. 엔딩 크레딧 
+     [1. 강화 및 NPC](#1.-강화-및-NPC)   
+     2. 아이템 및 셋트 아이템   
+     3. 인벤토리 기능   
+     4. 강화 및 아이템 적용 능력치 업그레이드    
+     5. 아이템 상점 맵    
+     6. 맵 전환 및 클리어 보상   
+     7. 보스 패턴   
+     8. 엔딩 크레딧    
   
   - 무료 스프라이트로 형태만 구현, 기능을 중점적으로 구현하려고 하였습니다.
 
@@ -20,7 +20,7 @@
   - Unity 2022.3.22f1
   
 ## 구현 
-  ### 1. 강화 및 NPC
+  ## 1. 강화 및 NPC
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/GameLobby.PNG" width="30%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/Upgrade.PNG" width="30%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/Upgrade2.PNG" width="30%" height="30%" /> 
   
   - 왼쪽 노란 NPC 에게 상호작용을 하면 강화 UI가 등장
