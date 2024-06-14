@@ -34,6 +34,42 @@
       - 있다고 가정할 시 몇개가 있는지 count로 체크 하여 능력치를 증가시켜 준다.
       - 아이템을 버리거나 팔 때도 모든 아이템을 순회하여 셋트 아이템이 각 몇개있는지 판단 후 능력치 적용
       - 자료구조는 리스트를 사용하여 구현하였다.
+      ```C#
+      public void SetItemOption() {
+        setItemLogic = GetComponent<SetItem>();
+        Dictionary<int, int> countDict = new Dictionary<int, int>();
+
+        // 리스트 안에 있는 각 숫자의 개수를 세기
+        foreach (int count in GameManager.instance.setItem) {
+            if (countDict.ContainsKey(count)) {
+                ++countDict[count];
+            }
+            else {
+                countDict[count] = 1;
+            }
+        }
+        // 아이템 종류와 셋트효과를 모두 초기화 후 다시 적용  
+        GameManager.instance.itemSetKey.Clear();
+        GameManager.instance.setItemInfo.Clear();
+
+        foreach (var kvp in countDict) {
+            Debug.Log(kvp.Key + " " + kvp.Value);
+            if (kvp.Value == 1) {
+                setItemLogic.Set_1(kvp.Key);
+            }
+            else if (kvp.Value == 2 || kvp.Value == 3) {
+                setItemLogic.Set_2(kvp.Key);
+            }
+            else if( kvp.Value == 4 || kvp.Value == 5) {
+                setItemLogic.Set_4(kvp.Key);
+            }
+            else if( kvp.Value >= 6) {
+                setItemLogic.Set_6(kvp.Key);
+            }
+        }
+      }
+      ```
+      [셋트 능력치 구현 Code](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/SetItem.cs)
      
   ### 3. 인벤토리 & 4. 강화 및 아이템 적용 능력치 업그레이드 
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/PlayerStatus.PNG" width="50%" height="30%" />
