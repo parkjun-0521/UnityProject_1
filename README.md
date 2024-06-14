@@ -154,7 +154,47 @@
      - 모든 씬은 일반씬 3개 -> 상점 씬 -> 보스 씬 -> 일반씬 3개 -> 상점 씬 -> 보스 씬 사이클로 돌아간다.
      - 각 씬은 랜덤으로 등장한다. 
      - 씬의 Build Index를 사용하여 랜덤 값을 돌려 방을 무작위로 생성하였다.
-     - 또한 이전에 나왔던 방은 중복 확인을 하여 다음에 맵 이동시 등장하지 않도록 구현하였다. 
+     - 또한 이전에 나왔던 방은 중복 확인을 하여 다음에 맵 이동시 등장하지 않도록 구현하였다.
+     - 정해진 사이클 로직 
+    ```C#
+    if ((Input.GetKeyDown(keyboard.GetKeyCode(KeyCodeTypes.Interaction))) && isPlayerCheck && sceneManager.mapCount < 10) {
+            Debug.Log("다음 맵으로 이동합니다.");
+            GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+            foreach (GameObject item in items) {
+                item.SetActive(false);
+            }
+            GameManager.instance.potalID = this.potalID;
+            int sceneCount = ++sceneManager.mapCount;
+            switch (sceneCount % 10) {
+                case 1:
+                    sceneManager.stageCount++;
+                    sceneManager.BasicRoom();
+                    break;
+                case 2:
+                case 3:
+                    sceneManager.BasicRoom();
+                    break;
+                case 4:
+                    sceneManager.ShopRoom();
+                    break;
+                case 5:
+                    sceneManager.MiddleBossRoom();
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    sceneManager.BasicRoom();
+                    break;
+                case 9:
+                    sceneManager.ShopRoom();
+                    break;
+                case 0:
+                    sceneManager.BossRoom();
+                break;
+            }
+    }
+    ```
+    - [랜덤 씬 생성 Code](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/SceneLoadManager.cs)
 
   ### 7. 보스 패턴
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern1.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern3.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern4.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern5.PNG" width="45%" height="30%" />
