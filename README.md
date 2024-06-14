@@ -10,6 +10,7 @@
      4. 강화 및 아이템 적용 능력치 업그레이드 
      5. 아이템 상점 맵 
      6. 맵 전환 및 클리어 보상
+     7. 보스 패턴 
   ```
   - 무료 스프라이트로 형태만 구현, 기능을 중점적으로 구현하려고 하였습니다. 
   
@@ -198,6 +199,21 @@
 
   ### 7. 보스 패턴
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern1.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern3.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern4.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern5.PNG" width="45%" height="30%" />
+
+  - 크게 4개의 패턴을 구현하였다.
+  - 각 패턴은 서로 다른 시간을 가지며 랜덤으로 보스가 패턴을 진행한다.
+  - 보스의 패턴은 Invoke를 사용하여 재귀함수 형태로 구현하였다.
+    - 원리
+      - Invoke로 Think()를 실행
+      - Think() 에서는 랜덤으로 패턴을 생각하여 실행
+      - 각 패턴 실행 후 다시 Think()를 Invoke로 실행을 한다.
+      - 플레이어가 죽거나 보스가 죽을때 까지 해당 Invoke를 계속 반복하여 실행하는 방식으로 구현하였다.
+    - 각 패턴 
+      - 힐 : 초당 50씩 3번에 걸쳐 hp를 회복한다. 
+      - 탄막 발사 : 중앙으로 날아가 360도로 터지는 탄막을 생성한다. 
+      - 투사체 날리기 : 왼쪽, 오른쪽 랜덤으로 이동하며 반대편으로 표창같은 투사체를 던진다. 
+      - 레이저 : 상단에 레이저 스포너에서 레이저를 발사하는 방식
+        - 레이저는 오른쪽에서 왼쪽, 왼쪽에서 오른쪽, 무작위 3개중에 하나의 패턴을 실행
   
 ## 미구현 
 
