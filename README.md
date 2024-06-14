@@ -208,6 +208,42 @@
       - Think() 에서는 랜덤으로 패턴을 생각하여 실행
       - 각 패턴 실행 후 다시 Think()를 Invoke로 실행을 한다.
       - 플레이어가 죽거나 보스가 죽을때 까지 해당 Invoke를 계속 반복하여 실행하는 방식으로 구현하였다.
+    ```C#
+    void Stop() {
+        if (!gameObject.activeSelf)
+            return;
+        rigid.velocity = Vector2.zero;
+        Debug.Log("패턴 생각");
+        Invoke("Think", 1);
+    }
+    public void Think() {
+        patternIndex = Random.Range(0,4);
+        if (pastPatternIndex != patternIndex && !enemyDeathCheck) {
+            switch (patternIndex) {
+                case 0:
+                    Pattern1();
+                    break;
+                case 1:
+                    Pattern2();
+                    break;
+            }
+        }
+        else 
+            Invoke("Think", 1f);
+    }
+    public void Pattern1() {
+        if (enemyId == 10) 
+            enemyNiddleBoss1Controller.FireBall();
+        pastPatternIndex = 0;
+        Invoke("Think", 10);
+    }
+    public void Pattern2() {
+        if (enemyId == 10) 
+            enemyNiddleBoss1Controller.Sword();
+        pastPatternIndex = 1;
+        Invoke("Think", 5);
+    }
+    ```
     - 각 패턴 
       - 힐 : 초당 50씩 3번에 걸쳐 hp를 회복한다. 
       - 탄막 발사 : 중앙으로 날아가 360도로 터지는 탄막을 생성한다. 
