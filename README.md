@@ -255,3 +255,5 @@
 
   ### 8. 엔딩 크레딧
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/End.mp4" width="45%" height="30%" />
+
+  - 애니메이션으로 엔딩 크레딧을 구현
