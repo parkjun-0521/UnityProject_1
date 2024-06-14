@@ -48,7 +48,7 @@
       - 단, 각 아이템은 무슨 아이템인지 구분해야 하므로 해당 고유 id 정보를 같이 저장하고 있습니다. (각 아이템의 효과 정보 접근 가능)  
       - 버리거나 판매 시 List에서 해당 이미지 Sprite 제거, 해당 고유 id로 아이템에 접근하여 능력치 감소  
 
-      - 
+      - [아이템 버리기 csCode](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/ItemThrowing.cs)
 
   - 강화, 아이템, 무기, 셋트효과 의 모든 능력치를 합연산으로 구현 
     - 오른쪽 능력치 구현 
