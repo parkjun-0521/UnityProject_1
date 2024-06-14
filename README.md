@@ -43,12 +43,12 @@
   - 따라서 아이템을 버리거나 팔 시 아이템이 정리가 되도록 하였습니다.
     - 중앙 인벤토리 구현
       - 아이템을 습득 시 해당 Sprite 와 아이템 고유 id 를 가져옵니다.
-      - Sprite 들을 List에 저장 후 
-      - 인벤토리는 버튼으로 구현, 버튼의 이미지를 List에 접근하여 각 번호에 맞는 이미지를 가져온다. (UI 인벤토리의 이미지 적용) 
+      - Sprite 들을 미리 List에 저장 후 
+      - 인벤토리는 버튼으로 구현, 버튼의 이미지를 List에 접근하여 각 번호에 맞는 이미지를 가져온다.
+        - (UI 인벤토리의 이미지 적용, 아이템의 ID와 리스트의 순서를 맞춰 id로만 Sprite를 접근 ) 
       - 단, 각 아이템은 무슨 아이템인지 구분해야 하므로 해당 고유 id 정보를 같이 저장하고 있습니다. (각 아이템의 효과 정보 접근 가능)  
       - 버리거나 판매 시 List에서 해당 이미지 Sprite 제거, 해당 고유 id로 아이템에 접근하여 능력치 감소  
-
-      - [아이템 버리기 csCode](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/ItemThrowing.cs)
+        - [아이템 버리기 Code](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/ItemThrowing.cs)
 
   - 강화, 아이템, 무기, 셋트효과 의 모든 능력치를 합연산으로 구현 
     - 오른쪽 능력치 구현 
