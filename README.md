@@ -72,7 +72,7 @@
         }
       }
       ```
-      [셋트 능력치 구현 Code](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/SetItem.cs)
+       -  [셋트 능력치 구현 Code](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/SetItem.cs)
      
   ### 3. 인벤토리 & 4. 강화 및 아이템 적용 능력치 업그레이드 
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/PlayerStatus.PNG" width="50%" height="30%" />
