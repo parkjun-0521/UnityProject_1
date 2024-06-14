@@ -149,6 +149,12 @@
         }
       }
       ```
+- 일반 씬 6개, 상점 씬 2개, 보스 씬 2개 로 총 10개의 씬을 구현 
+  - 씬의 랜덤 생성 
+     - 모든 씬은 일반씬 3개 -> 상점 씬 -> 보스 씬 -> 일반씬 3개 -> 상점 씬 -> 보스 씬 사이클로 돌아간다.
+     - 각 씬은 랜덤으로 등장한다. 
+     - 씬의 Build Index를 사용하여 랜덤 값을 돌려 방을 무작위로 생성하였다.
+     - 또한 이전에 나왔던 방은 중복 확인을 하여 다음에 맵 이동시 등장하지 않도록 구현하였다. 
 
   ### 7. 보스 패턴
   <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern1.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern3.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern4.PNG" width="45%" height="30%" /> <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/BossPattern5.PNG" width="45%" height="30%" />
