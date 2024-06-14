@@ -10,7 +10,8 @@
      4. 강화 및 아이템 적용 능력치 업그레이드 
      5. 아이템 상점 맵 
      6. 맵 전환 및 클리어 보상
-     7. 보스 패턴 
+     7. 보스 패턴
+     8. 엔딩 크레딧 
   ```
   - 무료 스프라이트로 형태만 구현, 기능을 중점적으로 구현하려고 하였습니다. 
   
@@ -252,3 +253,5 @@
         - 레이저는 오른쪽에서 왼쪽, 왼쪽에서 오른쪽, 무작위 3개중에 하나의 패턴을 실행
       - [보스 패턴 구현 Code](https://github.com/parkjun-0521/UnityProject_1/blob/master/Assets/Script/EnemyNiddleBoss1Controller.cs)
 
+  ### 8. 엔딩 크레딧
+  <img src="https://github.com/parkjun-0521/UnityProject_1/blob/master/Image/End.mp4" width="45%" height="30%" />
